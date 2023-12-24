@@ -1,12 +1,12 @@
-import PropTypes from 'prop-types';
-import { forwardRef } from 'react';
+import PropTypes from "prop-types";
+import { forwardRef } from "react";
 
-import Link from '@mui/material/Link';
+import Link from "@mui/material/Link";
 
-import Iconify from 'src/components/iconify';
-import { RouterLink } from 'src/routes/components';
+import Iconify from "src/components/iconify";
+import { RouterLink } from "src/routes/components";
 
-import { StyledNavItem } from './styles';
+import { StyledNavItem } from "./styles";
 
 // ----------------------------------------------------------------------
 
@@ -23,14 +23,22 @@ export const NavItem = forwardRef(
       >
         {item.title}
 
-        {!!item.children && <Iconify width={16} icon="carbon:chevron-down" sx={{ ml: 1 }} />}
+        {!!item.children && (
+          <Iconify width={16} icon="carbon:chevron-down" sx={{ ml: 1 }} />
+        )}
       </StyledNavItem>
     );
 
     // ExternalLink
     if (externalLink) {
       return (
-        <Link href={item.path} target="_blank" rel="noopener" color="inherit" underline="none">
+        <Link
+          href={item.path}
+          target="_blank"
+          rel="noopener"
+          color="inherit"
+          underline="none"
+        >
           {renderContent}
         </Link>
       );
@@ -43,7 +51,12 @@ export const NavItem = forwardRef(
 
     // Default
     return (
-      <Link component={RouterLink} href={item.path} color="inherit" underline="none">
+      <Link
+        component={RouterLink}
+        href={item.path}
+        color="inherit"
+        underline="none"
+      >
         {renderContent}
       </Link>
     );

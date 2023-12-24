@@ -1,11 +1,14 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 
-import Image from 'src/components/image';
+import Image from "src/components/image";
+import MarketingOurClients from "./marketing-our-clients";
+import ElearningTestimonial from "../_elearning/testimonial/elearning-testimonial";
+import { _testimonials } from "src/_mock";
 
 // ----------------------------------------------------------------------
 
@@ -23,9 +26,10 @@ export default function MarketingAboutOurClients({ brands }) {
           direction="row"
           flexWrap="wrap"
           justifyContent="center"
-          sx={{ maxWidth: 680, overflow: 'hidden' }}
+          sx={{ maxWidth: 680, overflow: "hidden" }}
         >
-          {brands.slice(0, 8).map((brand) => (
+          <MarketingOurClients brands={brands} />
+          {brands?.slice(0, 8).map((brand) => (
             <Box key={brand.id}>
               <Image
                 alt={brand.name}
@@ -38,6 +42,7 @@ export default function MarketingAboutOurClients({ brands }) {
               />
             </Box>
           ))}
+          <ElearningTestimonial testimonials={_testimonials} />
         </Stack>
       </Stack>
     </Container>

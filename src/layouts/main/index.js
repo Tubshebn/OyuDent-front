@@ -1,27 +1,32 @@
-'use client';
+"use client";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 
-import { usePathname } from 'src/routes/hooks';
+import { usePathname } from "src/routes/hooks";
 
-import { HEADER } from '../config-layout';
+import { HEADER } from "../config-layout";
 
-import Header from './header';
-import Footer from './footer';
+import Header from "./header";
+import Footer from "./footer";
 
 // ----------------------------------------------------------------------
 
-const pathsOnDark = ['/career', '/career/', '/travel', '/travel/'];
+const pathsOnDark = [
+  "/e-commerce",
+  "/e-commerce/",
+  "/e-commerce",
+  "/e-commerce/",
+];
 
 const spacingLayout = [
   ...pathsOnDark,
-  '/',
-  '/e-learning',
-  '/e-learning/',
-  '/marketing',
-  '/marketing/',
+  "/",
+  "/e-commerce",
+  "/e-commerce/",
+  "/e-commerce",
+  "/e-commerce/",
 ];
 
 export default function MainLayout({ children }) {
@@ -30,7 +35,7 @@ export default function MainLayout({ children }) {
   const actionPage = (arr) => arr.some((path) => pathname === path);
 
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', height: 1 }}>
+    <Box sx={{ display: "flex", flexDirection: "column", height: 1 }}>
       <Header headerOnDark={actionPage(pathsOnDark)} />
 
       <Box

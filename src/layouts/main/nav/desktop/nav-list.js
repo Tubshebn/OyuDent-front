@@ -1,22 +1,22 @@
-import PropTypes from 'prop-types';
-import { useEffect, useCallback } from 'react';
+import PropTypes from "prop-types";
+import { useEffect, useCallback } from "react";
 
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Fade from '@mui/material/Fade';
-import Stack from '@mui/material/Stack';
-import Portal from '@mui/material/Portal';
-import Grid from '@mui/material/Unstable_Grid2';
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import Fade from "@mui/material/Fade";
+import Stack from "@mui/material/Stack";
+import Portal from "@mui/material/Portal";
+import Grid from "@mui/material/Unstable_Grid2";
 
-import Image from 'src/components/image';
-import Label from 'src/components/label';
-import { usePathname } from 'src/routes/hooks';
-import { useBoolean } from 'src/hooks/use-boolean';
-import { RouterLink } from 'src/routes/components';
-import { useActiveLink } from 'src/routes/hooks/use-active-link';
+import Image from "src/components/image";
+import Label from "src/components/label";
+import { usePathname } from "src/routes/hooks";
+import { useBoolean } from "src/hooks/use-boolean";
+import { RouterLink } from "src/routes/components";
+import { useActiveLink } from "src/routes/hooks/use-active-link";
 
-import { NavItem } from './nav-item';
-import { StyledMenu, StyledSubheader } from './styles';
+import { NavItem } from "./nav-item";
+import { StyledMenu, StyledSubheader } from "./styles";
 
 // ----------------------------------------------------------------------
 
@@ -27,12 +27,14 @@ export default function NavList({ item }) {
 
   const active = useActiveLink(item.path, false);
 
-  const externalLink = item.path.includes('http');
+  const externalLink = item.path.includes("http");
 
-  const mainList = item.children ? item.children.filter((list) => list.subheader !== 'Common') : [];
+  const mainList = item.children
+    ? item.children.filter((list) => list.subheader !== "Common")
+    : [];
 
   const commonList = item.children
-    ? item.children.find((list) => list.subheader === 'Common')
+    ? item.children.find((list) => list.subheader === "Common")
     : null;
 
   useEffect(() => {
@@ -62,7 +64,10 @@ export default function NavList({ item }) {
       {!!item.children && menuOpen.value && (
         <Portal>
           <Fade in={menuOpen.value}>
-            <StyledMenu onMouseEnter={handleOpenMenu} onMouseLeave={menuOpen.onFalse}>
+            <StyledMenu
+              onMouseEnter={handleOpenMenu}
+              onMouseLeave={menuOpen.onFalse}
+            >
               <Grid container columns={15}>
                 <Grid xs={12}>
                   <Box
@@ -72,8 +77,8 @@ export default function NavList({ item }) {
                     sx={{
                       p: 5,
                       height: 1,
-                      position: 'relative',
-                      bgcolor: 'background.neutral',
+                      position: "relative",
+                      bgcolor: "background.neutral",
                     }}
                   >
                     {mainList.map((list) => (
@@ -90,8 +95,11 @@ export default function NavList({ item }) {
 
                 {commonList && (
                   <Grid xs={3}>
-                    <Box sx={{ bgcolor: 'background.default', p: 5 }}>
-                      <NavSubList subheader={commonList.subheader} items={commonList.items} />
+                    <Box sx={{ bgcolor: "background.default", p: 5 }}>
+                      <NavSubList
+                        subheader={commonList.subheader}
+                        items={commonList.items}
+                      />
                     </Box>
                   </Grid>
                 )}
@@ -116,9 +124,9 @@ NavList.propTypes = {
 function NavSubList({ subheader, isNew, cover, items }) {
   const pathname = usePathname();
 
-  const coverPath = items.length ? items[0].path : '';
+  const coverPath = items.length ? items[0].path : "";
 
-  const commonList = subheader === 'Common';
+  const commonList = subheader === "Common";
 
   return (
     <Stack spacing={2}>
@@ -136,14 +144,14 @@ function NavSubList({ subheader, isNew, cover, items }) {
           <Image
             disabledEffect
             alt={cover}
-            src={cover || '/assets/placeholder.svg'}
+            src={cover || "/assets/placeholder.svg"}
             ratio="16/9"
             sx={{
               borderRadius: 1,
-              cursor: 'pointer',
+              cursor: "pointer",
               boxShadow: (theme) => theme.customShadows.z8,
-              transition: (theme) => theme.transitions.create('all'),
-              '&:hover': {
+              transition: (theme) => theme.transitions.create("all"),
+              "&:hover": {
                 opacity: 0.8,
                 boxShadow: (theme) => theme.customShadows.z24,
               },
@@ -156,7 +164,9 @@ function NavSubList({ subheader, isNew, cover, items }) {
         {items.map((item) => {
           const active = pathname === item.path || pathname === `${item.path}/`;
 
-          return <NavItem key={item.title} item={item} active={active} subItem />;
+          return (
+            <NavItem key={item.title} item={item} active={active} subItem />
+          );
         })}
       </Stack>
     </Stack>

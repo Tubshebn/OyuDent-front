@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import MainLayout from 'src/layouts/main';
-import EcommerceLayout from 'src/layouts/ecommerce';
+import MainLayout from "src/layouts/main";
+import EcommerceLayout from "src/layouts/ecommerce";
 
 // ----------------------------------------------------------------------
 

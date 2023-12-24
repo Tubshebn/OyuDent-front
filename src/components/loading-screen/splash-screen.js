@@ -1,17 +1,17 @@
-import { m } from 'framer-motion';
-import PropTypes from 'prop-types';
+import { m } from "framer-motion";
+import PropTypes from "prop-types";
 
-import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
+import Box from "@mui/material/Box";
+import { styled } from "@mui/material/styles";
 
-import { bgBlur } from 'src/theme/css';
+import { bgBlur } from "src/theme/css";
 
-import Logo from '../logo';
-import ProgressBar from '../progress-bar';
+import Logo from "../logo";
+import ProgressBar from "../progress-bar";
 
 // ----------------------------------------------------------------------
 
-const StyledRoot = styled('div')(({ theme }) => ({
+const StyledRoot = styled("div")(({ theme }) => ({
   ...bgBlur({
     blur: 2,
     opacity: 0.24,
@@ -19,12 +19,12 @@ const StyledRoot = styled('div')(({ theme }) => ({
   }),
   top: 0,
   zIndex: 9999,
-  position: 'fixed',
-  width: '100%',
-  height: '100%',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
+  position: "fixed",
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 }));
 
 // ----------------------------------------------------------------------
@@ -37,12 +37,12 @@ export default function SplashScreen({ sx }) {
       <StyledRoot sx={sx}>
         <m.div
           animate={{
-            scale: [1, 0.96, 1, 0.96, 1],
+            scale: [2, 1, 1, 0.96, 1],
             opacity: [1, 0.48, 1, 0.48, 1],
           }}
           transition={{
             duration: 2,
-            ease: 'easeInOut',
+            ease: "easeInOut",
             repeatDelay: 1,
             repeat: Infinity,
           }}
@@ -51,7 +51,7 @@ export default function SplashScreen({ sx }) {
         </m.div>
       </StyledRoot>
 
-      <Box sx={{ width: 1, height: '100vh' }} />
+      <Box sx={{ width: 1, height: "100vh" }} />
     </>
   );
 }

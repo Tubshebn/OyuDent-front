@@ -1,17 +1,18 @@
-import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
-import ListSubheader from '@mui/material/ListSubheader';
-import ListItemButton from '@mui/material/ListItemButton';
+import Paper from "@mui/material/Paper";
+import { styled } from "@mui/material/styles";
+import ListSubheader from "@mui/material/ListSubheader";
+import ListItemButton from "@mui/material/ListItemButton";
 
 // ----------------------------------------------------------------------
 
 export const StyledNavItem = styled(ListItemButton, {
-  shouldForwardProp: (prop) => prop !== 'active' && prop !== 'open' && prop !== 'subItem',
+  shouldForwardProp: (prop) =>
+    prop !== "active" && prop !== "open" && prop !== "subItem",
 })(({ active, open, subItem, theme }) => {
   const dotActiveStyle = {
     content: '""',
-    borderRadius: '50%',
-    position: 'absolute',
+    borderRadius: "50%",
+    position: "absolute",
     width: 6,
     height: 6,
     left: -12,
@@ -19,17 +20,20 @@ export const StyledNavItem = styled(ListItemButton, {
   };
 
   return {
-    ...theme.typography.body2,
-    fontWeight: theme.typography.fontWeightMedium,
+    ...theme.typography.subtitle1,
+    fontWeight: theme.typography.fontWeightSemiBold,
     padding: 0,
-    height: '100%',
-    transition: theme.transitions.create('opacity', {
+    height: "100%",
+    // borderRadius: "8px",
+    // borderStyle: "solid",
+    // borderWidth: "1px",
+    transition: theme.transitions.create("opacity", {
       duration: theme.transitions.duration.shorter,
     }),
-    '&:hover': {
-      opacity: 0.8,
-      backgroundColor: 'transparent',
-      '&::before': dotActiveStyle,
+    "&:hover": {
+      opacity: 0.9,
+      backgroundColor: "background.neutral",
+      "&::before": dotActiveStyle,
     },
     // Sub item
     ...(subItem && {
@@ -40,14 +44,14 @@ export const StyledNavItem = styled(ListItemButton, {
     ...(active && {
       color: theme.palette.text.primary,
       fontWeight: theme.typography.fontWeightBold,
-      '&::before': dotActiveStyle,
+      "&::before": dotActiveStyle,
     }),
     // Active sub item
     ...(active &&
       subItem && {
         color: theme.palette.text.primary,
         fontWeight: theme.typography.fontWeightSemiBold,
-        '&::before': {
+        "&::before": {
           ...dotActiveStyle,
           color: theme.palette.primary.main,
         },
@@ -55,7 +59,7 @@ export const StyledNavItem = styled(ListItemButton, {
     // Open
     ...(open && {
       opacity: 0.48,
-      '&::before': dotActiveStyle,
+      "&::before": dotActiveStyle,
     }),
   };
 });
@@ -64,9 +68,9 @@ export const StyledNavItem = styled(ListItemButton, {
 
 export const StyledMenu = styled(Paper)(({ theme }) => ({
   top: 62,
-  width: '100%',
+  width: "100%",
   borderRadius: 0,
-  position: 'fixed',
+  position: "fixed",
   zIndex: theme.zIndex.modal,
   boxShadow: theme.customShadows.dialog,
   backgroundColor: theme.palette.background.default,
@@ -78,5 +82,5 @@ export const StyledSubheader = styled(ListSubheader)(({ theme }) => ({
   ...theme.typography.h6,
   padding: 0,
   color: theme.palette.text.primary,
-  backgroundColor: 'transparent',
+  backgroundColor: "transparent",
 }));

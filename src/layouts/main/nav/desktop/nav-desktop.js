@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import Stack from '@mui/material/Stack';
+import Stack from "@mui/material/Stack";
 
-import NavList from './nav-list';
+import NavList from "./nav-list";
 
 // ----------------------------------------------------------------------
 
@@ -11,7 +11,7 @@ export default function NavDesktop({ data, sx }) {
     <Stack
       component="nav"
       direction="row"
-      spacing={5}
+      spacing={7}
       sx={{
         height: 1,
         ...sx,

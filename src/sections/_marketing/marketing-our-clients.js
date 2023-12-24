@@ -1,10 +1,10 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import { useTheme } from '@mui/material/styles';
-import Container from '@mui/material/Container';
+import { useTheme } from "@mui/material/styles";
+import Container from "@mui/material/Container";
 
-import SvgColor from 'src/components/svg-color';
-import Carousel, { useCarousel } from 'src/components/carousel';
+import SvgColor from "src/components/svg-color";
+import Carousel, { useCarousel } from "src/components/carousel";
 
 // ----------------------------------------------------------------------
 
@@ -12,16 +12,16 @@ export default function MarketingOurClients({ brands }) {
   const theme = useTheme();
 
   const carousel = useCarousel({
-    speed: 5000,
+    speed: 4000,
     autoplay: true,
-    slidesToShow: 6,
+    slidesToShow: 2,
     slidesToScroll: 1,
-    cssEase: 'linear',
+    cssEase: "linear",
     autoplaySpeed: 5000,
     responsive: [
       {
         breakpoint: theme.breakpoints.values.md,
-        settings: { slidesToShow: 4 },
+        settings: { slidesToShow: 2 },
       },
       {
         breakpoint: theme.breakpoints.values.sm,
@@ -44,7 +44,7 @@ export default function MarketingOurClients({ brands }) {
             sx={{
               width: 106,
               height: 32,
-              color: 'text.disabled',
+              color: "text.disabled",
             }}
           />
         ))}
