@@ -11,8 +11,3 @@
 
 - npm i OR npm i --legacy-peer-deps
 - npm run dev
-# OyuDent-front
-# OyuDent-front
-# OyuDent-front
-# OyuDent-front
-# OyuDent-front
