@@ -46,7 +46,7 @@ export default function ElearningLatestPosts({ posts }) {
           mb: { xs: 8, md: 10 },
         }}
       >
-        <Typography variant="h3">Latest Posts</Typography>
+        <Typography variant="h3">Мэдээ мэдээлэл</Typography>
 
         {mdUp && viewAllBtn}
       </Stack>

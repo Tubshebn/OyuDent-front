@@ -13,15 +13,15 @@ export const StyledNavItem = styled(ListItemButton, {
     content: '""',
     borderRadius: "50%",
     position: "absolute",
-    width: 6,
-    height: 6,
-    left: -12,
+    width: 7,
+    height: 7,
+    left: -15,
     backgroundColor: theme.palette.primary.main,
   };
 
   return {
     ...theme.typography.subtitle1,
-    fontWeight: theme.typography.fontWeightSemiBold,
+    fontWeight: theme.typography.fontWeightBold,
     padding: 0,
     height: "100%",
     // borderRadius: "8px",

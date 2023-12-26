@@ -50,7 +50,6 @@ export default function SplashScreen({ sx }) {
           <Logo single sx={{ width: 128, height: 128 }} />
         </m.div>
       </StyledRoot>
-
       <Box sx={{ width: 1, height: "100vh" }} />
     </>
   );

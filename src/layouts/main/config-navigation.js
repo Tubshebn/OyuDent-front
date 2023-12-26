@@ -108,8 +108,8 @@ export const pageLinks = [
 ];
 
 export const navConfig = [
-  { title: "Home", path: "/" },
-  { title: "About us", path: paths.components.root },
-  { title: "Clients", path: paths.components.root },
-  { title: "Products", path: paths.docs },
+  { title: "Нүүр", path: "/" },
+  { title: "Бидний тухай", path: paths.marketing.about },
+  { title: "Харилцагчид", path: paths.career.jobs },
+  { title: "Бүтээгдэхүүн", path: paths.eCommerce.products },
 ];

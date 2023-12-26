@@ -1,4 +1,4 @@
-import { Barlow, Public_Sans } from 'next/font/google';
+import { Barlow, Public_Sans, Roboto_Serif } from "next/font/google";
 
 // ----------------------------------------------------------------------
 
@@ -12,30 +12,30 @@ export function pxToRem(value) {
 
 export function responsiveFontSizes({ sm, md, lg }) {
   return {
-    '@media (min-width:600px)': {
+    "@media (min-width:600px)": {
       fontSize: pxToRem(sm),
     },
-    '@media (min-width:900px)': {
+    "@media (min-width:900px)": {
       fontSize: pxToRem(md),
     },
-    '@media (min-width:1200px)': {
+    "@media (min-width:1200px)": {
       fontSize: pxToRem(lg),
     },
   };
 }
 
 export const primaryFont = Public_Sans({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  fallback: ['Helvetica', 'Arial', 'sans-serif'],
+  weight: ["400", "500", "600", "700"],
+  subsets: ["latin"],
+  display: "swap",
+  fallback: ["Helvetica", "Arial", "sans-serif"],
 });
 
-export const secondaryFont = Barlow({
-  weight: ['400', '500', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  fallback: ['Helvetica', 'Arial', 'sans-serif'],
+export const secondaryFont = Roboto_Serif({
+  weight: ["400", "500", "600", "700"],
+  subsets: ["cyrillic"],
+  display: "swap",
+  fallback: ["Helvetica", "Arial", "sans-serif", "__Roboto_Fallback_2a03c3"],
 });
 
 // ----------------------------------------------------------------------
@@ -44,7 +44,7 @@ export const secondaryFont = Barlow({
 // https://nextjs.org/docs/basic-features/font-optimization#google-fonts
 
 export const typography = {
-  fontFamily: primaryFont.style.fontFamily,
+  fontFamily: primaryFont.style.secondaryFont,
   fontWeightRegular: 400,
   fontWeightMedium: 500,
   fontWeightSemiBold: 600,
@@ -117,12 +117,12 @@ export const typography = {
     fontWeight: 700,
     lineHeight: 1.5,
     fontSize: pxToRem(12),
-    textTransform: 'uppercase',
+    textTransform: "uppercase",
   },
   button: {
     fontWeight: 700,
     lineHeight: 24 / 14,
     fontSize: pxToRem(14),
-    textTransform: 'capitalize',
+    textTransform: "capitalize",
   },
 };

@@ -38,14 +38,15 @@ export default function EcommerceLandingHero() {
     <Container
       sx={{
         pt: { xs: 5, md: 8 },
+        mt: 4,
       }}
     >
       {/* <Header /> */}
       <Box
         sx={{
           ...bgGradient({
-            color: alpha(theme.palette.background.default, 0.9),
-            imgUrl: "/assets/background/overlay_1.jpg",
+            color: alpha(theme.palette.background.neutral, 0.9),
+            imgUrl: "/assets/background/overlay_3.jpg",
           }),
           borderRadius: 3,
           overflow: "hidden",

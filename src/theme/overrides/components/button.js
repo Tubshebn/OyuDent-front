@@ -37,7 +37,7 @@ export function button(theme) {
             : theme.palette.common.white,
           "&:hover": {
             backgroundColor: isLight
-              ? theme.palette.grey[200]
+              ? theme.palette.grey[100]
               : theme.palette.grey[800],
             color: isLight
               ? theme.palette.primary.main
@@ -54,7 +54,8 @@ export function button(theme) {
         // TEXT
         ...(textVariant && {
           "&:hover": {
-            backgroundColor: theme.palette.action.hover,
+            backgroundColor: theme.palette.grey[800],
+            color: isLight ? theme.palette.grey[0] : theme.palette.primary.main,
           },
         }),
         // SOFT

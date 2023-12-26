@@ -7,8 +7,11 @@ import Typography from "@mui/material/Typography";
 
 import Image from "src/components/image";
 import MarketingOurClients from "./marketing-our-clients";
-import ElearningTestimonial from "../_elearning/testimonial/elearning-testimonial";
 import { _testimonials } from "src/_mock";
+import Iconify from "src/components/iconify/iconify";
+import { paths } from "src/routes/paths";
+import { Button } from "@mui/material";
+import Link from "next/link";
 
 // ----------------------------------------------------------------------
 
@@ -19,8 +22,8 @@ export default function MarketingAboutOurClients({ brands }) {
         pb: { xs: 7, md: 11 },
       }}
     >
-      <Stack alignItems="center" spacing={5}>
-        <Typography variant="h2">Our Clients</Typography>
+      <Stack alignItems="center" spacing={3}>
+        <Typography variant="h3">Бидний харилцагчид</Typography>
 
         <Stack
           direction="row"
@@ -42,8 +45,14 @@ export default function MarketingAboutOurClients({ brands }) {
               />
             </Box>
           ))}
-          <ElearningTestimonial testimonials={_testimonials} />
         </Stack>
+        <Button
+          variant="contained"
+          rel="noopener"
+          endIcon={<Iconify icon="carbon:chevron-right" />}
+        >
+          Дэлгэрэнгүй
+        </Button>
       </Stack>
     </Container>
   );

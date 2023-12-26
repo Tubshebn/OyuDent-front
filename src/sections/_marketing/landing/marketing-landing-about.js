@@ -1,32 +1,36 @@
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2';
-import Typography from '@mui/material/Typography';
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import Divider from "@mui/material/Divider";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Unstable_Grid2";
+import Typography from "@mui/material/Typography";
 
-import Image from 'src/components/image';
-import Iconify from 'src/components/iconify';
-import { fShortenNumber } from 'src/utils/format-number';
+import Image from "src/components/image";
+import Iconify from "src/components/iconify";
+import { fShortenNumber } from "src/utils/format-number";
+import { paths } from "src/routes/paths";
 
 // ----------------------------------------------------------------------
 
 const ROWS = [
   {
-    label: 'projects',
+    label: "projects",
     total: 20,
-    content: 'Praesent turpis. Praesent blandit laoreet nibh. Nunc nonummy metus.',
+    content:
+      "Praesent turpis. Praesent blandit laoreet nibh. Nunc nonummy metus.",
   },
   {
-    label: 'Happy clients',
+    label: "Happy clients",
     total: 32000,
-    content: 'Praesent turpis. Praesent blandit laoreet nibh. Nunc nonummy metus.',
+    content:
+      "Praesent turpis. Praesent blandit laoreet nibh. Nunc nonummy metus.",
   },
   {
-    label: 'years of experience',
+    label: "years of experience",
     total: 20,
-    content: 'Praesent turpis. Praesent blandit laoreet nibh. Nunc nonummy metus.',
+    content:
+      "Praesent turpis. Praesent blandit laoreet nibh. Nunc nonummy metus.",
   },
 ];
 
@@ -59,10 +63,14 @@ export default function MarketingLandingAbout() {
           xs={12}
           md={5}
           sx={{
-            textAlign: { xs: 'center', md: 'right' },
+            textAlign: { xs: "center", md: "right" },
           }}
         >
-          <Typography component="div" variant="overline" sx={{ color: 'text.disabled' }}>
+          <Typography
+            component="div"
+            variant="overline"
+            sx={{ color: "text.disabled" }}
+          >
             About Us
           </Typography>
 
@@ -70,11 +78,12 @@ export default function MarketingLandingAbout() {
             Who We Are
           </Typography>
 
-          <Typography sx={{ color: 'text.secondary' }}>
-            In hac habitasse platea dictumst. Aliquam lobortis. Lorem ipsum dolor sit amet,
-            consectetuer adipiscing elit. In dui magna, posuere eget, vestibulum et, tempor auctor,
-            justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac
-            turpis egestas.
+          <Typography sx={{ color: "text.secondary" }}>
+            In hac habitasse platea dictumst. Aliquam lobortis. Lorem ipsum
+            dolor sit amet, consectetuer adipiscing elit. In dui magna, posuere
+            eget, vestibulum et, tempor auctor, justo. Pellentesque habitant
+            morbi tristique senectus et netus et malesuada fames ac turpis
+            egestas.
           </Typography>
 
           <Button
@@ -82,8 +91,9 @@ export default function MarketingLandingAbout() {
             color="inherit"
             endIcon={<Iconify icon="carbon:chevron-right" />}
             sx={{ my: 5 }}
+            href={paths.marketing.about}
           >
-            Lean more
+            Learn more
           </Button>
         </Grid>
 
@@ -98,24 +108,32 @@ export default function MarketingLandingAbout() {
                   <Divider
                     flexItem
                     orientation="vertical"
-                    sx={{ ml: 3, mr: 5, borderStyle: 'dashed' }}
+                    sx={{ ml: 3, mr: 5, borderStyle: "dashed" }}
                   />
                 }
               >
                 <Stack spacing={1} sx={{ width: 1, maxWidth: 100 }}>
                   <Stack direction="row">
-                    <Typography variant="h2">{fShortenNumber(row.total)}</Typography>
-                    <Box component="span" sx={{ color: 'primary.main', typography: 'h4' }}>
+                    <Typography variant="h2">
+                      {fShortenNumber(row.total)}
+                    </Typography>
+                    <Box
+                      component="span"
+                      sx={{ color: "primary.main", typography: "h4" }}
+                    >
                       +
                     </Box>
                   </Stack>
 
-                  <Typography variant="overline" sx={{ color: 'text.disabled' }}>
+                  <Typography
+                    variant="overline"
+                    sx={{ color: "text.disabled" }}
+                  >
                     {row.label}
                   </Typography>
                 </Stack>
 
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                <Typography variant="body2" sx={{ color: "text.secondary" }}>
                   {row.content}
                 </Typography>
               </Stack>

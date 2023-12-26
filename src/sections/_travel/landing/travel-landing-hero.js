@@ -79,7 +79,7 @@ export default function TravelLandingHero({ tours }) {
             height: 1,
             maxWidth: 220,
             position: "absolute",
-            right: { xs: 20, lg: "6%", xl: "10%" },
+            left: { xs: 20, lg: "6%", xl: "10%" },
           }}
         >
           {!!tours.length && (
@@ -139,6 +139,7 @@ function CarouselItem({ tour }) {
         position: "relative",
         color: "common.white",
         justifyContent: "center",
+        backgroundColor: "common.white",
       }}
     >
       <Stack
@@ -207,28 +208,6 @@ function CarouselItem({ tour }) {
           Book Now
         </Button>
       </Stack>
-
-      <Box
-        sx={{
-          width: 1,
-          height: 1,
-          position: {
-            xs: "absolute",
-            md: "relative",
-          },
-        }}
-      >
-        {renderOverlay}
-
-        <Image
-          alt="hero"
-          src={tour.heroUrl}
-          sx={{
-            width: 1,
-            height: { xs: 1, md: "100vh" },
-          }}
-        />
-      </Box>
     </Box>
   );
 }

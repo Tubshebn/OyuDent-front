@@ -1,25 +1,25 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import Box from '@mui/material/Box';
-import Masonry from '@mui/lab/Masonry';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import Box from "@mui/material/Box";
+import Masonry from "@mui/lab/Masonry";
+import Stack from "@mui/material/Stack";
+import { Button } from "@mui/material";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
 
-import { paths } from 'src/routes/paths';
-import Iconify from 'src/components/iconify';
-import { RouterLink } from 'src/routes/components';
-import { useResponsive } from 'src/hooks/use-responsive';
+import { paths } from "src/routes/paths";
+import Iconify from "src/components/iconify";
+import { RouterLink } from "src/routes/components";
+import { useResponsive } from "src/hooks/use-responsive";
 
-import PostItemMobile from '../common/post-item-mobile';
+import PostItemMobile from "../common/post-item-mobile";
 
-import CareerLatestPostItem from './career-latest-post-item';
+import CareerLatestPostItem from "./career-latest-post-item";
 
 // ----------------------------------------------------------------------
 
 export default function CareerLatestPosts({ posts }) {
-  const mdUp = useResponsive('up', 'md');
+  const mdUp = useResponsive("up", "md");
 
   const latestPost = posts[0];
 
@@ -28,9 +28,10 @@ export default function CareerLatestPosts({ posts }) {
       component={RouterLink}
       href={paths.career.posts}
       color="inherit"
+      variant="text"
       endIcon={<Iconify icon="carbon:chevron-right" />}
     >
-      View All
+      Бүгдийг харах
     </Button>
   );
 
@@ -44,10 +45,10 @@ export default function CareerLatestPosts({ posts }) {
       <Stack
         direction="row"
         alignItems="center"
-        justifyContent={{ xs: 'center', md: 'space-between' }}
+        justifyContent={{ xs: "center", md: "space-between" }}
         sx={{
           mb: { xs: 8, md: 10 },
-          textAlign: { xs: 'center', md: 'left' },
+          textAlign: { xs: "center", md: "left" },
         }}
       >
         <Stack
@@ -55,17 +56,16 @@ export default function CareerLatestPosts({ posts }) {
             maxWidth: { md: 460 },
           }}
         >
-          <Typography variant="overline" sx={{ color: 'text.disabled' }}>
+          <Typography variant="overline" sx={{ color: "text.disabled" }}>
             BLOG
           </Typography>
 
           <Typography variant="h2" sx={{ my: 3 }}>
-            Read Our Lates News
+            Эвентүүд
           </Typography>
 
-          <Typography sx={{ color: 'text.secondary' }}>
-            Aenean vulputate eleifend tellus. Mauris turpis nunc, blandit et, volutpat molestie,
-            porta ut, ligula.
+          <Typography sx={{ color: "text.secondary" }}>
+            Та эвентүүдээс сонирхоорой
           </Typography>
         </Stack>
 
@@ -74,11 +74,11 @@ export default function CareerLatestPosts({ posts }) {
 
       <Box
         sx={{
-          display: 'grid',
+          display: "grid",
           gap: { xs: 3, md: 4 },
           gridTemplateColumns: {
-            xs: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
+            xs: "repeat(1, 1fr)",
+            sm: "repeat(2, 1fr)",
           },
         }}
       >
@@ -88,7 +88,11 @@ export default function CareerLatestPosts({ posts }) {
 
             <Masonry columns={{ xs: 1, md: 2 }} spacing={4}>
               {posts.slice(1, 5).map((post, index) => (
-                <CareerLatestPostItem key={post.id} post={post} order={index % 2} />
+                <CareerLatestPostItem
+                  key={post.id}
+                  post={post}
+                  order={index % 2}
+                />
               ))}
             </Masonry>
           </>

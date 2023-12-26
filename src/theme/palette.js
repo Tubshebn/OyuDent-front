@@ -109,6 +109,7 @@ export function palette(mode) {
       paper: "#FFFFFF",
       default: "#FFFFFF",
       neutral: GREY[200],
+      special: GREY[100],
     },
     action: {
       ...COMMON.action,

@@ -64,6 +64,7 @@ export default function Header({ headerOnDark }) {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
+            marginBottom: 2,
           }}
         >
           <Box sx={{ lineHeight: 0, position: "relative" }}>
@@ -76,7 +77,6 @@ export default function Header({ headerOnDark }) {
             >
               <Box
                 sx={{
-                  width: 64,
                   lineHeight: 0,
                   cursor: "pointer",
                   display: "inline-flex",
@@ -100,22 +100,12 @@ export default function Header({ headerOnDark }) {
             {mdUp && (
               <>
                 <Button
-                  variant="outlined"
+                  variant="contained"
                   href={paths.loginIllustration}
                   target="_blank"
                   rel="noopener"
-                  color="primary"
                 >
                   Нэвтрэх
-                </Button>
-                <Button
-                  variant="contained"
-                  href={paths.registerBackground}
-                  target="_blank"
-                  rel="noopener"
-                  //   color="primary"
-                >
-                  Бүртгүүлэх
                 </Button>
               </>
             )}
