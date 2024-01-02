@@ -1,45 +1,51 @@
-import PropTypes from 'prop-types';
-import { useState, useCallback } from 'react';
+import PropTypes from "prop-types";
+import { useState, useCallback } from "react";
 
-import Stack from '@mui/material/Stack';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import Collapse from '@mui/material/Collapse';
-import Typography from '@mui/material/Typography';
+import Stack from "@mui/material/Stack";
+import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
+import Collapse from "@mui/material/Collapse";
+import Typography from "@mui/material/Typography";
 
-import Iconify from 'src/components/iconify';
-import { useBoolean } from 'src/hooks/use-boolean';
-import { useResponsive } from 'src/hooks/use-responsive';
+import Iconify from "src/components/iconify";
+import { useBoolean } from "src/hooks/use-boolean";
+import { useResponsive } from "src/hooks/use-responsive";
 
-import FilterTag from './filter-tag';
-import FilterBrand from './filter-brand';
-import FilterPrice from './filter-price';
-import FilterStock from './filter-stock';
-import FilterRating from './filter-rating';
-import FilterCategory from './filter-category';
-import FilterShipping from './filter-shipping';
+import FilterTag from "./filter-tag";
+import FilterBrand from "./filter-brand";
+import FilterPrice from "./filter-price";
+import FilterStock from "./filter-stock";
+import FilterRating from "./filter-rating";
+import FilterCategory from "./filter-category";
+import FilterShipping from "./filter-shipping";
 
 // ----------------------------------------------------------------------
 
-const BRAND_OPTIONS = ['Apple', 'Samsung', 'Xiaomi', 'Honor'];
+const BRAND_OPTIONS = ["Apple", "Samsung", "Xiaomi", "Honor"];
 
 const CATEGORY_OPTIONS = [
-  'Apple iPhone',
-  'Samsung Galaxy',
-  'Nike Air Max',
-  'Adidas Ultraboost',
-  'Sony PlayStation',
+  "Apple iPhone",
+  "Samsung Galaxy",
+  "Nike Air Max",
+  "Adidas Ultraboost",
+  "Sony PlayStation",
 ];
 
-const SHIPPING_OPTIONS = ['Fast', 'Saving', 'Free'];
+const SHIPPING_OPTIONS = ["Fast", "Saving", "Free"];
 
-const TAG_OPTIONS = ['Books and Media', 'Pet', 'Electronics', 'Food', 'Automotive and Industrial'];
+const TAG_OPTIONS = [
+  "Books and Media",
+  "Pet",
+  "Electronics",
+  "Food",
+  "Automotive and Industrial",
+];
 
 // ----------------------------------------------------------------------
 
 const defaultValues = {
   filterBrand: [BRAND_OPTIONS[1]],
-  filterCategories: '',
+  filterCategories: "",
   filterRating: null,
   filterStock: false,
   filterShipping: [],
@@ -51,7 +57,7 @@ const defaultValues = {
 };
 
 export default function EcommerceFilters({ open, onClose }) {
-  const mdUp = useResponsive('up', 'md');
+  const mdUp = useResponsive("up", "md");
 
   const [filters, setFilters] = useState(defaultValues);
 
@@ -186,15 +192,6 @@ export default function EcommerceFilters({ open, onClose }) {
         />
       </Block>
 
-      <Block title="Shipping">
-        <FilterShipping
-          filterShipping={filters.filterShipping}
-          onChangeShipping={handleChangeShipping}
-          options={SHIPPING_OPTIONS}
-          sx={{ mt: 1 }}
-        />
-      </Block>
-
       <Block title="Ratings">
         <FilterRating
           filterRating={filters.filterRating}
@@ -203,16 +200,10 @@ export default function EcommerceFilters({ open, onClose }) {
         />
       </Block>
 
-      <FilterStock filterStock={filters.filterStock} onChangeStock={handleChangeStock} />
-
-      <Block title="Tags">
-        <FilterTag
-          filterTag={filters.filterTag}
-          onChangeTag={handleChangeTag}
-          options={TAG_OPTIONS}
-          sx={{ mt: 2 }}
-        />
-      </Block>
+      <FilterStock
+        filterStock={filters.filterStock}
+        onChangeStock={handleChangeStock}
+      />
 
       <Button
         fullWidth
@@ -268,13 +259,13 @@ function Block({ title, children, ...other }) {
         alignItems="center"
         justifyContent="space-between"
         onClick={contentOpen.onToggle}
-        sx={{ width: 1, cursor: 'pointer' }}
+        sx={{ width: 1, cursor: "pointer" }}
       >
         <Typography variant="h6">{title}</Typography>
 
         <Iconify
-          icon={contentOpen.value ? 'carbon:subtract' : 'carbon:add'}
-          sx={{ color: 'text.secondary' }}
+          icon={contentOpen.value ? "carbon:subtract" : "carbon:add"}
+          sx={{ color: "text.secondary" }}
         />
       </Stack>
 

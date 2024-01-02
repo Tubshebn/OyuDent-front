@@ -1,9 +1,10 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import Box from '@mui/material/Box';
-import Pagination, { paginationClasses } from '@mui/material/Pagination';
+import Box from "@mui/material/Box";
+import Pagination, { paginationClasses } from "@mui/material/Pagination";
 
-import PostItem from './elearning-post-item';
+import PostItem from "./elearning-post-item";
+import CustomBreadcrumbs from "src/components/custom-breadcrumbs/custom-breadcrumbs";
 
 // ----------------------------------------------------------------------
 
@@ -13,11 +14,11 @@ export default function ElearningPosts({ posts }) {
       <Box
         sx={{
           columnGap: 4,
-          display: 'grid',
+          display: "grid",
           rowGap: { xs: 4, md: 5 },
           gridTemplateColumns: {
-            xs: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
+            xs: "repeat(1, 1fr)",
+            sm: "repeat(3, 1fr)",
           },
         }}
       >
@@ -32,7 +33,7 @@ export default function ElearningPosts({ posts }) {
         sx={{
           py: { xs: 8, md: 10 },
           [`& .${paginationClasses.ul}`]: {
-            justifyContent: 'center',
+            justifyContent: "center",
           },
         }}
       />

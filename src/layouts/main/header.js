@@ -16,7 +16,6 @@ import { useResponsive } from "src/hooks/use-responsive";
 import { useOffSetTop } from "src/hooks/use-off-set-top";
 
 import { HEADER } from "../config-layout";
-import Searchbar from "../common/searchbar";
 import HeaderShadow from "../common/header-shadow";
 
 import NavMobile from "./nav/mobile";

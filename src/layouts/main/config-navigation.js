@@ -109,7 +109,7 @@ export const pageLinks = [
 
 export const navConfig = [
   { title: "Нүүр", path: "/" },
-  { title: "Бидний тухай", path: paths.marketing.about },
-  { title: "Харилцагчид", path: paths.career.jobs },
-  { title: "Бүтээгдэхүүн", path: paths.eCommerce.products },
+  { title: "Бидний тухай", path: paths.oyudent.about },
+  { title: "Харилцагчид", path: paths.oyudent.client },
+  { title: "Бүтээгдэхүүн", path: paths.oyudent.products },
 ];

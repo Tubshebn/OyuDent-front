@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import Header from './header';
+import Header from "./header";
 
 // ----------------------------------------------------------------------
 

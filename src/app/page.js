@@ -1,5 +1,6 @@
 import MainLayout from "src/layouts/main";
-import EcommerceLandingView from "src/sections/_ecommerce/view/ecommerce-landing-view";
+import HomeView from "./home/page";
+import AboutUs from "./about/page";
 
 // ----------------------------------------------------------------------
 
@@ -11,7 +12,7 @@ export const metadata = {
 export default function HomePage() {
   return (
     <MainLayout>
-      <EcommerceLandingView />
+      <HomeView />
     </MainLayout>
   );
 }

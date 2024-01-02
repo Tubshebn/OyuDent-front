@@ -68,9 +68,10 @@ export default function SupportNav({
             sx={{
               height: 56,
               typography: "body2",
+              fontSize: "13px",
               justifyContent: "flex-start",
               [`& .${tabClasses.selected}`]: {
-                typography: "subtitle2",
+                typography: "body1",
               },
             }}
           />

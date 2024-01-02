@@ -55,15 +55,20 @@ export default function Footer() {
   const isHome = pathname === "/";
 
   const simpleFooter = (
-    <Container sx={{ py: 8, textAlign: "center" }}>
-      <Logo single />
+    <Container
+      sx={{
+        py: 2,
+        textAlign: "center",
+      }}
+    >
+      <Logo single sx={{ ml: 12 }} />
 
       <Typography
         variant="caption"
         component="div"
         sx={{ color: "text.secondary" }}
       >
-        © 2023. All rights reserved
+        © 2024. All rights reserved
       </Typography>
     </Container>
   );
@@ -75,13 +80,13 @@ export default function Footer() {
       <Container
         sx={{
           overflow: "hidden",
-          py: { xs: 8, md: 10 },
+          py: { xs: 8, md: 2 },
         }}
       >
         <Grid container spacing={3}>
           <Grid xs={12} md={12}>
             <Stack
-              spacing={{ xs: 3, md: 5 }}
+              spacing={{ xs: 3, md: 2 }}
               flexDirection="row"
               justifyContent={{ md: "space-between" }}
             >
@@ -89,11 +94,12 @@ export default function Footer() {
                 <Logo />
 
                 <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                  The starting point for your next project based on
+                  OYUDENT.COM | Шүдний эмнэлэгийн материал, тоног төхөөрөмж,
+                  багаж хэрэгсэл
                 </Typography>
               </Stack>
 
-              <Stack spacing={1}>
+              {/* <Stack spacing={1}>
                 <Typography variant="h6">Community</Typography>
                 <Link variant="body2" sx={{ color: "text.primary" }}>
                   Documentation
@@ -106,7 +112,7 @@ export default function Footer() {
                 <Link variant="body2" sx={{ color: "text.primary" }}>
                   Contributing
                 </Link>
-              </Stack>
+              </Stack> */}
 
               <Stack spacing={2}>
                 <Typography variant="h6">Social</Typography>
@@ -126,11 +132,6 @@ export default function Footer() {
             </Stack>
           </Grid>
         </Grid>
-      </Container>
-
-      <Divider />
-
-      <Container>
         <Stack
           spacing={2.5}
           direction={{ xs: "column", md: "row" }}
@@ -138,10 +139,10 @@ export default function Footer() {
           sx={{ py: 3, textAlign: "center" }}
         >
           <Typography variant="caption" sx={{ color: "text.secondary" }}>
-            © 2023. All rights reserved
+            © 2024 Оюу дент ХХК
           </Typography>
 
-          <Stack direction="row" spacing={3} justifyContent="center">
+          {/* <Stack direction="row" spacing={3} justifyContent="center">
             <Link variant="caption" sx={{ color: "text.secondary" }}>
               Help Center
             </Link>
@@ -149,7 +150,7 @@ export default function Footer() {
             <Link variant="caption" sx={{ color: "text.secondary" }}>
               Terms of Service
             </Link>
-          </Stack>
+          </Stack> */}
         </Stack>
       </Container>
     </>

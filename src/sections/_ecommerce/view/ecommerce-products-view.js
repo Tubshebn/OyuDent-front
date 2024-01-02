@@ -1,38 +1,32 @@
-'use client';
+"use client";
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
 
-import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack';
-import Select from '@mui/material/Select';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import MenuItem from '@mui/material/MenuItem';
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import FormControl from '@mui/material/FormControl';
-import ToggleButton from '@mui/material/ToggleButton';
-import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Select from "@mui/material/Select";
+import Button from "@mui/material/Button";
+import Divider from "@mui/material/Divider";
+import MenuItem from "@mui/material/MenuItem";
+import Container from "@mui/material/Container";
+import Typography from "@mui/material/Typography";
+import FormControl from "@mui/material/FormControl";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 
-import { _products } from 'src/_mock';
-import Iconify from 'src/components/iconify';
-import { useBoolean } from 'src/hooks/use-boolean';
+import { _products } from "src/_mock";
+import Iconify from "src/components/iconify";
+import { useBoolean } from "src/hooks/use-boolean";
 
-import EcommerceFilters from '../product/filters/ecommerce-filters';
-import EcommerceProductList from '../product/list/ecommerce-product-list';
-import EcommerceProductListBestSellers from '../product/list/ecommerce-product-list-best-sellers';
+import EcommerceFilters from "../product/filters/ecommerce-filters";
+import EcommerceProductList from "../product/list/ecommerce-product-list";
+import EcommerceProductListBestSellers from "../product/list/ecommerce-product-list-best-sellers";
 
 // ----------------------------------------------------------------------
 
 const VIEW_OPTIONS = [
-  { value: 'list', icon: <Iconify icon="carbon:list-boxes" /> },
-  { value: 'grid', icon: <Iconify icon="carbon:grid" /> },
-];
-
-const SORT_OPTIONS = [
-  { value: 'latest', label: 'Latest' },
-  { value: 'oldest', label: 'Oldest' },
-  { value: 'popular', label: 'Popular' },
+  { value: "list", icon: <Iconify icon="carbon:list-boxes" /> },
+  { value: "grid", icon: <Iconify icon="carbon:grid" /> },
 ];
 
 // ----------------------------------------------------------------------
@@ -40,11 +34,11 @@ const SORT_OPTIONS = [
 export default function EcommerceProductsView() {
   const mobileOpen = useBoolean();
 
-  const [sort, setSort] = useState('latest');
+  const [sort, setSort] = useState("latest");
 
   const loading = useBoolean(true);
 
-  const [viewMode, setViewMode] = useState('grid');
+  const [viewMode, setViewMode] = useState("grid");
 
   useEffect(() => {
     const fakeLoading = async () => {
@@ -72,9 +66,10 @@ export default function EcommerceProductsView() {
         justifyContent="space-between"
         sx={{
           py: 5,
+          pt: { md: 15 },
         }}
       >
-        <Typography variant="h3">Catalog</Typography>
+        <Typography variant="h3">Бүтээгдэхүүний Каталог</Typography>
 
         <Button
           color="inherit"
@@ -82,7 +77,7 @@ export default function EcommerceProductsView() {
           startIcon={<Iconify icon="carbon:filter" width={18} />}
           onClick={mobileOpen.onTrue}
           sx={{
-            display: { md: 'none' },
+            display: { md: "none" },
           }}
         >
           Filters
@@ -91,14 +86,16 @@ export default function EcommerceProductsView() {
 
       <Stack
         direction={{
-          xs: 'column-reverse',
-          md: 'row',
+          xs: "column-reverse",
+          md: "row",
         }}
         sx={{ mb: { xs: 8, md: 10 } }}
       >
-        <Stack spacing={5} divider={<Divider sx={{ borderStyle: 'dashed' }} />}>
-          <EcommerceFilters open={mobileOpen.value} onClose={mobileOpen.onFalse} />
-          <EcommerceProductListBestSellers products={_products.slice(0, 3)} />
+        <Stack spacing={5} divider={<Divider sx={{ borderStyle: "dashed" }} />}>
+          <EcommerceFilters
+            open={mobileOpen.value}
+            onClose={mobileOpen.onFalse}
+          />
         </Stack>
 
         <Box
@@ -108,13 +105,18 @@ export default function EcommerceProductsView() {
             width: { md: `calc(100% - ${280}px)` },
           }}
         >
-          <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ mb: 5 }}>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+            sx={{ mb: 5 }}
+          >
             <ToggleButtonGroup
               exclusive
               size="small"
               value={viewMode}
               onChange={handleChangeViewMode}
-              sx={{ borderColor: 'transparent' }}
+              sx={{ borderColor: "transparent" }}
             >
               {VIEW_OPTIONS.map((option) => (
                 <ToggleButton key={option.value} value={option.value}>
@@ -122,16 +124,6 @@ export default function EcommerceProductsView() {
                 </ToggleButton>
               ))}
             </ToggleButtonGroup>
-
-            <FormControl size="small" hiddenLabel sx={{ width: 120 }}>
-              <Select value={sort} onChange={handleChangeSort}>
-                {SORT_OPTIONS.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
           </Stack>
 
           <EcommerceProductList

@@ -1,37 +1,37 @@
-import PropTypes from 'prop-types';
-import { useState, useCallback } from 'react';
+import PropTypes from "prop-types";
+import { useState, useCallback } from "react";
 
-import Stack from '@mui/material/Stack';
-import Rating from '@mui/material/Rating';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
+import Stack from "@mui/material/Stack";
+import Rating from "@mui/material/Rating";
+import Button from "@mui/material/Button";
+import Divider from "@mui/material/Divider";
+import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 
-import { paths } from 'src/routes/paths';
-import Label from 'src/components/label';
-import Iconify from 'src/components/iconify';
-import { RouterLink } from 'src/routes/components';
-import { useResponsive } from 'src/hooks/use-responsive';
+import { paths } from "src/routes/paths";
+import Label from "src/components/label";
+import Iconify from "src/components/iconify";
+import { RouterLink } from "src/routes/components";
+import { useResponsive } from "src/hooks/use-responsive";
 
-import ProductPrice from '../../common/product-price';
-import ProductColorPicker from '../../common/product-color-picker';
-import ProductOptionPicker from '../../common/product-option-picker';
+import ProductPrice from "../../common/product-price";
+import ProductColorPicker from "../../../home/components/subcomponents/product-color-picker";
+import ProductOptionPicker from "../../../home/components/subcomponents/product-option-picker";
 
 // ----------------------------------------------------------------------
 
 const COLOR_OPTIONS = [
-  { label: '#FA541C', value: 'red' },
-  { label: '#754FFE', value: 'violet' },
-  { label: '#00B8D9', value: 'cyan' },
-  { label: '#36B37E', value: 'green' },
+  { label: "#FA541C", value: "red" },
+  { label: "#754FFE", value: "violet" },
+  { label: "#00B8D9", value: "cyan" },
+  { label: "#36B37E", value: "green" },
 ];
 
 const MEMORY_OPTIONS = [
-  { label: '128GB', value: '128gb' },
-  { label: '256GB', value: '256gb' },
-  { label: '512GB', value: '512gb' },
-  { label: '1TB', value: '1tb' },
+  { label: "128GB", value: "128gb" },
+  { label: "256GB", value: "256gb" },
+  { label: "512GB", value: "512gb" },
+  { label: "1TB", value: "1tb" },
 ];
 
 // ----------------------------------------------------------------------
@@ -44,11 +44,11 @@ export default function EcommerceProductDetailsInfo({
   priceSale,
   caption,
 }) {
-  const mdUp = useResponsive('up', 'md');
+  const mdUp = useResponsive("up", "md");
 
-  const [color, setColor] = useState('red');
+  const [color, setColor] = useState("red");
 
-  const [memory, setMemory] = useState('128gb');
+  const [memory, setMemory] = useState("128gb");
 
   const handleChangeColor = useCallback((event) => {
     setColor(event.target.value);
@@ -70,16 +70,20 @@ export default function EcommerceProductDetailsInfo({
         <Stack spacing={0.5} direction="row" alignItems="center">
           <Rating size="small" value={ratingNumber} readOnly precision={0.5} />
 
-          <Typography variant="caption" sx={{ color: 'text.disabled' }}>
+          <Typography variant="caption" sx={{ color: "text.disabled" }}>
             ({totalReviews} reviews)
           </Typography>
         </Stack>
       </Stack>
 
       <Stack spacing={2}>
-        <ProductPrice price={price} priceSale={priceSale} sx={{ typography: 'h5' }} />
+        <ProductPrice
+          price={price}
+          priceSale={priceSale}
+          sx={{ typography: "h5" }}
+        />
 
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        <Typography variant="body2" sx={{ color: "text.secondary" }}>
           {caption}
         </Typography>
       </Stack>
@@ -87,7 +91,11 @@ export default function EcommerceProductDetailsInfo({
       <Stack spacing={3} sx={{ my: 5 }}>
         <Stack spacing={2}>
           <Typography variant="subtitle2">Color</Typography>
-          <ProductColorPicker value={color} onChange={handleChangeColor} options={COLOR_OPTIONS} />
+          <ProductColorPicker
+            value={color}
+            onChange={handleChangeColor}
+            options={COLOR_OPTIONS}
+          />
         </Stack>
 
         <Stack spacing={2}>
@@ -100,7 +108,11 @@ export default function EcommerceProductDetailsInfo({
         </Stack>
       </Stack>
 
-      <Stack spacing={2} direction={{ xs: 'column', md: 'row' }} alignItems={{ md: 'center' }}>
+      <Stack
+        spacing={2}
+        direction={{ xs: "column", md: "row" }}
+        alignItems={{ md: "center" }}
+      >
         <TextField
           select
           hiddenLabel
@@ -144,18 +156,34 @@ export default function EcommerceProductDetailsInfo({
         </Stack>
       </Stack>
 
-      <Divider sx={{ borderStyle: 'dashed', my: 3 }} />
+      <Divider sx={{ borderStyle: "dashed", my: 3 }} />
 
-      <Stack spacing={3} direction="row" justifyContent={{ xs: 'center', md: 'unset' }}>
-        <Stack direction="row" alignItems="center" sx={{ typography: 'subtitle2' }}>
+      <Stack
+        spacing={3}
+        direction="row"
+        justifyContent={{ xs: "center", md: "unset" }}
+      >
+        <Stack
+          direction="row"
+          alignItems="center"
+          sx={{ typography: "subtitle2" }}
+        >
           <Iconify icon="carbon:add-alt" sx={{ mr: 1 }} /> Compare
         </Stack>
 
-        <Stack direction="row" alignItems="center" sx={{ typography: 'subtitle2' }}>
+        <Stack
+          direction="row"
+          alignItems="center"
+          sx={{ typography: "subtitle2" }}
+        >
           <Iconify icon="carbon:favorite" sx={{ mr: 1 }} /> Compare
         </Stack>
 
-        <Stack direction="row" alignItems="center" sx={{ typography: 'subtitle2' }}>
+        <Stack
+          direction="row"
+          alignItems="center"
+          sx={{ typography: "subtitle2" }}
+        >
           <Iconify icon="carbon:share" sx={{ mr: 1 }} /> Compare
         </Stack>
       </Stack>

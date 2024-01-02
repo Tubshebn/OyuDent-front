@@ -13,17 +13,12 @@ import Footer from "./footer";
 
 // ----------------------------------------------------------------------
 
-const pathsOnDark = [
-  "/e-commerce",
-  "/e-commerce/",
-  "/e-commerce",
-  "/e-commerce/",
-];
+const pathsOnDark = ["", "about", "/e-commerce", "/e-commerce/"];
 
 const spacingLayout = [
   ...pathsOnDark,
   "/",
-  "/e-commerce",
+  "/about/",
   "/e-commerce/",
   "/e-commerce",
   "/e-commerce/",

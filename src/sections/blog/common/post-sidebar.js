@@ -1,22 +1,17 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Chip from '@mui/material/Chip';
-import Stack from '@mui/material/Stack';
-import Avatar from '@mui/material/Avatar';
-import TextField from '@mui/material/TextField';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputAdornment from '@mui/material/InputAdornment';
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import Avatar from "@mui/material/Avatar";
+import TextField from "@mui/material/TextField";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import InputAdornment from "@mui/material/InputAdornment";
 
-import { _socials } from 'src/_mock';
-import Iconify from 'src/components/iconify';
-import { useResponsive } from 'src/hooks/use-responsive';
-
-import Advertisement from '../../advertisement';
-
-import PostItemMobile from './post-item-mobile';
+import { _socials } from "src/_mock";
+import Iconify from "src/components/iconify";
+import { useResponsive } from "src/hooks/use-responsive";
 
 // ----------------------------------------------------------------------
 
@@ -29,7 +24,7 @@ export default function PostSidebar({
   sx,
   ...other
 }) {
-  const mdUp = useResponsive('up', 'md');
+  const mdUp = useResponsive("up", "md");
 
   const renderAuthor = author && (
     <Stack spacing={2} direction="row" sx={{ mb: { md: 5 } }}>
@@ -38,7 +33,10 @@ export default function PostSidebar({
       <Stack>
         <Typography variant="h5">{author.name}</Typography>
 
-        <Typography variant="body2" sx={{ mt: 0.5, mb: 2, color: 'text.secondary' }}>
+        <Typography
+          variant="body2"
+          sx={{ mt: 0.5, mb: 2, color: "text.secondary" }}
+        >
           {author.role}
         </Typography>
 
@@ -53,53 +51,31 @@ export default function PostSidebar({
     </Stack>
   );
 
-  const renderCategories = categories && (
-    <Stack spacing={1}>
-      <Typography variant="h5" gutterBottom>
-        Categories
-      </Typography>
+  //   const renderCategories = categories && (
+  //     <Stack spacing={1}>
+  //       <Typography variant="h5" gutterBottom>
+  //         Categories
+  //       </Typography>
 
-      {categories.map((category) => (
-        <Stack key={category.label} direction="row" alignItems="center">
-          <Box
-            sx={{
-              mr: 2,
-              width: 6,
-              height: 6,
-              borderRadius: '50%',
-              bgcolor: 'primary.main',
-            }}
-          />
+  //       {categories.map((category) => (
+  //         <Stack key={category.label} direction="row" alignItems="center">
+  //           <Box
+  //             sx={{
+  //               mr: 2,
+  //               width: 6,
+  //               height: 6,
+  //               borderRadius: "50%",
+  //               bgcolor: "primary.main",
+  //             }}
+  //           />
 
-          <Link variant="body2" href={category.path} color="inherit">
-            {category.label}
-          </Link>
-        </Stack>
-      ))}
-    </Stack>
-  );
-
-  const renderRecentPosts = recentPosts && (
-    <Stack spacing={3}>
-      <Typography variant="h5">Recent Posts</Typography>
-
-      {recentPosts.list.map((post) => (
-        <PostItemMobile key={post.id} post={post} onSiderbar />
-      ))}
-    </Stack>
-  );
-
-  const renderPopularTags = popularTags && (
-    <Stack spacing={3}>
-      <Typography variant="h5">Popular Tags</Typography>
-
-      <Stack direction="row" flexWrap="wrap" spacing={1}>
-        {popularTags.map((tag) => (
-          <Chip key={tag} label={tag} variant="soft" size="small" onClick={() => {}} />
-        ))}
-      </Stack>
-    </Stack>
-  );
+  //           <Link variant="body2" href={category.path} color="inherit">
+  //             {category.label}
+  //           </Link>
+  //         </Stack>
+  //       ))}
+  //     </Stack>
+  //   );
 
   return (
     <>
@@ -108,12 +84,15 @@ export default function PostSidebar({
       {mdUp && (
         <TextField
           fullWidth
-          hiddenLabel
-          placeholder="Search..."
+          placeholder="Хайх..."
           InputProps={{
             startAdornment: (
               <InputAdornment position="start">
-                <Iconify icon="carbon:search" width={24} sx={{ color: 'text.disabled' }} />
+                <Iconify
+                  icon="carbon:search"
+                  width={24}
+                  sx={{ color: "primary.main" }}
+                />
               </InputAdornment>
             ),
           }}
@@ -129,13 +108,7 @@ export default function PostSidebar({
         }}
         {...other}
       >
-        {renderCategories}
-
-        {renderRecentPosts}
-
-        {renderPopularTags}
-
-        {advertisement && <Advertisement advertisement={advertisement} />}
+        {/* {renderCategories} */}
       </Stack>
     </>
   );

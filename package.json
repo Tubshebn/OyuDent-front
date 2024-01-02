@@ -5,7 +5,7 @@
   "description": "Next & JavaScript",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3033",
+    "dev": "next dev -p 3333",
     "start": "next start",
     "build": "next build",
     "prettier": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
@@ -24,6 +24,7 @@
     "@mui/material": "^5.13.7",
     "@mui/system": "^5.13.7",
     "@mui/x-date-pickers": "^6.9.2",
+    "axios": "^1.6.3",
     "date-fns": "^2.30.0",
     "framer-motion": "^10.12.18",
     "google-map-react": "^2.2.1",

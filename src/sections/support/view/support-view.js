@@ -7,52 +7,38 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 
-import { _faqsSupport } from "src/_mock";
+import { _careerPosts, _faqsSupport } from "src/_mock";
 import Iconify from "src/components/iconify";
 import { useBoolean } from "src/hooks/use-boolean";
 
 import SupportNav from "../support-nav";
 import SupportContent from "../support-content";
+import HomeLatestPosts from "src/sections/home/components/home-latest-posts";
 
 // ----------------------------------------------------------------------
 
 const TOPICS = [
   {
-    title: "Account",
+    title: "ТОНОГ ТӨХӨӨРӨМЖ",
     icon: "/assets/icons/faq/ic_faq_account.svg",
-    content: <SupportContent contents={_faqsSupport} />,
+    content: <SupportContent posts={_careerPosts.slice(0, 8)} />,
   },
   {
-    title: "Payment",
+    title: "ЭМЧИЛГЭЭНИЙ МАТЕРИАЛ",
     icon: "/assets/icons/faq/ic_faq_payment.svg",
-    content: <SupportContent contents={_faqsSupport} />,
+    content: <SupportContent posts={_careerPosts.slice(0, 8)} />,
   },
   {
-    title: "Delivery",
+    title: "БАГАЖ ХЭРЭГСЭЛ",
     icon: "/assets/icons/faq/ic_faq_delivery.svg",
-    content: <SupportContent contents={_faqsSupport} />,
-  },
-  {
-    title: "Product",
-    icon: "/assets/icons/faq/ic_faq_package.svg",
-    content: <SupportContent contents={_faqsSupport} />,
-  },
-  {
-    title: "Return & Refund",
-    icon: "/assets/icons/faq/ic_faq_refund.svg",
-    content: <SupportContent contents={_faqsSupport} />,
-  },
-  {
-    title: "Assurances",
-    icon: "/assets/icons/faq/ic_faq_assurances.svg",
-    content: <SupportContent contents={_faqsSupport} />,
+    content: <SupportContent posts={_careerPosts.slice(0, 8)} />,
   },
 ];
 
 // ----------------------------------------------------------------------
 
 export default function SupportView() {
-  const [topic, setTopic] = useState("Payment");
+  const [topic, setTopic] = useState("ТОНОГ ТӨХӨӨРӨМЖ");
 
   const mobileOpen = useBoolean();
 
@@ -83,12 +69,12 @@ export default function SupportView() {
         </IconButton>
       </Stack>
 
-      <Container>
-        <Typography variant="h3" sx={{ py: { xs: 3, md: 10 } }}>
-          Explore the Solutions
+      <Container sx={{ marginBottom: 15 }}>
+        <Typography variant="h3" sx={{ py: { xs: 3, md: 7 } }}>
+          Explore the solutions
         </Typography>
 
-        <Stack direction="row" sx={{ pb: { xs: 10, md: 15 } }}>
+        <Stack direction="row" sx={{ pb: { xs: 10, md: 0 } }}>
           <SupportNav
             data={TOPICS}
             topic={topic}

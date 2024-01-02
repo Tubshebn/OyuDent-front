@@ -1,63 +1,52 @@
-import PropTypes from 'prop-types';
-import { useState, useCallback } from 'react';
+import PropTypes from "prop-types";
 
-import Box from '@mui/material/Box';
-import Accordion from '@mui/material/Accordion';
-import Typography from '@mui/material/Typography';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import AccordionSummary, { accordionSummaryClasses } from '@mui/material/AccordionSummary';
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
 
-import Iconify from 'src/components/iconify';
+import { useResponsive } from "src/hooks/use-responsive";
+
+import ElearningPostItem from "../blog/elearning/elearning-post-item";
+import HomeEventItem from "src/sections/home/components/subcomponents/home-tour-item";
+import Image from "src/components/image/image";
+import { Typography } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
-export default function SupportContent({ contents }) {
-  const [expanded, setExpanded] = useState(false);
-
-  const handleChangeExpanded = useCallback(
-    (panel) => (event, isExpanded) => {
-      setExpanded(isExpanded ? panel : false);
-    },
-    []
-  );
+export default function SupportContent({ posts }) {
+  const mdUp = useResponsive("up", "md");
 
   return (
-    <Box sx={{ pl: { md: 10 } }}>
-      {contents.map((faq) => (
-        <Accordion
-          key={faq.id}
-          expanded={expanded === faq.question}
-          onChange={handleChangeExpanded(faq.question)}
-        >
-          <AccordionSummary
-            sx={{
-              py: 2,
-              minHeight: 64,
-              [`& .${accordionSummaryClasses.content}`]: {
-                p: 0,
-                m: 0,
-              },
-              [`&.${accordionSummaryClasses.expanded}`]: {
-                bgcolor: 'action.selected',
-              },
-            }}
-          >
-            <Typography variant="subtitle1" sx={{ flexGrow: 1 }}>
-              {faq.question}
-            </Typography>
-
-            <Iconify
-              icon={expanded === faq.question ? 'carbon:chevron-down' : 'carbon:chevron-right'}
-            />
-          </AccordionSummary>
-
-          <AccordionDetails sx={{ color: 'text.secondary' }}>{faq.answer}</AccordionDetails>
-        </Accordion>
-      ))}
-    </Box>
+    <Container
+      sx={{
+        py: { xs: 10, md: 0 },
+      }}
+    >
+      <Box
+        sx={{
+          display: "grid",
+          gap: { xs: 3, md: 4 },
+          gridTemplateColumns: {
+            xs: "repeat(1, 1fr)",
+            md: "repeat(2, 2fr)",
+          },
+        }}
+      >
+        <Image src="/assets/images/career/career_1.jpg" />
+        <Typography>
+          Шүдний эмнэлгийн тоног төхөөрөмж: Суурин болон зөөврийн бор машин,
+          гэрлийн аппарат, сувгийн мотор, микроскоп зэрэг бүх тоног
+          төхөөрөмжүүд, хиймэл шүдний лабораторийн тоон болон аналог бүх тоног
+          төхөөрөмжүүдийг ХБНГУ-ын Ritter, Renfert, Dentaururm, Японы Yamahachy,
+          NSK, БНХАУ-ын Woodpecker, Runeys, БНСУ-ын Genoray, Dmetec зэрэг
+          компаниудаас импортлон оруулж ирж байна.
+        </Typography>
+      </Box>
+    </Container>
   );
 }
 
 SupportContent.propTypes = {
-  contents: PropTypes.array,
+  posts: PropTypes.array,
 };
