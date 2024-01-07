@@ -1,14 +1,14 @@
-import PropTypes from 'prop-types';
-import GoogleMapReact from 'google-map-react';
-import { useState, useCallback } from 'react';
+import PropTypes from "prop-types";
+import GoogleMapReact from "google-map-react";
+import { useState, useCallback } from "react";
 
-import Box from '@mui/material/Box';
+import Box from "@mui/material/Box";
 
-import { GOOGLE_MAP_API } from 'src/config-global';
+import { GOOGLE_MAP_API } from "src/config-global";
 
-import MapPopup from './map-popup';
-import { mapStyle } from './styles';
-import MapMarker from './map-marker';
+import MapPopup from "./map-popup";
+import { mapStyle } from "./styles";
+import MapMarker from "./map-marker";
 
 // ----------------------------------------------------------------------
 
@@ -33,7 +33,7 @@ export default function Map({ offices, sx, ...other }) {
   );
 
   return (
-    <Box sx={{ height: 480, overflow: 'hidden', ...sx }} {...other}>
+    <Box sx={{ overflow: "hidden", ...sx }} {...other}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: GOOGLE_MAP_API }}
         center={centerMap}
@@ -48,7 +48,9 @@ export default function Map({ offices, sx, ...other }) {
             key={index}
             lat={office.latlng[0]}
             lng={office.latlng[1]}
-            onOpen={() => handleOpen(office.latlng[0], office.latlng[1], office)}
+            onOpen={() =>
+              handleOpen(office.latlng[0], office.latlng[1], office)
+            }
           />
         ))}
 

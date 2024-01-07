@@ -1,21 +1,27 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Container from "@mui/material/Container";
 
 import { _jobs } from "src/_mock";
 import { useBoolean } from "src/hooks/use-boolean";
 
+import Footer from "src/layouts/main/footer";
 import ClientFilters from "./client-filters";
 import ClientList from "./client-list";
-import ClientNewsletter from "./client-newsletter";
-import Footer from "src/layouts/main/footer";
+import axios from "axios";
+import { BASE_URL } from "src/config-global";
 
 // ----------------------------------------------------------------------
 
 export default function Clients() {
   const loading = useBoolean(true);
+  const [client, setclient] = useState([]);
+
+  useEffect(() => {
+    getClientList();
+  }, []);
 
   useEffect(() => {
     const fakeLoading = async () => {
@@ -25,12 +31,21 @@ export default function Clients() {
     fakeLoading();
   }, [loading]);
 
+  const getClientList = () => {
+    try {
+      axios.get(`${BASE_URL}v1/content/partner`).then((res) => {
+        setclient(res?.data);
+      });
+    } catch (error) {
+      return;
+    }
+  };
+
   return (
     <>
       <Container>
         <ClientFilters />
-
-        <ClientList jobs={_jobs} loading={loading.value} />
+        <ClientList client={client} loading={loading.value} />
       </Container>
 
       <Footer />

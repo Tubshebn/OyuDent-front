@@ -11,6 +11,7 @@ import ElearningPostItem from "../blog/elearning/elearning-post-item";
 import HomeEventItem from "src/sections/home/components/subcomponents/home-tour-item";
 import Image from "src/components/image/image";
 import { Typography } from "@mui/material";
+import TeamItem from "../About/team/team-item";
 
 // ----------------------------------------------------------------------
 
@@ -18,32 +19,15 @@ export default function SupportContent({ posts }) {
   const mdUp = useResponsive("up", "md");
 
   return (
-    <Container
+    <Stack
       sx={{
         py: { xs: 10, md: 0 },
+        px: { xs: 10, md: 5 },
+        width: "70vw",
       }}
     >
-      <Box
-        sx={{
-          display: "grid",
-          gap: { xs: 3, md: 4 },
-          gridTemplateColumns: {
-            xs: "repeat(1, 1fr)",
-            md: "repeat(2, 2fr)",
-          },
-        }}
-      >
-        <Image src="/assets/images/career/career_1.jpg" />
-        <Typography>
-          Шүдний эмнэлгийн тоног төхөөрөмж: Суурин болон зөөврийн бор машин,
-          гэрлийн аппарат, сувгийн мотор, микроскоп зэрэг бүх тоног
-          төхөөрөмжүүд, хиймэл шүдний лабораторийн тоон болон аналог бүх тоног
-          төхөөрөмжүүдийг ХБНГУ-ын Ritter, Renfert, Dentaururm, Японы Yamahachy,
-          NSK, БНХАУ-ын Woodpecker, Runeys, БНСУ-ын Genoray, Dmetec зэрэг
-          компаниудаас импортлон оруулж ирж байна.
-        </Typography>
-      </Box>
-    </Container>
+      <TeamItem />
+    </Stack>
   );
 }
 

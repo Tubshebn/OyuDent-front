@@ -43,6 +43,9 @@ export default function HomeLandingAbout() {
         py: { xs: 5, md: 10 },
       }}
     >
+      <Typography variant="h3" sx={{ textAlign: "center", mb: 10 }}>
+        Бидний тухай
+      </Typography>
       <Grid
         container
         columnSpacing={{ xs: 0, md: 3 }}
@@ -56,8 +59,6 @@ export default function HomeLandingAbout() {
             textAlign: { xs: "center", md: "right" },
           }}
         >
-          <Typography variant="h3">Бидний тухай</Typography>
-
           <Typography sx={{ color: "text.secondary" }}>
             Оюудент ХХК нь 2001 оноос Шүдний эмчилгээ оношлогоо, жижиг мэс
             ажилбар, согог заслын эмнэлгийн тусгай зөвшөөрөл, 2006 оноос Шүдний

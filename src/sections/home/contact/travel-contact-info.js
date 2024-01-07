@@ -7,6 +7,7 @@ import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import ContactMap from "src/components/map/map";
 
 import { _offices } from "src/_mock";
 import Image from "src/components/image";
@@ -25,9 +26,11 @@ export default function TravelContactInfo() {
         }}
       >
         <Container>
-          <Typography marginBottom={4} variant="h3">
-            Бидэнтэй холбогдох
-          </Typography>
+          <Stack sx={{ textAlign: "center" }}>
+            <Typography marginBottom={6} variant="h3">
+              Бидэнтэй холбогдох
+            </Typography>
+          </Stack>
           <Box
             sx={{
               gap: 8,
@@ -42,6 +45,7 @@ export default function TravelContactInfo() {
             {_offices.map((office) => (
               <OfficeCard key={office.id} office={office} />
             ))}
+            <ContactMap offices={_offices} sx={{ borderRadius: 2 }} />
           </Box>
         </Container>
       </Box>

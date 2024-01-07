@@ -69,8 +69,8 @@ export default function SupportView() {
         </IconButton>
       </Stack>
 
-      <Container sx={{ marginBottom: 15 }}>
-        <Typography variant="h3" sx={{ py: { xs: 3, md: 7 } }}>
+      <Container sx={{ marginBottom: 15, textAlign: "center" }}>
+        <Typography variant="h3" sx={{ py: { xs: 3, md: 10 } }}>
           Explore the solutions
         </Typography>
 

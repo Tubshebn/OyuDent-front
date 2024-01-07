@@ -30,7 +30,10 @@ function Logo({ single = false, sx }) {
           ...sx,
         }}
       >
-        <img src={"/assets/Oyudent.svg"} style={{ width: "100px" }} />
+        <img
+          src={"/assets/Oyudent.svg"}
+          style={{ width: "120px", height: "120px" }}
+        />
       </Box>
     </Link>
   );

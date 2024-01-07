@@ -1,18 +1,18 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import Fab from '@mui/material/Fab';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
+import Fab from "@mui/material/Fab";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
 
-import Image from 'src/components/image';
-import Label from 'src/components/label';
-import { paths } from 'src/routes/paths';
-import Iconify from 'src/components/iconify';
-import { RouterLink } from 'src/routes/components';
-import TextMaxLine from 'src/components/text-max-line';
+import Image from "src/components/image";
+import Label from "src/components/label";
+import { paths } from "src/routes/paths";
+import Iconify from "src/components/iconify";
+import { RouterLink } from "src/routes/components";
+import TextMaxLine from "src/components/text-max-line";
 
-import ProductPrice from '../../common/product-price';
-import ProductRating from '../../common/product-rating';
+import ProductPrice from "../../common/product-price";
+import ProductRating from "../../common/product-rating";
 
 // ----------------------------------------------------------------------
 
@@ -21,21 +21,27 @@ export default function EcommerceProductViewListItem({ product, ...other }) {
     <Stack
       direction="row"
       sx={{
-        position: 'relative',
-        '&:hover .add-to-cart': {
+        position: "relative",
+        "&:hover .add-to-cart": {
           opacity: 1,
         },
       }}
       {...other}
     >
-      {product.label === 'new' && (
-        <Label color="info" sx={{ position: 'absolute', m: 1, top: 0, left: 0, zIndex: 9 }}>
+      {product.label === "new" && (
+        <Label
+          color="info"
+          sx={{ position: "absolute", m: 1, top: 0, left: 0, zIndex: 9 }}
+        >
           NEW
         </Label>
       )}
 
-      {product.label === 'sale' && (
-        <Label color="error" sx={{ position: 'absolute', m: 1, top: 0, left: 0, zIndex: 9 }}>
+      {product.label === "sale" && (
+        <Label
+          color="error"
+          sx={{ position: "absolute", m: 1, top: 0, left: 0, zIndex: 9 }}
+        >
           SALE
         </Label>
       )}
@@ -51,9 +57,9 @@ export default function EcommerceProductViewListItem({ product, ...other }) {
           zIndex: 9,
           top: 8,
           opacity: 0,
-          position: 'absolute',
+          position: "absolute",
           transition: (theme) =>
-            theme.transitions.create('opacity', {
+            theme.transitions.create("opacity", {
               easing: theme.transitions.easing.easeIn,
               duration: theme.transitions.duration.shortest,
             }),
@@ -69,33 +75,44 @@ export default function EcommerceProductViewListItem({ product, ...other }) {
           width: 160,
           flexShrink: 0,
           borderRadius: 1.5,
-          bgcolor: 'background.neutral',
+          bgcolor: "background.neutral",
         }}
       />
 
       <Stack spacing={1}>
         <Stack spacing={0.5}>
-          <TextMaxLine variant="caption" line={1} sx={{ color: 'text.disabled' }}>
-            {product.category}
+          <TextMaxLine
+            variant="caption"
+            line={1}
+            sx={{ color: "text.disabled" }}
+          >
+            {product.category.name}
           </TextMaxLine>
 
-          <Link component={RouterLink} href={paths.eCommerce.product} color="inherit">
+          <Link
+            component={RouterLink}
+            href={paths.eCommerce.product}
+            color="inherit"
+          >
             <TextMaxLine variant="h6" line={1}>
               {product.name}
             </TextMaxLine>
           </Link>
         </Stack>
 
-        <ProductRating ratingNumber={product.ratingNumber} label={`${product.sold} sold`} />
+        {/* <ProductRating
+          ratingNumber={product.orderMinimum}
+          label={`${product.orderMinimum} sold`}
+        /> */}
 
-        <TextMaxLine variant="body2" line={1} sx={{ color: 'text.secondary' }}>
+        <TextMaxLine variant="body2" line={1} sx={{ color: "text.secondary" }}>
           {product.caption}
         </TextMaxLine>
 
         <ProductPrice
           price={product.price}
           priceSale={product.priceSale}
-          sx={{ typography: 'h6' }}
+          sx={{ typography: "h6" }}
         />
       </Stack>
     </Stack>

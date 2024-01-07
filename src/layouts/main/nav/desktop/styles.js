@@ -21,6 +21,7 @@ export const StyledNavItem = styled(ListItemButton, {
 
   return {
     ...theme.typography.subtitle1,
+    fontSize: "16px",
     fontWeight: theme.typography.fontWeightBold,
     padding: 0,
     height: "100%",

@@ -1,12 +1,14 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import Box from '@mui/material/Box';
-import Link from '@mui/material/Link';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
+import Box from "@mui/material/Box";
+import Link from "@mui/material/Link";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
-import LinkItem from './link-item';
+import LinkItem from "./link-item";
+import Image from "../image/image";
 
 // ----------------------------------------------------------------------
 
@@ -20,7 +22,6 @@ export default function CustomBreadcrumbs({
   ...other
 }) {
   const lastLink = links[links.length - 1].name;
-
   return (
     <Box sx={{ ...sx }}>
       <Stack direction="row" alignItems="center">
@@ -34,14 +35,19 @@ export default function CustomBreadcrumbs({
 
           {/* BREADCRUMBS */}
           {!!links.length && (
-            <Breadcrumbs separator={<Separator />} {...other}>
+            <Breadcrumbs
+              separator={<NavigateNextIcon fontSize="small" />}
+              {...other}
+            >
               {links.map((link) => (
-                <LinkItem
-                  key={link.name || ''}
-                  link={link}
-                  activeLast={activeLast}
-                  disabled={link.name === lastLink}
-                />
+                <>
+                  <LinkItem
+                    key={link.name || ""}
+                    link={link}
+                    activeLast={activeLast}
+                    disabled={link.name === lastLink}
+                  />
+                </>
               ))}
             </Breadcrumbs>
           )}
@@ -60,7 +66,7 @@ export default function CustomBreadcrumbs({
               variant="body2"
               target="_blank"
               rel="noopener"
-              sx={{ display: 'table' }}
+              sx={{ display: "table" }}
             >
               {href}
             </Link>
@@ -89,8 +95,8 @@ function Separator() {
       sx={{
         width: 4,
         height: 4,
-        borderRadius: '50%',
-        bgcolor: 'text.disabled',
+        borderRadius: "50%",
+        bgcolor: "text.disabled",
       }}
     />
   );

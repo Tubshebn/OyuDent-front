@@ -36,7 +36,7 @@ export default function HomeLandingHero() {
   return (
     <Container
       sx={{
-        pt: { xs: 5, md: 8 },
+        pt: { xs: 5, md: 14 },
         mt: 4,
       }}
     >

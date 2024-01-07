@@ -21,6 +21,8 @@ import { useBoolean } from "src/hooks/use-boolean";
 import EcommerceFilters from "../product/filters/ecommerce-filters";
 import EcommerceProductList from "../product/list/ecommerce-product-list";
 import EcommerceProductListBestSellers from "../product/list/ecommerce-product-list-best-sellers";
+import axios from "axios";
+import { BASE_URL } from "src/config-global";
 
 // ----------------------------------------------------------------------
 
@@ -35,18 +37,9 @@ export default function EcommerceProductsView() {
   const mobileOpen = useBoolean();
 
   const [sort, setSort] = useState("latest");
-
-  const loading = useBoolean(true);
+  const [products, setProducts] = useState([]);
 
   const [viewMode, setViewMode] = useState("grid");
-
-  useEffect(() => {
-    const fakeLoading = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      loading.onFalse();
-    };
-    fakeLoading();
-  }, [loading]);
 
   const handleChangeViewMode = useCallback((event, newAlignment) => {
     if (newAlignment !== null) {
@@ -54,34 +47,34 @@ export default function EcommerceProductsView() {
     }
   }, []);
 
-  const handleChangeSort = useCallback((event) => {
-    setSort(event.target.value);
+  useEffect(() => {
+    getProductList();
   }, []);
+
+  const getProductList = () => {
+    try {
+      axios.get(`${BASE_URL}v1/content/product`).then((res) => {
+        setProducts(res?.data);
+      });
+    } catch (error) {
+      return;
+    }
+  };
 
   return (
     <Container>
       <Stack
         direction="row"
         alignItems="center"
-        justifyContent="space-between"
+        justifyContent="center"
         sx={{
           py: 5,
           pt: { md: 15 },
         }}
       >
-        <Typography variant="h3">Бүтээгдэхүүний Каталог</Typography>
-
-        <Button
-          color="inherit"
-          variant="contained"
-          startIcon={<Iconify icon="carbon:filter" width={18} />}
-          onClick={mobileOpen.onTrue}
-          sx={{
-            display: { md: "none" },
-          }}
-        >
-          Filters
-        </Button>
+        <Typography variant="h3" sx={{ textAlign: "center", py: 7 }}>
+          Бүтээгдэхүүний Каталог
+        </Typography>
       </Stack>
 
       <Stack
@@ -126,11 +119,7 @@ export default function EcommerceProductsView() {
             </ToggleButtonGroup>
           </Stack>
 
-          <EcommerceProductList
-            loading={loading.value}
-            viewMode={viewMode}
-            products={_products.slice(0, 16)}
-          />
+          <EcommerceProductList viewMode={viewMode} products={products} />
         </Box>
       </Stack>
     </Container>

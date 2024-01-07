@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 
-import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Avatar from "@mui/material/Avatar";
@@ -12,14 +11,14 @@ import Image from "src/components/image";
 import { fDate } from "src/utils/format-time";
 import { RouterLink } from "src/routes/components";
 import TextMaxLine from "src/components/text-max-line";
+import { Link } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
 export default function ElearningPostItem({ post }) {
   return (
     <Paper variant="outlined" sx={{ borderRadius: 2, overflow: "hidden" }}>
-      <Image src={post.picture} alt={post.title} ratio="1/1" />
-
+      <Image src={post.picture} alt={post.title} ratio="6/4" />
       <Stack direction="row" spacing={3} sx={{ p: 3 }}>
         <Stack sx={{ textAlign: "center" }}>
           <Typography variant="subtitle2">
@@ -34,7 +33,7 @@ export default function ElearningPostItem({ post }) {
         <Stack spacing={1}>
           <Link
             component={RouterLink}
-            href={paths.oyudent.post}
+            href={`${paths.oyudent.post}/${post?.id}`}
             color="inherit"
           >
             <TextMaxLine variant="h6" persistent>

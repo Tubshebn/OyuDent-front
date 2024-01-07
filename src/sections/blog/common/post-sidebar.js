@@ -84,17 +84,20 @@ export default function PostSidebar({
       {mdUp && (
         <TextField
           fullWidth
+          hiddenLabel
           placeholder="Хайх..."
           InputProps={{
+            autoComplete: "search",
             startAdornment: (
               <InputAdornment position="start">
                 <Iconify
-                  icon="carbon:search"
                   width={24}
-                  sx={{ color: "primary.main" }}
+                  icon="carbon:search"
+                  sx={{ color: "primary.main", mr: 1 }}
                 />
               </InputAdornment>
             ),
+            sx: { pb: 1, ...sx },
           }}
         />
       )}

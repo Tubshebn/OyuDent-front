@@ -21,6 +21,8 @@ import TravelContactInfo from "./contact/travel-contact-info";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "src/config-global";
+import CareerContactInfo from "../contact/career-contact-info";
+import MarketingFeaturedPosts from "../blog/marketing/marketing-featured-posts";
 
 // ----------------------------------------------------------------------
 
@@ -51,13 +53,12 @@ export default function HomeLandingView() {
       <HomeLandingHotDealToday />
       {/* 
       <HomeEvent posts={_careerPosts.slice(0, 5)} /> */}
-      <HomeLandingAbout />
       <HomeAboutOurClients brands={_brandsColor} />
       <HomeLatestPosts posts={blog.slice(0, 8)} />
       <SupportView tours={_tours.slice(0, 5)} />
       <HomeLandingPopularProducts posts={blog.slice(0, 8)} />
+      <HomeLandingAbout />
       <HomeContact />
-      <TravelContactInfo />
     </>
   );
 }

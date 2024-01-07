@@ -14,7 +14,7 @@ import { alpha, styled } from "@mui/material/styles";
 import InputAdornment from "@mui/material/InputAdornment";
 import Button, { buttonClasses } from "@mui/material/Button";
 
-import { _socials } from "src/_mock";
+import { _socials, _tours, _careerPosts } from "src/_mock";
 import Logo from "src/components/logo";
 import Iconify from "src/components/iconify";
 import { usePathname } from "src/routes/hooks";
@@ -23,6 +23,7 @@ import { RouterLink } from "src/routes/components";
 import { useResponsive } from "src/hooks/use-responsive";
 
 import { pageLinks, navConfig } from "./config-navigation";
+import MarketingFeaturedPosts from "src/sections/blog/marketing/marketing-featured-posts";
 
 // ----------------------------------------------------------------------
 
@@ -68,7 +69,7 @@ export default function Footer() {
         component="div"
         sx={{ color: "text.secondary" }}
       >
-        © 2024. All rights reserved
+        © 2024. Оюу дент ХХК
       </Typography>
     </Container>
   );
@@ -114,16 +115,7 @@ export default function Footer() {
                 </Link>
               </Stack> */}
 
-              <Stack spacing={2}>
-                <Typography variant="h6">Social</Typography>
-                <Stack direction="row" alignItems="center">
-                  {_socials.map((social) => (
-                    <IconButton key={social.value} color="primary">
-                      <Iconify icon={social.icon} />
-                    </IconButton>
-                  ))}
-                </Stack>
-              </Stack>
+              <Stack spacing={2}></Stack>
 
               {/* <Stack spacing={2}>
                 <Typography variant="h6">Apps</Typography>
@@ -156,7 +148,7 @@ export default function Footer() {
     </>
   );
 
-  return <footer>{isHome ? mainFooter : simpleFooter}</footer>;
+  return <footer>{isHome ? simpleFooter : simpleFooter}</footer>;
 }
 
 // ----------------------------------------------------------------------

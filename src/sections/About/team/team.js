@@ -11,6 +11,7 @@ import { alpha, useTheme } from "@mui/material/styles";
 import { bgGradient } from "src/theme/css";
 import { useResponsive } from "src/hooks/use-responsive";
 import { useBoundingClientRect } from "src/hooks/use-bounding-client-rect";
+import { _members } from "src/_mock";
 import Carousel, {
   useCarousel,
   CarouselDots,
@@ -21,7 +22,7 @@ import TeamItem from "./team-item";
 
 // ----------------------------------------------------------------------
 
-export default function Team({ members }) {
+export default function Team({}) {
   const theme = useTheme();
 
   const mdUp = useResponsive("up", "md");
@@ -103,23 +104,6 @@ export default function Team({ members }) {
             <Box ref={containerRef} />
           </Grid>
         </Grid>
-
-        {mdUp && (
-          <CarouselArrows
-            spacing={2}
-            onNext={carousel.onNext}
-            onPrev={carousel.onPrev}
-            leftButtonProps={{
-              color: "primary",
-              sx: { color: "primary.main", opacity: 1 },
-            }}
-            rightButtonProps={{
-              color: "primary",
-              sx: { color: "primary.main", opacity: 1 },
-            }}
-            sx={{ position: "absolute", bottom: 0 }}
-          />
-        )}
       </Container>
 
       <Box
@@ -128,26 +112,24 @@ export default function Team({ members }) {
           width: { md: `calc(100% + 120px)` },
         }}
       >
-        <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
-          {members.map((member) => (
-            <Box
-              key={member.id}
-              sx={{
-                ml: "-1px",
-                pl: { xs: 2, md: 4 },
-                pr: { xs: 2, md: 0 },
-                color: "common.white",
-              }}
-            >
-              <TeamItem member={member} />
-            </Box>
-          ))}
-        </Carousel>
+        {_members.map((member) => (
+          <Box
+            key={member.id}
+            sx={{
+              ml: "-1px",
+              pl: { xs: 2, md: 4 },
+              pr: { xs: 2, md: 0 },
+              color: "common.white",
+            }}
+          >
+            <TeamItem member={member} />
+          </Box>
+        ))}
       </Box>
     </Box>
   );
 }
 
-MarketingTeam.propTypes = {
+Team.propTypes = {
   members: PropTypes.array,
 };

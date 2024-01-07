@@ -1,19 +1,18 @@
-'use client';
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-import Grid from '@mui/material/Unstable_Grid2';
-import Container from '@mui/material/Container';
+import Grid from "@mui/material/Unstable_Grid2";
+import Container from "@mui/material/Container";
 
-import { _products } from 'src/_mock';
-import { useBoolean } from 'src/hooks/use-boolean';
-import { SplashScreen } from 'src/components/loading-screen';
-import CustomBreadcrumbs from 'src/components/custom-breadcrumbs';
+import { _products } from "src/_mock";
+import { useBoolean } from "src/hooks/use-boolean";
+import { SplashScreen } from "src/components/loading-screen";
+import CustomBreadcrumbs from "src/components/custom-breadcrumbs";
 
-import ReviewEcommerce from '../../review/ecommerce/review-ecommerce';
-import EcommerceProductDetailsInfo from '../product/details/ecommerce-product-details-info';
-import EcommerceProductDetailsCarousel from '../product/details/ecommerce-product-details-carousel';
-import EcommerceProductDetailsDescription from '../product/details/ecommerce-product-details-description';
+import EcommerceProductDetailsInfo from "../product/details/ecommerce-product-details-info";
+import EcommerceProductDetailsCarousel from "../product/details/ecommerce-product-details-carousel";
+import EcommerceProductDetailsDescription from "../product/details/ecommerce-product-details-description";
 
 // ----------------------------------------------------------------------
 
@@ -36,17 +35,17 @@ export default function EcommerceProductView() {
 
   return (
     <>
-      <Container sx={{ overflow: 'hidden' }}>
+      <Container sx={{ overflow: "hidden" }}>
         <CustomBreadcrumbs
           links={[
             {
-              name: 'Home',
+              name: "Home",
             },
             {
-              name: 'Mobile Phones',
+              name: "Mobile Phones",
             },
             {
-              name: 'Apple iPhone 14',
+              name: "Apple iPhone 14",
             },
           ]}
           sx={{ my: 5 }}
@@ -74,18 +73,18 @@ export default function EcommerceProductView() {
             <EcommerceProductDetailsDescription
               description={_mockProduct.description}
               specifications={[
-                { label: 'Category', value: 'Mobile' },
-                { label: 'Manufacturer', value: 'Apple' },
-                { label: 'Warranty', value: '12 Months' },
-                { label: 'Serial number', value: '358607726380311' },
-                { label: 'Ships From', value: 'United States' },
+                { label: "Category", value: "Mobile" },
+                { label: "Manufacturer", value: "Apple" },
+                { label: "Warranty", value: "12 Months" },
+                { label: "Serial number", value: "358607726380311" },
+                { label: "Ships From", value: "United States" },
               ]}
             />
           </Grid>
         </Grid>
       </Container>
 
-      <ReviewEcommerce />
+      {/* <ReviewEcommerce /> */}
     </>
   );
 }

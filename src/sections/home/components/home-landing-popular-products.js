@@ -30,7 +30,7 @@ export default function HomeLandingPopularProducts({ posts }) {
       <Typography
         variant="h3"
         sx={{
-          textAlign: { xs: "center", md: "unset" },
+          textAlign: { xs: "center", md: "center" },
         }}
       >
         Блог

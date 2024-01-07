@@ -1,5 +1,5 @@
 import ClientLayout from "src/layouts/client";
-import Clients from "src/sections/Clients/client-view";
+import Clients from "src/sections/clients/client-view";
 
 // ----------------------------------------------------------------------
 

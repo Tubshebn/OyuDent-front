@@ -10,6 +10,7 @@ import { HEADER } from "../config-layout";
 
 import Header from "./header";
 import Footer from "./footer";
+import CareerContactInfo from "src/sections/contact/career-contact-info";
 
 // ----------------------------------------------------------------------
 
@@ -44,7 +45,7 @@ export default function MainLayout({ children }) {
         {children}
       </Box>
 
-      <Footer />
+      <CareerContactInfo />
     </Box>
   );
 }

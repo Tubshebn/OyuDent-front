@@ -2,13 +2,11 @@ import PropTypes from "prop-types";
 
 import Box from "@mui/material/Box";
 import Pagination, { paginationClasses } from "@mui/material/Pagination";
-
 import ClientListItem from "./client-item";
-import ClientListItemSkeleten from "./client-job-item-skeleton";
 
 // ----------------------------------------------------------------------
 
-export default function ClientList({ jobs, loading }) {
+export default function ClientList({ client }) {
   return (
     <>
       <Box
@@ -23,13 +21,9 @@ export default function ClientList({ jobs, loading }) {
           },
         }}
       >
-        {(loading ? [...Array(9)] : jobs).map((job, index) =>
-          job ? (
-            <ClientListItem key={job.id} job={job} />
-          ) : (
-            <ClientListItemSkeleten key={index} />
-          )
-        )}
+        {client?.map((i, index) => {
+          return <ClientListItem key={i.id} i={i} />;
+        })}
       </Box>
 
       <Pagination

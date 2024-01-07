@@ -1,3 +1,4 @@
+import PostLayout from "src/layouts/post/page";
 import ElearningPostView from "src/sections/_elearning/view/elearning-post-view";
 
 // ----------------------------------------------------------------------
@@ -7,5 +8,9 @@ export const metadata = {
 };
 
 export default function ElearningPostPage() {
-  return <ElearningPostView />;
+  return (
+    <PostLayout>
+      <ElearningPostView />;
+    </PostLayout>
+  );
 }

@@ -6,12 +6,15 @@ import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import { alpha, styled } from "@mui/material/styles";
-
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { _socials } from "src/_mock";
 import Image from "src/components/image";
 import { bgGradient } from "src/theme/css";
 import Iconify from "src/components/iconify";
 import { varHover, varTranHover } from "src/components/animate";
+import { useState } from "react";
+import CustomBreadcrumbs from "src/components/custom-breadcrumbs/custom-breadcrumbs";
+import Dots from "src/assets/illustrations/pattern/dots";
 
 // ----------------------------------------------------------------------
 
@@ -37,10 +40,8 @@ const StyledOverlay = styled("div")(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 export default function TeamItem({ member, ...other }) {
-  const { name, role, photo } = member;
-
   return (
-    <Stack {...other}>
+    <Stack {...other} sx={{ flexDirection: "row", gap: 5 }}>
       <Box
         component={m.div}
         whileHover="hover"
@@ -54,26 +55,24 @@ export default function TeamItem({ member, ...other }) {
             justifyContent="center"
             sx={{ width: 1, zIndex: 9, bottom: 24, position: "absolute" }}
           >
-            {_socials.map((social) => (
-              <IconButton key={social.value} color="primary">
-                <Iconify icon={social.icon} />
-              </IconButton>
-            ))}
+            <Typography variant="body2" color={"white"} sx={{ p: 1 }}>
+              Суурин болон зөөврийн бор машин, гэрлийн аппарат, сувгийн мотор,
+              микроскоп зэрэг бүх тоног төхөөрөмжүүд, хиймэл шүдний лабораторийн
+              тоон болон аналог бүх тоног төхөөрөмжүүдийг ХБНГУ-ын Ritter,
+              Renfert, Dentaururm, Японы Yamahachy, NSK, БНХАУ-ын Woodpecker,
+              Runeys, БНСУ-ын Genoray, Dmetec зэрэг компаниудаас импортлон
+              оруулж ирж байна.
+            </Typography>
           </Stack>
         </StyledOverlay>
 
-        <m.div variants={varHover(1.15)} transition={varTranHover()}>
-          <Image src={photo} alt={name} ratio="3/4" />
-        </m.div>
+        <Stack sx={{ width: "300px" }}>
+          <m.div variants={varHover(1.15)} transition={varTranHover()}>
+            <Image src="/assets/images/career/career_1.jpg" />
+          </m.div>
+        </Stack>
       </Box>
-
-      <Stack spacing={0.5} sx={{ mt: 2.5, textAlign: "center" }}>
-        <Typography variant="h6">{name}</Typography>
-
-        <Typography variant="body2" sx={{ color: "text.disabled" }}>
-          {role}
-        </Typography>
-      </Stack>
+      {<Breader />}
     </Stack>
   );
 }
@@ -84,4 +83,80 @@ TeamItem.propTypes = {
     photo: PropTypes.string,
     role: PropTypes.string,
   }),
+};
+
+const Breader = () => {
+  const [isBrand, setbrands] = useState(false);
+  let links = ["hello", "my", "name", "is", "tuvshin"];
+  return (
+    <Stack sx={{ flexDirection: "column", display: "flex" }}>
+      <Stack sx={{ display: "flex", flexDirection: "row", height: "10%" }}>
+        {links.map((i, index) => {
+          return (
+            <>
+              <Stack
+                onClick={() => {
+                  setbrands(!isBrand);
+                }}
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  backgroundColor: "#f1f1f1",
+                  "&:hover": {
+                    backgroundColor: "#e0e0e0",
+                  },
+                  borderRadius: 1,
+                  px: 2,
+                  py: 0.5,
+                  transform: "skew(-20deg)",
+                  margin: "0 5px",
+                }}
+              >
+                <Typography
+                  variant="subtitle1"
+                  sx={{ textTransform: "capitalize", mr: 1 }}
+                >
+                  {i}
+                </Typography>
+              </Stack>
+              <Stack
+                sx={{
+                  margin: "auto",
+                }}
+              >
+                <NavigateNextIcon fontSize="medium" />
+              </Stack>
+            </>
+          );
+        })}
+      </Stack>
+      {isBrand && <Brands />}
+    </Stack>
+  );
+};
+
+const Brands = () => {
+  let brands = ["bmw", "hi", "yu", "bn"];
+  return (
+    <Stack
+      sx={{
+        justifyContent: "flex-start",
+        display: "flex",
+        alignItems: "flex-start",
+        flexDirection: "column",
+        m: 3,
+      }}
+    >
+      {brands?.map((i, index) => {
+        return (
+          <Stack sx={{ flexDirection: "row" }}>
+            <NavigateNextIcon />
+            <Typography variant="subtitle1">{i}</Typography>
+          </Stack>
+        );
+      })}
+    </Stack>
+  );
 };
