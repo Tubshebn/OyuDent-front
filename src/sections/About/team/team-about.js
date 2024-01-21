@@ -5,6 +5,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 
 import TeamItem from "./team-item";
+import MarketingTeamItem from "./marketing-team-item";
 
 // ----------------------------------------------------------------------
 
@@ -46,7 +47,7 @@ export default function TeamAbout({ members }) {
         }}
       >
         {members.map((member) => (
-          <TeamItem key={member.id} member={member} />
+          <MarketingTeamItem key={member.id} member={member} />
         ))}
       </Box>
     </Container>

@@ -14,6 +14,7 @@ import TextMaxLine from "src/components/text-max-line";
 
 import ProductPrice from "../../common/product-price";
 import ProductRating from "../../common/product-rating";
+import { IMAGE_URL } from "src/config-global";
 
 // ----------------------------------------------------------------------
 
@@ -75,9 +76,11 @@ export default function EcommerceProductViewGridItem({
         </Fab>
 
         <Image
-          src={product.coverUrl}
+          src={`${IMAGE_URL}/${product?.picture}`}
           sx={{
-            flexShrink: 0,
+            width: 200,
+            height: 200,
+            flexShrink: 1,
             borderRadius: 1.5,
             bgcolor: "background.neutral",
           }}
@@ -102,6 +105,10 @@ export default function EcommerceProductViewGridItem({
             {product.name}
           </TextMaxLine>
         </Link>
+
+        <TextMaxLine variant="body2" line={1} sx={{ color: "text.secondary" }}>
+          {product.size}
+        </TextMaxLine>
 
         <ProductPrice price={product.price} priceSale={product.priceSale} />
 

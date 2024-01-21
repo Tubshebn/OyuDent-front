@@ -13,7 +13,6 @@ import { useBoolean } from "src/hooks/use-boolean";
 
 import SupportNav from "../support-nav";
 import SupportContent from "../support-content";
-import HomeLatestPosts from "src/sections/home/components/home-latest-posts";
 
 // ----------------------------------------------------------------------
 

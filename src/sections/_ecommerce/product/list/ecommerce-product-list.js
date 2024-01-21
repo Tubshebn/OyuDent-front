@@ -8,10 +8,38 @@ import EcommerceProductViewListItem from "../item/ecommerce-product-view-list-it
 import EcommerceProductViewGridItem from "../item/ecommerce-product-view-grid-item";
 import EcommerceProductViewListItemSkeleton from "../item/ecommerce-product-view-list-item-skeleton";
 import EcommerceProductViewGridItemSkeleton from "../item/ecommerce-product-view-grid-item-skeleton";
+import { useEffect, useState, useCallback } from "react";
+import { Tab, Tabs } from "@mui/material";
+import { _categories } from "src/_mock";
 
 // ----------------------------------------------------------------------
 
-export default function EcommerceProductList({ viewMode, products }) {
+export default function EcommerceProductList({
+  viewMode,
+  products,
+  currentPage,
+  handlePageChange,
+}) {
+  //   useEffect(() => {
+  //     getProductList();
+  //   }, []);
+
+  //   let body = {
+  //     size: 12,
+  //     page: 0,
+  //   };
+  //   const getCategoryList = () => {
+  //     try {
+  //       axios
+  //         .get(`${BASE_URL}v1/content/product`, { params: body })
+  //         .then((res) => {
+  //           setProducts(res?.data);
+  //         });
+  //     } catch (error) {
+  //       return;
+  //     }
+  //   };
+
   return (
     <>
       {viewMode === "grid" ? (
@@ -25,7 +53,7 @@ export default function EcommerceProductList({ viewMode, products }) {
             md: "repeat(4, 1fr)",
           }}
         >
-          {products?.map((product, index) => {
+          {products?.result?.map((product, index) => {
             return (
               <EcommerceProductViewGridItem
                 key={product.id}
@@ -36,7 +64,7 @@ export default function EcommerceProductList({ viewMode, products }) {
         </Box>
       ) : (
         <Stack spacing={4}>
-          {products?.map((product, index) => {
+          {products?.result?.map((product, index) => {
             return (
               <EcommerceProductViewListItem
                 key={product.id}
@@ -49,6 +77,8 @@ export default function EcommerceProductList({ viewMode, products }) {
 
       <Pagination
         count={10}
+        page={currentPage}
+        onChange={handlePageChange}
         color="primary"
         sx={{
           mt: 10,

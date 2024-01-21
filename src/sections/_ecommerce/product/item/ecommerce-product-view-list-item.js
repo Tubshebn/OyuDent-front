@@ -13,6 +13,7 @@ import TextMaxLine from "src/components/text-max-line";
 
 import ProductPrice from "../../common/product-price";
 import ProductRating from "../../common/product-rating";
+import { IMAGE_URL } from "src/config-global";
 
 // ----------------------------------------------------------------------
 
@@ -69,7 +70,7 @@ export default function EcommerceProductViewListItem({ product, ...other }) {
       </Fab>
 
       <Image
-        src={product.coverUrl}
+        src={`${IMAGE_URL}/${product.picture}`}
         sx={{
           mr: 2,
           width: 160,
@@ -106,7 +107,7 @@ export default function EcommerceProductViewListItem({ product, ...other }) {
         /> */}
 
         <TextMaxLine variant="body2" line={1} sx={{ color: "text.secondary" }}>
-          {product.caption}
+          {product.size}
         </TextMaxLine>
 
         <ProductPrice

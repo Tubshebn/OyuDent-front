@@ -11,10 +11,11 @@ import Iconify from "src/components/iconify/iconify";
 import { Button } from "@mui/material";
 import HomeOurClients from "./subcomponents/home-our-clients";
 import { paths } from "src/routes/paths";
+import { IMAGE_URL } from "src/config-global";
 
 // ----------------------------------------------------------------------
 
-export default function HomeAboutOurClients({ brands }) {
+export default function HomeAboutOurClients({ clients }) {
   return (
     <Container
       sx={{
@@ -30,15 +31,15 @@ export default function HomeAboutOurClients({ brands }) {
           justifyContent="center"
           sx={{ maxWidth: 680, overflow: "hidden" }}
         >
-          <HomeOurClients brands={brands} />
-          {brands?.slice(0, 8).map((brand) => (
-            <Box key={brand.id}>
+          {/* <HomeOurClients clients={clients} /> */}
+          {clients?.slice(0, 8).map((client) => (
+            <Box key={client.id}>
               <Image
-                alt={brand.name}
-                src={brand.image}
+                alt={client.name}
+                src={`${IMAGE_URL}/${client.picture}`}
                 sx={{
-                  height: 32,
-                  mx: { xs: 2, md: 4 },
+                  height: 50,
+                  mx: { xs: 4, md: 4.5 },
                   my: { xs: 2.5, md: 4 },
                 }}
               />

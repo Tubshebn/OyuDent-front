@@ -7,7 +7,7 @@ export const paths = {
     client: "/clients",
     products: "/products",
     post: "/post",
-    posts: "posts",
+    posts: "/posts",
   },
 
   // Marketing

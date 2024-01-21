@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 
 import Image from "src/components/image";
 import TextMaxLine from "src/components/text-max-line";
+import { IMAGE_URL } from "src/config-global";
 
 // ----------------------------------------------------------------------
 
@@ -27,7 +28,7 @@ export default function ClientListItem({ i }) {
         <Stack direction="row" alignItems="center" spacing={2.5}>
           <Image
             alt={name}
-            src={picture}
+            src={`${IMAGE_URL}/${picture}`}
             sx={{ width: 48, height: 48, borderRadius: 1 }}
           />
         </Stack>

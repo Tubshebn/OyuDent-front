@@ -62,7 +62,7 @@ export default function Footer() {
         textAlign: "center",
       }}
     >
-      <Logo single sx={{ ml: 12 }} />
+      <Logo single sx={{ ml: 20 }} />
 
       <Typography
         variant="caption"

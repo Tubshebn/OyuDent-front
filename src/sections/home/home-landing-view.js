@@ -21,29 +21,37 @@ import TravelContactInfo from "./contact/travel-contact-info";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "src/config-global";
-import CareerContactInfo from "../contact/career-contact-info";
-import MarketingFeaturedPosts from "../blog/marketing/marketing-featured-posts";
+import HomeEvent from "./components/home-events";
+import EcommerceCheckoutPaymentMethod from "../_ecommerce/checkout/ecommerce-checkout-payment-method";
 
 // ----------------------------------------------------------------------
 
 export default function HomeLandingView() {
   const [blog, setBlog] = useState([]);
-  const [loader, setLoader] = useState(false);
+  const [clients, setClients] = useState([]);
 
   useEffect(() => {
     getBlogList();
+    getClientList();
   }, []);
 
   const getBlogList = () => {
     try {
-      setLoader(true);
       axios.get(`${BASE_URL}v1/blog`).then((res) => {
         setBlog(res?.data);
       });
     } catch (error) {
       return;
-    } finally {
-      setLoader(false);
+    }
+  };
+
+  const getClientList = () => {
+    try {
+      axios.get(`${BASE_URL}v1/content/partner`).then((res) => {
+        setClients(res?.data);
+      });
+    } catch (error) {
+      return;
     }
   };
 
@@ -51,14 +59,11 @@ export default function HomeLandingView() {
     <>
       <HomeLandingHero />
       <HomeLandingHotDealToday />
-      {/* 
-      <HomeEvent posts={_careerPosts.slice(0, 5)} /> */}
-      <HomeAboutOurClients brands={_brandsColor} />
-      <HomeLatestPosts posts={blog.slice(0, 8)} />
+      <HomeAboutOurClients clients={clients} />
       <SupportView tours={_tours.slice(0, 5)} />
       <HomeLandingPopularProducts posts={blog.slice(0, 8)} />
       <HomeLandingAbout />
-      <HomeContact />
+      <TravelContactInfo />
     </>
   );
 }

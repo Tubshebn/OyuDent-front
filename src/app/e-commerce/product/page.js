@@ -1,9 +1,9 @@
-import EcommerceProductView from 'src/sections/_ecommerce/view/ecommerce-product-view';
+import EcommerceProductView from "src/sections/_ecommerce/view/ecommerce-product-view";
 
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Apple iPhone',
+  title: "Бүтээгдэхүүний дэлгэрэнгүй",
 };
 
 export default function EcommerceProductPage() {

@@ -5,10 +5,11 @@ import Container from "@mui/material/Container";
 
 import SvgColor from "src/components/svg-color";
 import Carousel, { useCarousel } from "src/components/carousel";
+import { IMAGE_URL } from "src/config-global";
 
 // ----------------------------------------------------------------------
 
-export default function HomeOurClients({ brands }) {
+export default function HomeOurClients({ clients }) {
   const theme = useTheme();
 
   const carousel = useCarousel({
@@ -37,13 +38,11 @@ export default function HomeOurClients({ brands }) {
       }}
     >
       <Carousel {...carousel.carouselSettings}>
-        {brands.map((brand) => (
+        {clients.map((client) => (
           <SvgColor
-            key={brand.id}
-            src={brand.image}
+            key={client.id}
+            src={`${IMAGE_URL}/${client?.picture}`}
             sx={{
-              width: 106,
-              height: 32,
               color: "text.disabled",
             }}
           />

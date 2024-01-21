@@ -45,7 +45,7 @@ export default function MainLayout({ children }) {
         {children}
       </Box>
 
-      <CareerContactInfo />
+      <Footer />
     </Box>
   );
 }

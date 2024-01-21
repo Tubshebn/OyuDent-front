@@ -23,7 +23,7 @@ function Logo({ single = false, sx }) {
     >
       <Box
         sx={{
-          width: single ? 200 : 200,
+          width: single ? 300 : 300,
           lineHeight: 0,
           cursor: "pointer",
           display: "inline-flex",
@@ -32,7 +32,7 @@ function Logo({ single = false, sx }) {
       >
         <img
           src={"/assets/Oyudent.svg"}
-          style={{ width: "120px", height: "120px" }}
+          style={{ width: "130px", height: "130px" }}
         />
       </Box>
     </Link>

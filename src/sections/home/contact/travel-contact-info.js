@@ -35,17 +35,13 @@ export default function TravelContactInfo() {
             sx={{
               gap: 8,
               display: "grid",
-              gridTemplateColumns: {
-                xs: "repeat(1, 1fr)",
-                sm: "repeat(2, 1fr)",
-                md: "repeat(3, 1fr)",
-              },
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             {_offices.map((office) => (
               <OfficeCard key={office.id} office={office} />
             ))}
-            <ContactMap offices={_offices} sx={{ borderRadius: 2 }} />
           </Box>
         </Container>
       </Box>
