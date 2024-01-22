@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Grid from "@mui/material/Unstable_Grid2";
 import Container from "@mui/material/Container";
@@ -8,63 +8,44 @@ import Container from "@mui/material/Container";
 import { _products } from "src/_mock";
 import { useBoolean } from "src/hooks/use-boolean";
 import { SplashScreen } from "src/components/loading-screen";
-import CustomBreadcrumbs from "src/components/custom-breadcrumbs";
-
+import { useParams } from "next/navigation";
 import EcommerceProductDetailsInfo from "../product/details/ecommerce-product-details-info";
 import EcommerceProductDetailsCarousel from "../product/details/ecommerce-product-details-carousel";
 import EcommerceProductDetailsDescription from "../product/details/ecommerce-product-details-description";
+import { BASE_URL } from "src/config-global";
+import axios from "axios";
 
 // ----------------------------------------------------------------------
 
 const _mockProduct = _products[0];
 
 export default function EcommerceProductView() {
-  const loading = useBoolean(true);
-
+  const params = useParams();
+  const [product, setproduct] = useState();
   useEffect(() => {
-    const fakeLoading = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      loading.onFalse();
-    };
-    fakeLoading();
-  }, [loading]);
+    getProductDetail();
+  }, []);
 
-  if (loading.value) {
-    return <SplashScreen />;
-  }
+  const getProductDetail = () => {
+    try {
+      axios.get(`${BASE_URL}v1/content/product/${params.id}`).then((res) => {
+        setproduct(res?.data);
+      });
+    } catch (error) {
+      return;
+    }
+  };
 
   return (
     <>
       <Container sx={{ overflow: "hidden" }}>
         <Grid container spacing={{ xs: 5, md: 8 }}>
           <Grid xs={12} md={6} lg={7}>
-            <EcommerceProductDetailsCarousel images={_mockProduct.images} />
+            <EcommerceProductDetailsCarousel image={product?.picture} />
           </Grid>
 
           <Grid xs={12} md={6} lg={5}>
-            <EcommerceProductDetailsInfo
-              name={_mockProduct.name}
-              price={_mockProduct.price}
-              caption={_mockProduct.caption}
-              priceSale={_mockProduct.priceSale}
-              ratingNumber={_mockProduct.ratingNumber}
-              totalReviews={_mockProduct.totalReviews}
-            />
-          </Grid>
-        </Grid>
-
-        <Grid container columnSpacing={{ md: 8 }}>
-          <Grid xs={12} md={6} lg={7}>
-            <EcommerceProductDetailsDescription
-              description={_mockProduct.description}
-              specifications={[
-                { label: "Category", value: "Mobile" },
-                { label: "Manufacturer", value: "Apple" },
-                { label: "Warranty", value: "12 Months" },
-                { label: "Serial number", value: "358607726380311" },
-                { label: "Ships From", value: "United States" },
-              ]}
-            />
+            <EcommerceProductDetailsInfo product={product} />
           </Grid>
         </Grid>
       </Container>

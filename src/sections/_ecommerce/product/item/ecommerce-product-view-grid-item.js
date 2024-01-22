@@ -94,7 +94,7 @@ export default function EcommerceProductViewGridItem({
 
         <Link
           component={RouterLink}
-          href={paths.eCommerce.product}
+          href={`${paths.oyudent.product}/${product?.id}`}
           color="inherit"
         >
           <TextMaxLine

@@ -35,6 +35,12 @@ export default function EcommerceProductsView() {
   const itemsPerPage = 12;
   const [products, setProducts] = useState([]);
   const [viewMode, setViewMode] = useState("grid");
+  const [category, setcategory] = useState([]);
+  const [filter, setFilter] = useState({
+    main: null,
+    sub: null,
+    manufacturer: null,
+  });
 
   const handleChangeViewMode = useCallback((event, newAlignment) => {
     if (newAlignment !== null) {
@@ -47,9 +53,13 @@ export default function EcommerceProductsView() {
 
   useEffect(() => {
     getProductList();
-  }, [currentPage]);
+  }, [currentPage, filter.main]);
 
-  let body = { size: itemsPerPage, page: currentPage };
+  useEffect(() => {
+    getCategoryList();
+  }, []);
+
+  let body = { size: itemsPerPage, page: currentPage, main: filter?.main };
 
   const getProductList = () => {
     try {
@@ -57,6 +67,24 @@ export default function EcommerceProductsView() {
         .get(`${BASE_URL}v1/content/product`, { params: body })
         .then((res) => {
           setProducts(res?.data);
+        });
+    } catch (error) {
+      return;
+    }
+  };
+  useEffect(() => {
+    getCategoryList();
+  }, []);
+
+  const getCategoryList = () => {
+    try {
+      axios
+        .get(`${BASE_URL}v1/category`, { params: { main: 1 } })
+        .then((res) => {
+          const filteredCategories = res?.data?.filter(
+            (data) => data?.parent === null
+          );
+          setcategory(filteredCategories);
         });
     } catch (error) {
       return;
@@ -94,6 +122,9 @@ export default function EcommerceProductsView() {
           <EcommerceFilters
             open={mobileOpen.value}
             onClose={mobileOpen.onFalse}
+            category={category}
+            setFilter={setFilter}
+            filter={filter}
           />
         </Stack>
 
@@ -110,9 +141,7 @@ export default function EcommerceProductsView() {
             justifyContent="space-between"
             sx={{ mb: 5, width: "100%" }}
           >
-            <Box
-              sx={{ bgcolor: "background.neutral", px: 3, borderRadius: "3px" }}
-            >
+            <Box sx={{ px: 3, borderRadius: "3px" }}>
               <Tabs
                 value={tab}
                 scrollButtons="auto"

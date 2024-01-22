@@ -92,7 +92,7 @@ export default function EcommerceProductViewListItem({ product, ...other }) {
 
           <Link
             component={RouterLink}
-            href={paths.eCommerce.product}
+            href={`${paths.oyudent.product}/${product?.id}`}
             color="inherit"
           >
             <TextMaxLine variant="h6" line={1}>

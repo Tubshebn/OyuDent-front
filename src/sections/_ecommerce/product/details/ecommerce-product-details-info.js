@@ -17,6 +17,7 @@ import { useResponsive } from "src/hooks/use-responsive";
 import ProductPrice from "../../common/product-price";
 import ProductColorPicker from "../../../home/components/subcomponents/product-color-picker";
 import ProductOptionPicker from "../../../home/components/subcomponents/product-option-picker";
+import { Box } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
@@ -36,14 +37,7 @@ const MEMORY_OPTIONS = [
 
 // ----------------------------------------------------------------------
 
-export default function EcommerceProductDetailsInfo({
-  name,
-  price,
-  ratingNumber,
-  totalReviews,
-  priceSale,
-  caption,
-}) {
+export default function EcommerceProductDetailsInfo({ product }) {
   const mdUp = useResponsive("up", "md");
 
   const [color, setColor] = useState("red");
@@ -60,131 +54,43 @@ export default function EcommerceProductDetailsInfo({
 
   return (
     <>
-      <Label color="success" sx={{ mb: 3 }}>
-        In Stock
-      </Label>
-
-      <Stack spacing={1} sx={{ mb: 2 }}>
-        <Typography variant="h4"> {name} </Typography>
-
-        <Stack spacing={0.5} direction="row" alignItems="center">
-          <Rating size="small" value={ratingNumber} readOnly precision={0.5} />
-
-          <Typography variant="caption" sx={{ color: "text.disabled" }}>
-            ({totalReviews} reviews)
-          </Typography>
-        </Stack>
+      <Stack spacing={1} sx={{ mb: 2, mt: 20 }}>
+        <Typography variant="h4"> {product?.name} </Typography>
       </Stack>
-
       <Stack spacing={2}>
-        <ProductPrice
-          price={price}
-          priceSale={priceSale}
-          sx={{ typography: "h5" }}
-        />
-
-        <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          {caption}
-        </Typography>
-      </Stack>
-
-      <Stack spacing={3} sx={{ my: 5 }}>
-        <Stack spacing={2}>
-          <Typography variant="subtitle2">Color</Typography>
-          <ProductColorPicker
-            value={color}
-            onChange={handleChangeColor}
-            options={COLOR_OPTIONS}
-          />
-        </Stack>
+        <ProductPrice price={product?.price} sx={{ typography: "h5" }} />
 
         <Stack spacing={2}>
-          <Typography variant="subtitle2">Memory</Typography>
-          <ProductOptionPicker
-            value={memory}
-            onChange={handleChangeMemory}
-            options={MEMORY_OPTIONS}
-          />
+          <Stack
+            spacing={0.5}
+            direction={{ xs: "column", sm: "row" }}
+            alignItems={{ sm: "center" }}
+            sx={{ typography: "body2" }}
+          >
+            <Box
+              component="span"
+              sx={{ width: 160, color: "text.secondary", mt: 1 }}
+            >
+              {"Ангилал:"}
+            </Box>
+            <Box component="span">{product?.category.name}</Box>
+          </Stack>
         </Stack>
       </Stack>
-
-      <Stack
-        spacing={2}
-        direction={{ xs: "column", md: "row" }}
-        alignItems={{ md: "center" }}
-      >
-        <TextField
-          select
-          hiddenLabel
-          SelectProps={{
-            native: true,
-          }}
-          sx={{
-            minWidth: 100,
-          }}
+      <Stack spacing={2}>
+        <Stack
+          spacing={0.5}
+          direction={{ xs: "column", sm: "row" }}
+          alignItems={{ sm: "center" }}
+          sx={{ typography: "body2" }}
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </TextField>
-
-        <Stack direction="row" spacing={2}>
-          <Button
-            component={RouterLink}
-            href={paths.eCommerce.cart}
-            fullWidth={!mdUp}
-            size="large"
-            color="inherit"
-            variant="contained"
-            startIcon={<Iconify icon="carbon:shopping-cart-plus" />}
+          <Box
+            component="span"
+            sx={{ width: 160, color: "text.secondary", mt: 1 }}
           >
-            Add to Cart
-          </Button>
-
-          <Button
-            component={RouterLink}
-            href={paths.eCommerce.cart}
-            fullWidth={!mdUp}
-            size="large"
-            color="primary"
-            variant="contained"
-          >
-            Buy Now
-          </Button>
-        </Stack>
-      </Stack>
-
-      <Divider sx={{ borderStyle: "dashed", my: 3 }} />
-
-      <Stack
-        spacing={3}
-        direction="row"
-        justifyContent={{ xs: "center", md: "unset" }}
-      >
-        <Stack
-          direction="row"
-          alignItems="center"
-          sx={{ typography: "subtitle2" }}
-        >
-          <Iconify icon="carbon:add-alt" sx={{ mr: 1 }} /> Compare
-        </Stack>
-
-        <Stack
-          direction="row"
-          alignItems="center"
-          sx={{ typography: "subtitle2" }}
-        >
-          <Iconify icon="carbon:favorite" sx={{ mr: 1 }} /> Compare
-        </Stack>
-
-        <Stack
-          direction="row"
-          alignItems="center"
-          sx={{ typography: "subtitle2" }}
-        >
-          <Iconify icon="carbon:share" sx={{ mr: 1 }} /> Compare
+            {"Үйлдвэрлэгч:"}
+          </Box>
+          <Box component="span">{product?.manufacturer.name}</Box>
         </Stack>
       </Stack>
     </>

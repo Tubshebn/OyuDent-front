@@ -8,6 +8,7 @@ export const paths = {
     products: "/products",
     post: "/post",
     posts: "/posts",
+    product: "/product",
   },
 
   // Marketing

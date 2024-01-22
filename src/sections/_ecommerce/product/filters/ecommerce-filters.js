@@ -21,139 +21,51 @@ import FilterShipping from "./filter-shipping";
 
 // ----------------------------------------------------------------------
 
-const BRAND_OPTIONS = ["Apple", "Samsung", "Xiaomi", "Honor"];
-
-const CATEGORY_OPTIONS = [
-  "Apple iPhone",
-  "Samsung Galaxy",
-  "Nike Air Max",
-  "Adidas Ultraboost",
-  "Sony PlayStation",
-];
-
-const SHIPPING_OPTIONS = ["Fast", "Saving", "Free"];
-
-const TAG_OPTIONS = [
-  "Books and Media",
-  "Pet",
-  "Electronics",
-  "Food",
-  "Automotive and Industrial",
-];
-
 // ----------------------------------------------------------------------
 
-const defaultValues = {
-  filterBrand: [BRAND_OPTIONS[1]],
-  filterCategories: "",
-  filterRating: null,
-  filterStock: false,
-  filterShipping: [],
-  filterTag: [],
-  filterPrice: {
-    start: 0,
-    end: 0,
-  },
-};
-
-export default function EcommerceFilters({ open, onClose }) {
+export default function EcommerceFilters({
+  open,
+  onClose,
+  filter,
+  setFilter,
+  category,
+}) {
   const mdUp = useResponsive("up", "md");
-
-  const [filters, setFilters] = useState(defaultValues);
-
-  const getSelected = (selectedItems, item) =>
-    selectedItems.includes(item)
-      ? selectedItems.filter((value) => value !== item)
-      : [...selectedItems, item];
+  const [open2, setopen2] = useState(false);
 
   const handleChangeCategories = useCallback(
-    (name) => {
-      setFilters({
-        ...filters,
-        filterCategories: name,
-      });
+    (id) => {
+      setopen2(!false),
+        setFilter({
+          ...filter,
+          main: id,
+        });
     },
-    [filters]
+    [filter]
   );
 
-  const handleChangeBrand = useCallback(
-    (name) => {
-      setFilters({
-        ...filters,
-        filterBrand: getSelected(filters.filterBrand, name),
-      });
-    },
-    [filters]
-  );
+  //   const handleChangeBrand = useCallback(
+  //     (name) => {
+  //       setFilters({
+  //         ...filters,
+  //         filterBrand: getSelected(filters.filterBrand, name),
+  //       });
+  //     },
+  //     [filters]
+  //   );
 
-  const handleChangeShipping = useCallback(
-    (name) => {
-      setFilters({
-        ...filters,
-        filterShipping: getSelected(filters.filterShipping, name),
-      });
-    },
-    [filters]
-  );
-
-  const handleChangeTag = useCallback(
-    (name) => {
-      setFilters({
-        ...filters,
-        filterTag: getSelected(filters.filterTag, name),
-      });
-    },
-    [filters]
-  );
-
-  const handleChangeRating = useCallback(
-    (event) => {
-      setFilters({
-        ...filters,
-        filterRating: event.target.value,
-      });
-    },
-    [filters]
-  );
-
-  const handleChangeStartPrice = useCallback(
-    (event) => {
-      setFilters({
-        ...filters,
-        filterPrice: {
-          ...filters.filterPrice,
-          start: Number(event.target.value),
-        },
-      });
-    },
-    [filters]
-  );
-
-  const handleChangeEndPrice = useCallback(
-    (event) => {
-      setFilters({
-        ...filters,
-        filterPrice: {
-          ...filters.filterPrice,
-          end: Number(event.target.value),
-        },
-      });
-    },
-    [filters]
-  );
-
-  const handleChangeStock = useCallback(
-    (event) => {
-      setFilters({
-        ...filters,
-        filterStock: event.target.checked,
-      });
-    },
-    [filters]
-  );
+  //   const handleChangeStock = useCallback(
+  //     (event) => {
+  //       setFilters({
+  //         ...filters,
+  //         filterStock: event.target.checked,
+  //       });
+  //     },
+  //     [filters]
+  //   );
 
   const handleClearAll = useCallback(() => {
-    setFilters(defaultValues);
+    setFilter({ main: null, sub: null, manufacturer: null });
   }, []);
 
   const renderContent = (
@@ -165,25 +77,26 @@ export default function EcommerceFilters({ open, onClose }) {
         width: { xs: 1, md: 280 },
       }}
     >
-      <Block title="Category">
+      <Block title="Ангилал">
         <FilterCategory
-          filterCategories={filters.filterCategories}
+          filterCategories={filter?.main}
           onChangeCategories={handleChangeCategories}
-          options={CATEGORY_OPTIONS}
+          options={category}
+          open2={open2}
           sx={{ mt: 2 }}
         />
       </Block>
 
-      <Block title="Brand">
+      {/* <Block title="Brand">
         <FilterBrand
           filterBrand={filters.filterBrand}
           onChangeBrand={handleChangeBrand}
           options={BRAND_OPTIONS}
           sx={{ mt: 1 }}
         />
-      </Block>
+      </Block> */}
 
-      <Block title="Price">
+      {/* <Block title="Price">
         <FilterPrice
           filterPrice={filters.filterPrice}
           onChangeStartPrice={handleChangeStartPrice}
@@ -198,12 +111,12 @@ export default function EcommerceFilters({ open, onClose }) {
           onChangeRating={handleChangeRating}
           sx={{ mt: 2 }}
         />
-      </Block>
+      </Block> */}
 
-      <FilterStock
+      {/* <FilterStock
         filterStock={filters.filterStock}
         onChangeStock={handleChangeStock}
-      />
+      /> */}
 
       <Button
         fullWidth
@@ -213,7 +126,7 @@ export default function EcommerceFilters({ open, onClose }) {
         startIcon={<Iconify icon="carbon:trash-can" />}
         onClick={handleClearAll}
       >
-        Clear All
+        Бүгдийг арилгах
       </Button>
     </Stack>
   );
