@@ -61,6 +61,7 @@ export default function About() {
       sx={{
         pt: { xs: 5, md: 10 },
         pb: 10,
+        mt: 10,
       }}
     >
       <Grid
