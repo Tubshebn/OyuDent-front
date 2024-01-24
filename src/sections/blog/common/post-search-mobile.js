@@ -8,30 +8,24 @@ import { useResponsive } from "src/hooks/use-responsive";
 // ----------------------------------------------------------------------
 
 export default function PostSearchMobile() {
-  const mdDown = useResponsive("down", "md");
-
   return (
     <>
-      {mdDown && (
-        <Box sx={{ px: 2, pb: 3 }}>
-          <TextField
-            fullWidth
-            hiddenLabel
-            placeholder="Search..."
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="center">
-                  <Iconify
-                    icon="carbon:search"
-                    width={24}
-                    sx={{ color: "text.disabled" }}
-                  />
-                </InputAdornment>
-              ),
-            }}
-          />
-        </Box>
-      )}
+      <TextField
+        fullWidth
+        hiddenLabel
+        placeholder="Search..."
+        InputProps={{
+          startAdornment: (
+            <InputAdornment position="center">
+              <Iconify
+                icon="carbon:search"
+                width={24}
+                sx={{ color: "text.disabled" }}
+              />
+            </InputAdornment>
+          ),
+        }}
+      />
     </>
   );
 }

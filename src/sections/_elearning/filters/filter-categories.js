@@ -1,72 +1,56 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import Chip from '@mui/material/Chip';
-import TextField from '@mui/material/TextField';
-import Checkbox, { checkboxClasses } from '@mui/material/Checkbox';
-import Autocomplete, { autocompleteClasses } from '@mui/material/Autocomplete';
+import TextField from "@mui/material/TextField";
+import Autocomplete from "@mui/material/Autocomplete";
+import InputAdornment from "@mui/material/InputAdornment";
 
-import { _tags } from 'src/_mock';
+import { _tags } from "src/_mock";
+import Iconify from "src/components/iconify";
 
 // ----------------------------------------------------------------------
 
-export default function FilterCategories({ filterCategories, onChangeCategory }) {
+export default function FilterCategories({
+  filterCategories,
+  onChangeCategory,
+}) {
   return (
     <Autocomplete
-      multiple
-      limitTags={2}
-      disableCloseOnSelect
+      sx={{ width: 1 }}
       options={_tags}
       getOptionLabel={(option) => option}
       value={filterCategories}
       onChange={(event, value) => onChangeCategory(value)}
-      slotProps={{
-        paper: {
-          sx: {
-            [`& .${autocompleteClasses.listbox}`]: {
-              [`& .${autocompleteClasses.option}`]: {
-                [`& .${checkboxClasses.root}`]: {
-                  p: 0,
-                  mr: 1,
-                },
-              },
-            },
-          },
-        },
-      }}
       renderInput={(params) => (
         <TextField
           {...params}
-          hiddenLabel={!filterCategories.length}
-          placeholder="All Categories"
+          hiddenLabel
+          placeholder="Categories"
           InputProps={{
             ...params.InputProps,
-            autoComplete: 'search',
+            autoComplete: "search",
+            startAdornment: (
+              <InputAdornment position="start">
+                <Iconify
+                  width={24}
+                  icon="carbon:inventory-management"
+                  sx={{ color: "text.disabled", mr: 1 }}
+                />
+              </InputAdornment>
+            ),
+            sx: { pb: 1 },
           }}
         />
       )}
-      renderOption={(props, option, { selected }) => (
+      renderOption={(props, option) => (
         <li {...props} key={option}>
-          <Checkbox key={option} size="small" disableRipple checked={selected} />
           {option}
         </li>
       )}
-      renderTags={(selected, getTagProps) =>
-        selected.map((option, index) => (
-          <Chip
-            {...getTagProps({ index })}
-            key={option}
-            label={option}
-            size="small"
-            color="info"
-            variant="soft"
-          />
-        ))
-      }
     />
   );
 }
 
 FilterCategories.propTypes = {
-  filterCategories: PropTypes.arrayOf(PropTypes.string),
+  filterCategories: PropTypes.string,
   onChangeCategory: PropTypes.func,
 };

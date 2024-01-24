@@ -1,9 +1,9 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import Box from '@mui/material/Box';
-import Pagination, { paginationClasses } from '@mui/material/Pagination';
+import Box from "@mui/material/Box";
+import Pagination, { paginationClasses } from "@mui/material/Pagination";
 
-import MarketingPostItem from './marketing-post-item';
+import MarketingPostItem from "./marketing-post-item";
 
 // ----------------------------------------------------------------------
 
@@ -13,11 +13,11 @@ export default function MarketingPosts({ posts }) {
       <Box
         sx={{
           columnGap: 4,
-          display: 'grid',
+          display: "grid",
           rowGap: { xs: 4, md: 5 },
           gridTemplateColumns: {
-            xs: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
+            xs: "repeat(1, 1fr)",
+            sm: "repeat(3, 1fr)",
           },
         }}
       >
@@ -32,7 +32,7 @@ export default function MarketingPosts({ posts }) {
         sx={{
           my: 10,
           [`& .${paginationClasses.ul}`]: {
-            justifyContent: 'center',
+            justifyContent: "center",
           },
         }}
       />

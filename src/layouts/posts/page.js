@@ -8,7 +8,6 @@ export default function PostsLayout({ children }) {
   return (
     <>
       <Header />
-
       {children}
       <Footer />
     </>

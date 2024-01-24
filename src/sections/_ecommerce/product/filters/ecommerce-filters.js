@@ -18,6 +18,7 @@ import FilterStock from "./filter-stock";
 import FilterRating from "./filter-rating";
 import FilterCategory from "./filter-category";
 import FilterShipping from "./filter-shipping";
+import FilterCategories from "src/sections/About/_career/filters/filter-categories";
 
 // ----------------------------------------------------------------------
 
@@ -28,18 +29,27 @@ export default function EcommerceFilters({
   onClose,
   filter,
   setFilter,
-  category,
+  sub,
+  manu,
 }) {
   const mdUp = useResponsive("up", "md");
-  const [open2, setopen2] = useState(false);
 
   const handleChangeCategories = useCallback(
     (id) => {
-      setopen2(!false),
-        setFilter({
-          ...filter,
-          main: id,
-        });
+      setFilter({
+        ...filter,
+        sub: id,
+      });
+    },
+    [filter]
+  );
+
+  const handleChangeManu = useCallback(
+    (id) => {
+      setFilter({
+        ...filter,
+        manufacturer: id,
+      });
     },
     [filter]
   );
@@ -75,26 +85,27 @@ export default function EcommerceFilters({
       sx={{
         flexShrink: 0,
         width: { xs: 1, md: 280 },
+        flexGrow: 1,
       }}
     >
       <Block title="Ангилал">
         <FilterCategory
-          filterCategories={filter?.main}
+          filterCategories={filter?.sub}
           onChangeCategories={handleChangeCategories}
-          options={category}
-          open2={open2}
+          options={sub}
           sx={{ mt: 2 }}
         />
       </Block>
 
-      {/* <Block title="Brand">
-        <FilterBrand
-          filterBrand={filters.filterBrand}
-          onChangeBrand={handleChangeBrand}
-          options={BRAND_OPTIONS}
-          sx={{ mt: 1 }}
-        />
-      </Block> */}
+      <Stack sx={{ width: "100%" }}>
+        <Block title="Үйлдвэрлэгч">
+          <FilterCategories
+            filterManu={filter?.manufacturer}
+            handleChangeManu={handleChangeManu}
+            options={manu}
+          />
+        </Block>
+      </Stack>
 
       {/* <Block title="Price">
         <FilterPrice
@@ -126,7 +137,7 @@ export default function EcommerceFilters({
         startIcon={<Iconify icon="carbon:trash-can" />}
         onClick={handleClearAll}
       >
-        Бүгдийг арилгах
+        Шүүлтүүр арилгах
       </Button>
     </Stack>
   );
@@ -182,7 +193,7 @@ function Block({ title, children, ...other }) {
         />
       </Stack>
 
-      <Collapse unmountOnExit in={contentOpen.value} sx={{ px: 0.5 }}>
+      <Collapse unmountOnExit in={contentOpen.value} sx={{ px: 0.5, width: 1 }}>
         {children}
       </Collapse>
     </Stack>
