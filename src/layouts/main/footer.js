@@ -14,7 +14,7 @@ import { alpha, styled } from "@mui/material/styles";
 import InputAdornment from "@mui/material/InputAdornment";
 import Button, { buttonClasses } from "@mui/material/Button";
 
-import { _socials, _tours, _careerPosts } from "src/_mock";
+import { _socials } from "src/_mock";
 import Logo from "src/components/logo";
 import Iconify from "src/components/iconify";
 import { usePathname } from "src/routes/hooks";
@@ -23,7 +23,6 @@ import { RouterLink } from "src/routes/components";
 import { useResponsive } from "src/hooks/use-responsive";
 
 import { pageLinks, navConfig } from "./config-navigation";
-import MarketingFeaturedPosts from "src/sections/blog/marketing/marketing-featured-posts";
 
 // ----------------------------------------------------------------------
 
@@ -56,20 +55,15 @@ export default function Footer() {
   const isHome = pathname === "/";
 
   const simpleFooter = (
-    <Container
-      sx={{
-        py: 2,
-        textAlign: "center",
-      }}
-    >
-      <Logo single sx={{ ml: 20 }} />
+    <Container sx={{ py: 8, textAlign: "center" }}>
+      <Logo single />
 
       <Typography
         variant="caption"
         component="div"
         sx={{ color: "text.secondary" }}
       >
-        © 2024. Оюу дент ХХК
+        © 2023. All rights reserved
       </Typography>
     </Container>
   );
@@ -79,76 +73,120 @@ export default function Footer() {
       <Divider />
 
       <Container
+        maxWidth="false"
         sx={{
           overflow: "hidden",
-          py: { xs: 8, md: 2 },
+          py: { xs: 8, md: 3 },
+          px: { xs: 3, md: 5 },
         }}
       >
         <Grid container spacing={3}>
           <Grid xs={12} md={12}>
             <Stack
-              spacing={{ xs: 3, md: 2 }}
-              flexDirection="row"
-              justifyContent={{ md: "space-between" }}
+              spacing={{ xs: 3, md: 5 }}
+              sx={{
+                flexDirection: "row",
+                justifyContent: { md: "space-between" },
+              }}
             >
-              <Stack spacing={3}>
+              <Stack spacing={1}>
                 <Logo />
 
                 <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                  OYUDENT.COM | Шүдний эмнэлэгийн материал, тоног төхөөрөмж,
-                  багаж хэрэгсэл
+                  Шүдний эмнэлэгийн материал,
+                  <br />
+                  тоног төхөөрөмж, багаж хэрэгсэл
                 </Typography>
               </Stack>
 
-              {/* <Stack spacing={1}>
-                <Typography variant="h6">Community</Typography>
-                <Link variant="body2" sx={{ color: "text.primary" }}>
-                  Documentation
-                </Link>
+              <Stack spacing={1} sx={{ py: { md: 3 } }}>
+                <Typography variant="h6">Бидэнтэй холбогдох</Typography>
+                <Typography
+                  variant="subtitle2"
+                  sx={{ color: "text.secondary" }}
+                >
+                  <span>Утас:</span> 9990-8582
+                </Typography>
 
-                <Link variant="body2" sx={{ color: "text.primary" }}>
-                  Changelog
-                </Link>
+                <Typography
+                  variant="subtitle2"
+                  sx={{ color: "text.secondary" }}
+                >
+                  <span>И-мэйл: </span> info@oyudent.com
+                </Typography>
+              </Stack>
 
-                <Link variant="body2" sx={{ color: "text.primary" }}>
-                  Contributing
-                </Link>
-              </Stack> */}
+              <Stack spacing={2} sx={{ py: { md: 3 } }}>
+                <Stack spacing={1}>
+                  <Typography variant="h6">И-мэйл үлдээх</Typography>
+                  <Typography
+                    variant="caption"
+                    sx={{ color: "text.secondary" }}
+                  >
+                    Та цаг алдалгүй шинэ мэдээлэл авахыг хүсвэл и-мэйл хаягаа
+                    үлдээгээрэй
+                  </Typography>
+                </Stack>
 
-              <Stack spacing={2}></Stack>
+                <TextField
+                  fullWidth
+                  hiddenLabel
+                  sx={{ py: { md: 3 } }}
+                  placeholder="Email address"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <Button
+                          variant="contained"
+                          color="inherit"
+                          size="large"
+                          sx={{ mr: -1.25 }}
+                        >
+                          Subscribe
+                        </Button>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Stack>
 
-              {/* <Stack spacing={2}>
-                <Typography variant="h6">Apps</Typography>
-                <AppStoreButton />
-              </Stack> */}
+              <Stack spacing={2} sx={{ py: { md: 3 } }}>
+                <Typography variant="h6">Сошиал хаягууд</Typography>
+                <Stack direction="row" alignItems="center">
+                  {_socials.map((social) => (
+                    <IconButton
+                      key={social.value}
+                      color="primary"
+                      href={social.value}
+                    >
+                      <Iconify icon={social.icon} />
+                    </IconButton>
+                  ))}
+                </Stack>
+              </Stack>
             </Stack>
           </Grid>
         </Grid>
+      </Container>
+
+      <Divider />
+
+      <Container>
         <Stack
           spacing={2.5}
           direction={{ xs: "column", md: "row" }}
-          justifyContent="space-between"
+          justifyContent="center"
           sx={{ py: 3, textAlign: "center" }}
         >
           <Typography variant="caption" sx={{ color: "text.secondary" }}>
-            © 2024 Оюу дент ХХК
+            © 2023 Оюу дент ХХК
           </Typography>
-
-          {/* <Stack direction="row" spacing={3} justifyContent="center">
-            <Link variant="caption" sx={{ color: "text.secondary" }}>
-              Help Center
-            </Link>
-
-            <Link variant="caption" sx={{ color: "text.secondary" }}>
-              Terms of Service
-            </Link>
-          </Stack> */}
         </Stack>
       </Container>
     </>
   );
 
-  return <footer>{isHome ? simpleFooter : simpleFooter}</footer>;
+  return <footer>{isHome ? mainFooter : mainFooter}</footer>;
 }
 
 // ----------------------------------------------------------------------

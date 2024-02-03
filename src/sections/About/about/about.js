@@ -72,10 +72,7 @@ export default function About() {
       >
         {mdUp && (
           <Grid xs={12} md={6} lg={5}>
-            <Image
-              alt="teams"
-              src="/assets/illustrations/illustration_teams.svg"
-            />
+            <Image alt="teams" src={"/assets/Oyudent.svg"} />
           </Grid>
         )}
 
@@ -87,63 +84,28 @@ export default function About() {
             textAlign: { xs: "center", md: "left" },
           }}
         >
-          <Typography variant="h2">Who We Are?</Typography>
-
           <Typography sx={{ mt: 3, mb: 5, color: "text.secondary" }}>
-            Vivamus consectetuer hendrerit lacus. Curabitur a felis in nunc
-            fringilla tristique. Nulla neque dolor, sagittis eget, iaculis quis,
-            molestie non, velit.
-            <br />
-            <br />
-            Nam pretium turpis et arcu. Praesent porttitor, nulla vitae posuere
-            iaculis, arcu nisl dignissim dolor, a pretium mi sem ut ipsum.
-            Praesent venenatis metus at tortor pulvinar varius.
+            Манай компани нь зөвхөн шүдний эмнэлгийн материал тоног төхөөрөмж
+            ханган нийлүүлэх чиглэлээр дагнан ажилладаг мэргэшсэн байгууллага
+            бөгөөд шүдний эмнэлгийн тоног төхөөрөмжийг ХБНГУ-ын Ritter, Renfert,
+            Kulzer, Dentaururm, Японы Yamahachy, БНХАУ-ын Woodpecker, Runeys,
+            БНСУ-ын Genoray, Dmetec, Италийн Trident зэрэг компани, шүдний
+            эмчилгээний материал, хиймэл шүдний материал хэрэгслийн ХБНГУ-ын
+            Kultzer, Dentaurum dental, Швейцарийн PD, АНУ-ын Neodental, ОХУ-ын
+            Технодент, Енигма, Кмиз, Украйны Стома, Бразилын DFL, Австрийн
+            Edelweiss, Италийн Medesy, БНСУ-ын Metаbiomed, CK Dental, Vericom,
+            Японы Mani, БНХАУ-ын SND зэрэг компани, нийтдээ 30 гаран улсын 100
+            гаран компаний чанарын өндөр шаардлага хангасан олон улсын ISO, CE
+            сертификаттай бүтээгдэхүүнийг Монгол улсад албан ёсны борлуулах
+            эрхтэйгээр, мэргэжлийн байгууллагуудын хяналттай зохих зөвшөөрөлтэй
+            импортлон оруулж ирж 350 гаруй эрүүл мэндийн байгууллагууд, шүдний
+            эмнэлгүүдэд ханган нийлүүлж байна. Монголын зах зээлд шинэ техник
+            технологи, сүүлийн үеийн шинэ чанартай материал тоног төхөөрөмжийг
+            боломжийн үнээр нийлүүлэх тэдгээрийг эмч мэргэжилтэн нарт таниулан
+            сургах талаар санаачилга гарган ажилладаг.
           </Typography>
-
-          <Button
-            variant="outlined"
-            color="inherit"
-            size="large"
-            endIcon={<Iconify icon="carbon:chevron-right" />}
-          >
-            Check Our Work
-          </Button>
         </Grid>
       </Grid>
-
-      <Box
-        sx={{
-          mt: 10,
-          textAlign: "center",
-          display: "grid",
-          gap: { xs: 5, md: 8 },
-          gridTemplateColumns: {
-            xs: "repeat(1, 1fr)",
-            sm: "repeat(2, 1fr)",
-            md: "repeat(4, 1fr)",
-          },
-        }}
-      >
-        {SUMMARY.map((value, index) => (
-          <div key={value.title}>
-            <StyledIcon color={COLORS[index]}>
-              <Iconify icon={value.icon} width={48} />
-            </StyledIcon>
-
-            <Typography variant="h2" sx={{ mt: 2, mb: 1 }}>
-              <CountUp
-                start={value.total / 5}
-                end={value.total}
-                formattingFn={(newValue) => fShortenNumber(newValue)}
-              />
-            </Typography>
-
-            <Typography sx={{ color: "text.secondary" }}>
-              {value.title}
-            </Typography>
-          </div>
-        ))}
-      </Box>
     </Container>
   );
 }

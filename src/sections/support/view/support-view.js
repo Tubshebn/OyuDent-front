@@ -13,31 +13,20 @@ import { useBoolean } from "src/hooks/use-boolean";
 
 import SupportNav from "../support-nav";
 import SupportContent from "../support-content";
+import { solutions } from "src/_mock";
 
 // ----------------------------------------------------------------------
 
-const TOPICS = [
-  {
-    title: "ТОНОГ ТӨХӨӨРӨМЖ",
-    icon: "/assets/icons/faq/ic_faq_account.svg",
-    content: <SupportContent posts={_careerPosts.slice(0, 8)} />,
-  },
-  {
-    title: "ЭМЧИЛГЭЭНИЙ МАТЕРИАЛ",
-    icon: "/assets/icons/faq/ic_faq_payment.svg",
-    content: <SupportContent posts={_careerPosts.slice(0, 8)} />,
-  },
-  {
-    title: "БАГАЖ ХЭРЭГСЭЛ",
-    icon: "/assets/icons/faq/ic_faq_delivery.svg",
-    content: <SupportContent posts={_careerPosts.slice(0, 8)} />,
-  },
-];
+const TOPICS = solutions?.map((data, i) => ({
+  title: data.mainCategory,
+  icon: "/assets/icons/faq/ic_faq_account.svg",
+  content: <SupportContent data={data?.subCategories} />,
+}));
 
 // ----------------------------------------------------------------------
 
 export default function SupportView() {
-  const [topic, setTopic] = useState("ТОНОГ ТӨХӨӨРӨМЖ");
+  const [topic, setTopic] = useState("Сувгийн эмчилгээ");
 
   const mobileOpen = useBoolean();
 

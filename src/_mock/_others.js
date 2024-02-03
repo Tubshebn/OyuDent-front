@@ -27,7 +27,7 @@ export const _testimonials = [...Array(8)].map((_, index) => ({
 
 export const _socials = [
   {
-    value: "facebook",
+    value: "https://www.facebook.com/oyudent",
     label: "FaceBook",
     icon: "carbon:logo-facebook",
     color: "#1877F2",
@@ -60,7 +60,7 @@ const LAT_LONG = [
   [20.96, 26.27],
 ];
 
-export const _offices = ["Portugal"].map((office, index) => ({
+export const _offices = ["Салбар 1"].map((office, index) => ({
   id: _mock.id(index),
   country: office,
   address: _mock.fullAddress(index),

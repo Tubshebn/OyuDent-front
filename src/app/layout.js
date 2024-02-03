@@ -10,6 +10,7 @@ import { LocalizationProvider } from "src/locales";
 import ProgressBar from "src/components/progress-bar";
 import MotionLazy from "src/components/animate/motion-lazy";
 import { SettingsDrawer, SettingsProvider } from "src/components/settings";
+import { Api } from "src/service/Api";
 
 // ----------------------------------------------------------------------
 
@@ -33,6 +34,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={primaryFont.className}>
       <body>
+        {/* <AuthContext.Provider
+          value={{
+            handlers,
+            state,
+          }}
+        > */}
         <LocalizationProvider>
           <SettingsProvider
             defaultSettings={{
@@ -50,6 +57,7 @@ export default function RootLayout({ children }) {
             </ThemeProvider>
           </SettingsProvider>
         </LocalizationProvider>
+        {/* </AuthContext.Provider> */}
       </body>
     </html>
   );

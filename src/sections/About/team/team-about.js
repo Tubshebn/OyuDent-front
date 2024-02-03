@@ -17,7 +17,7 @@ export default function TeamAbout({ members }) {
       }}
     >
       <Typography variant="h2" sx={{ textAlign: "center" }}>
-        Great Team Is The Key
+        Хүний нөөцийн мэргэшсэн байдал
       </Typography>
 
       <Typography
@@ -30,8 +30,8 @@ export default function TeamAbout({ members }) {
           color: "text.secondary",
         }}
       >
-        Since wire-frame renderings are relatively simple and fast to calculate,
-        they are often used in cases
+        Оюудент ХХК нь одоогийн байдлаар уг бүрэлдэхүүнтэйгээр үйл ажиллагаа
+        явуулж байна.
       </Typography>
 
       <Box

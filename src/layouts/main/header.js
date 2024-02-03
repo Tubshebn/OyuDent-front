@@ -85,8 +85,7 @@ export default function Header({ headerOnDark }) {
               </Box>
             </Link>
           </Box>
-
-          {mdUp && <NavDesktop data={navConfig} />}
+          <Box>{mdUp && <NavDesktop data={navConfig} />}</Box>
 
           <Stack
             spacing={2}
@@ -94,8 +93,6 @@ export default function Header({ headerOnDark }) {
             alignItems="center"
             justifyContent="flex-end"
           >
-            <Stack spacing={1} direction="row" alignItems="center"></Stack>
-
             {mdUp && (
               <>
                 <Button

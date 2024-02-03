@@ -11,13 +11,14 @@ import Label from "src/components/label";
 import Iconify from "src/components/iconify";
 import { RouterLink } from "src/routes/components";
 import TextMaxLine from "src/components/text-max-line";
+import { IMAGE_URL } from "src/config-global";
 
 // ----------------------------------------------------------------------
 
 export default function HomeProductItemHero({ product }) {
   const theme = useTheme();
 
-  const { label, title, caption, coverUrl } = product;
+  const { image, title, description, button, buttonUrl } = product;
 
   return (
     <Grid
@@ -38,44 +39,49 @@ export default function HomeProductItemHero({ product }) {
             textAlign: { xs: "center", md: "unset" },
           }}
         >
-          <Label color="warning" sx={{ mb: 2 }}>
-            {label}
-          </Label>
-
           <TextMaxLine variant="h3" sx={{ mb: 2 }}>
             {title}
           </TextMaxLine>
 
           <TextMaxLine variant="body2" sx={{ mb: 5, color: "text.secondary" }}>
-            {caption}
+            {description}
           </TextMaxLine>
 
-          {/* <Button
+          <Button
             component={RouterLink}
-            href={paths.eCommerce.product}
+            href={`${buttonUrl}`}
             size="large"
             color="inherit"
             variant="contained"
             endIcon={<Iconify icon="carbon:chevron-right" />}
           >
-            Shop Now
-          </Button> */}
+            {button}
+          </Button>
         </Box>
       </Grid>
 
-      <Grid xs={12} md={6}>
-        <Image
-          src={coverUrl}
-          sx={{
-            filter: `drop-shadow(20px 20px 24px ${alpha(
-              theme.palette.common.black,
-              0.16
-            )})`,
-            maxWidth: 400,
-            ml: "auto",
-            mr: { xs: "auto", md: "unset" },
-          }}
-        />
+      <Grid
+        xs={12}
+        md={6}
+        sx={{ objectFit: "contain", objectPosition: "cover" }}
+      >
+        {product?.image2 && (
+          <Image
+            src={`${IMAGE_URL}/${product?.image2}`}
+            sx={{
+              filter: `drop-shadow(20px 20px 24px ${alpha(
+                theme.palette.common.black,
+                0.16
+              )})`,
+
+              maxWidth: 400,
+              height: 200,
+              ml: "auto",
+
+              mr: { xs: "auto", md: "unset" },
+            }}
+          />
+        )}
       </Grid>
     </Grid>
   );

@@ -50,7 +50,7 @@ export default function HomeLandingAbout() {
         container
         columnSpacing={{ xs: 0, md: 3 }}
         rowSpacing={{ xs: 5, md: 0 }}
-        justifyContent="space-between"
+        justifyContent="space-around"
       >
         <Grid
           xs={12}
@@ -60,13 +60,11 @@ export default function HomeLandingAbout() {
           }}
         >
           <Typography sx={{ color: "text.secondary" }}>
-            Оюудент ХХК нь 2001 оноос Шүдний эмчилгээ оношлогоо, жижиг мэс
+            “Оюудент ХХК нь 2001 оноос Шүдний эмчилгээ оношлогоо, жижиг мэс
             ажилбар, согог заслын эмнэлгийн тусгай зөвшөөрөл, 2006 оноос Шүдний
             эм, эмнэлгийн хэрэгсэл, тоног төхөөрөмж ханган нийлүүлэх тусгай
             зөвшөөрөлтэйгөөр өнөөдрийг хүртэл тасралтгүй үйл ажиллагаагаа явуулж
-            байна. Манай компани нь зөвхөн шүдний эмнэлгийн материал тоног
-            төхөөрөмж ханган нийлүүлэх чиглэлээр дагнан ажилладаг мэргэшсэн
-            байгууллага юм
+            байна
           </Typography>
 
           <Button
@@ -80,48 +78,8 @@ export default function HomeLandingAbout() {
           </Button>
         </Grid>
 
-        <Grid xs={12} md={6}>
-          <Stack spacing={5}>
-            {ROWS.map((row) => (
-              <Stack
-                key={row.label}
-                direction="row"
-                alignItems="center"
-                divider={
-                  <Divider
-                    flexItem
-                    orientation="vertical"
-                    sx={{ ml: 3, mr: 5, borderStyle: "dashed" }}
-                  />
-                }
-              >
-                <Stack spacing={1} sx={{ width: 1, maxWidth: 100 }}>
-                  <Stack direction="row">
-                    <Typography variant="h2">
-                      {fShortenNumber(row.total)}
-                    </Typography>
-                    <Box
-                      component="span"
-                      sx={{ color: "primary.main", typography: "h4" }}
-                    >
-                      +
-                    </Box>
-                  </Stack>
-
-                  <Typography
-                    variant="overline"
-                    sx={{ color: "text.disabled" }}
-                  >
-                    {row.label}
-                  </Typography>
-                </Stack>
-
-                <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                  {row.content}
-                </Typography>
-              </Stack>
-            ))}
-          </Stack>
+        <Grid xs={2} md={3}>
+          <img src={"/assets/Oyudent.svg"} />
         </Grid>
       </Grid>
     </Container>

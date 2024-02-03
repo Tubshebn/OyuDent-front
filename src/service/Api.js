@@ -1,14 +1,10 @@
+"use client";
 import axios from "axios";
 import React, { useEffect, useReducer } from "react";
 import AuthReducer from "src/context/Auth/authReducer";
+import { BASE_URL, IMAGE_URL } from "../config-global";
 import {
-  HOST_API_KEY,
-  HOST_API_KEY_APP,
-  HOST_FILE_UPLOAD_KEY,
-  HOST_IMAGE_UPLOAD_KEY,
-} from "../config-global";
-import {
-  jwtDecode,
+  jwt_Decode,
   removeSession,
   setSession,
   toastExpireAccess,
@@ -16,11 +12,11 @@ import {
 } from "./utils";
 
 const instance = axios.create({
-  baseURL: HOST_API_KEY,
+  baseURL: BASE_URL,
   timeout: 30000,
 });
 const instanceApp = axios.create({
-  baseURL: HOST_API_KEY_APP,
+  baseURL: BASE_URL,
   timeout: 30000,
 });
 
@@ -29,6 +25,7 @@ export const Api = () => {
     userToken: null,
     isLoggedIn: false,
     user: null,
+    productBrand: "",
   };
   useEffect(() => {
     isCheckUser();
@@ -44,7 +41,7 @@ export const Api = () => {
         let payload = {
           token,
           isLoggedIn: true,
-          user: jwtDecode(token),
+          user: jwt_Decode(token),
         };
         setSession(token);
         dispatch({ type: "IS_LOGGED_IN", payload });

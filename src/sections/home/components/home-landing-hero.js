@@ -10,7 +10,7 @@ import HomeProductItemHero from "./subcomponents/home-product-item-hero";
 
 // ----------------------------------------------------------------------
 
-export default function HomeLandingHero() {
+export default function HomeLandingHero({ banner }) {
   const theme = useTheme();
 
   const carousel = useCarousel({
@@ -40,7 +40,6 @@ export default function HomeLandingHero() {
         mt: 4,
       }}
     >
-      {/* <Header /> */}
       <Box
         sx={{
           ...bgGradient({
@@ -53,7 +52,7 @@ export default function HomeLandingHero() {
         }}
       >
         <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
-          {_productsCarousel.map((product) => (
+          {banner?.map((product) => (
             <HomeProductItemHero key={product.id} product={product} />
           ))}
         </Carousel>

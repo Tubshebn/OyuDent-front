@@ -12,6 +12,7 @@ import { RouterLink } from "src/routes/components";
 import TextMaxLine from "src/components/text-max-line";
 
 import ProductPrice from "../../../_ecommerce/common/product-price";
+import { IMAGE_URL } from "src/config-global";
 
 // ----------------------------------------------------------------------
 
@@ -23,7 +24,7 @@ export default function HomeProductItemHot({
   return (
     <Link
       component={RouterLink}
-      href={paths.eCommerce.product}
+      href={`${paths.oyudent.product}/${product?.id}`}
       color="inherit"
       underline="none"
     >
@@ -45,9 +46,11 @@ export default function HomeProductItemHot({
         }}
       >
         <Image
-          src={product.coverUrl}
+          src={`${IMAGE_URL}/${product?.picture}`}
           sx={{
             mb: 2,
+            width: "100%",
+            height: 200,
             borderRadius: 1.5,
             bgcolor: "background.neutral",
           }}
@@ -71,22 +74,6 @@ export default function HomeProductItemHot({
             }}
           />
         </Stack>
-
-        {hotProduct && (
-          <Stack direction="row" alignItems="center" spacing={1} sx={{ mt: 1 }}>
-            <LinearProgress
-              color="inherit"
-              variant="determinate"
-              value={(product.sold / product.stock) * 100}
-              sx={{ width: 1 }}
-            />
-
-            <Typography
-              variant="caption"
-              sx={{ flexShrink: 0, color: "text.disabled" }}
-            >{`🔥 ${product.sold} Sold`}</Typography>
-          </Stack>
-        )}
       </Paper>
     </Link>
   );

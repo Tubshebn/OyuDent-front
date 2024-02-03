@@ -1,12 +1,12 @@
 const reducer = (state, action) => {
   switch (action.type) {
-    case 'SIGN_IN':
+    case "SIGN_IN":
       return {
         ...state,
         userToken: action.payload.token,
       };
 
-    case 'IS_LOGGED_IN':
+    case "IS_LOGGED_IN":
       return {
         ...state,
         userToken: action.payload.token,
@@ -14,13 +14,13 @@ const reducer = (state, action) => {
         user: action.payload.user,
       };
 
-    case 'SIGN_OUT':
+    case "SIGN_OUT":
       return {
         ...state,
         userToken: null,
         isLoggedIn: false,
       };
-    case 'DYNAMIC_UPDATE':
+    case "DYNAMIC_UPDATE":
       return {
         ...state,
         [action.payload.type]: action.payload.value,

@@ -28,7 +28,7 @@ export default function TravelContactInfo() {
         <Container>
           <Stack sx={{ textAlign: "center" }}>
             <Typography marginBottom={6} variant="h3">
-              Бидэнтэй холбогдох
+              Манай хаяг
             </Typography>
           </Stack>
           <Box
@@ -90,32 +90,6 @@ function OfficeCard({ office }) {
           </Stack>
           <Typography variant="body2" sx={{ mt: 0.5 }}>
             {address}
-          </Typography>
-        </Stack>
-
-        <Stack spacing={0.5}>
-          <Stack
-            direction="row"
-            alignItems="center"
-            sx={{ typography: "subtitle2" }}
-          >
-            <Iconify icon="carbon:mobile" width={24} sx={{ mr: 1 }} /> Утас
-          </Stack>
-          <Typography variant="body2" sx={{ mt: 0.5 }}>
-            {phoneNumber}
-          </Typography>
-        </Stack>
-
-        <Stack spacing={0.5}>
-          <Stack
-            direction="row"
-            alignItems="center"
-            sx={{ typography: "subtitle2" }}
-          >
-            <Iconify icon="carbon:email" width={24} sx={{ mr: 1 }} /> И-мэйл
-          </Stack>
-          <Typography variant="body2" sx={{ mt: 0.5 }}>
-            {email}
           </Typography>
         </Stack>
       </Stack>

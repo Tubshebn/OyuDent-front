@@ -48,21 +48,3 @@ export default function ClientListItem({ i }) {
     </Card>
   );
 }
-
-ClientListItem.propTypes = {
-  job: PropTypes.shape({
-    slug: PropTypes.string,
-    type: PropTypes.string,
-    urgent: PropTypes.bool,
-    level: PropTypes.string,
-    favorited: PropTypes.bool,
-    location: PropTypes.string,
-    experience: PropTypes.number,
-    createdAt: PropTypes.instanceOf(Date),
-    salary: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    company: PropTypes.shape({
-      logo: PropTypes.string,
-      name: PropTypes.string,
-    }),
-  }),
-};

@@ -1,4 +1,5 @@
 import { add } from "date-fns";
+import { useState, useCallback } from "react";
 
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -14,20 +15,25 @@ import Carousel, {
   CarouselArrows,
 } from "src/components/carousel";
 
-import ProductCountdownBlock from "./subcomponents/product-countdown-block";
 import HomeProductItemHot from "./subcomponents/home-product-item-hot";
+import { Tab, Tabs, ToggleButton, ToggleButtonGroup } from "@mui/material";
 
 // ----------------------------------------------------------------------
 
-export default function HomeLandingHotDealToday() {
+export default function HomeLandingHotDealToday({ specialProduct }) {
   const theme = useTheme();
+  const [tab, setTab] = useState("1");
+
+  const handleChangeTab = useCallback((event, newValue) => {
+    setTab(newValue);
+  }, []);
 
   const mdUp = useResponsive("up", "md");
 
   const carousel = useCarousel({
     dots: !mdUp,
-    slidesToShow: 6,
-    slidesToScroll: 6,
+    slidesToShow: 3,
+    slidesToScroll: 3,
     ...CarouselDots({
       sx: {
         mt: 8,
@@ -61,31 +67,16 @@ export default function HomeLandingHotDealToday() {
           mb: 8,
         }}
       >
-        <Typography
-          variant="h3"
-          sx={{
-            textAlign: { xs: "center", md: "unset" },
-          }}
+        <ToggleButtonGroup
+          color="secondary"
+          value={tab}
+          exclusive
+          onChange={handleChangeTab}
+          aria-label="Platform"
         >
-          🔥 Hot Deal Today
-        </Typography>
-
-        <ProductCountdownBlock
-          hiddenLabel
-          expired={add(new Date(), { hours: 1, minutes: 30 })}
-          sx={{
-            "& .value": {
-              width: 36,
-              height: 32,
-              color: "grey.800",
-              bgcolor: "text.primary",
-              ...(theme.palette.mode === "light" && {
-                color: "common.white",
-              }),
-            },
-            "& .separator": { color: "text.primary" },
-          }}
-        />
+          <ToggleButton value="1">Онцлох бүтээгдэхүүн</ToggleButton>
+          <ToggleButton value="2">Хямдарсан бүтээгдэхүүн</ToggleButton>
+        </ToggleButtonGroup>
 
         {mdUp && (
           <CarouselArrows
@@ -99,7 +90,7 @@ export default function HomeLandingHotDealToday() {
       </Stack>
 
       <Carousel ref={carousel.carouselRef} {...carousel.carouselSettings}>
-        {_products.map((product) => (
+        {specialProduct.map((product) => (
           <Box
             key={product.id}
             sx={{

@@ -1,23 +1,59 @@
-import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Unstable_Grid2';
-import Typography from '@mui/material/Typography';
+import Card from "@mui/material/Card";
+import Stack from "@mui/material/Stack";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Unstable_Grid2";
+import Typography from "@mui/material/Typography";
 
-import Image from 'src/components/image';
+import Image from "src/components/image";
 
 // ----------------------------------------------------------------------
 
 const VISIONS = [
   {
-    name: 'Vestibulum',
-    description: 'In dui magna, posuere eget, vestibulum et, tempor auctor, justo.',
+    name: "Тоног төхөөрөмж",
+    description: `
+  Шүдний эмнэлгийн тоног төхөөрөмж:
+  Суурин болон зөөврийн бор машин,
+  гэрлийн аппарат, сувгийн мотор,
+  микроскоп зэрэг бүх тоног
+  төхөөрөмжүүд, хиймэл шүдний
+  лабораторийн тоон болон аналог бүх
+  тоног төхөөрөмжүүдийг ХБНГУ-ын
+  Ritter, Renfert, Dentaururm, Японы
+  Yamahachy, NSK, БНХАУ-ын
+  Woodpecker, Runeys, БНСУ-ын Genoray,
+  Dmetec зэрэг компаниудаас
+  импортлон оруулж ирж байна.
+`,
   },
   {
-    name: 'Fusce',
-    description: 'Donec elit libero, sodales nec, volutpat a, suscipit non, turpis.',
+    name: "Эмчилгээний материал",
+    description: `Шүдний эмчилгээнд зориулсан бүх
+төрлийн материал оруулж ирж
+байна. Манай компани нь дэлхийд
+эм үйлдвэрлэлийн технологиоороо
+тэргүүлдэг Франц улсын Septodont
+компаний бүх төрлийн
+бүтээгдэхүүнийг 2022 оноос албан
+ёсны эрхтэйгээр оруулж ирж байгааг
+онцолж байна. Энэхүү компаний
+хэсгийн мэдээ алдауулах Lignospan
+тариа нь маш чанартай үйлчилгээ
+сайтай байдаг.`,
   },
-  { name: 'Praesent', description: 'Suspendisse feugiat. Quisque id odio.' },
+  {
+    name: "Багаж хэрэгсэл",
+    description: `Бид үнэ болон чанарын
+олон сонголттойгоор Итали,
+Герман, Пакистан, Орос,
+Солонгос, Хятад улссас
+эмчилгээ, гажиг засал,
+лабораторид зориулсан гар
+багаж, хэрэгсэл, нэг
+удаагийн бүтээгдэхүүнийг
+Монгол улсын зах зээл дээр
+ханган нийлүүлж байна`,
+  },
 ];
 
 // ----------------------------------------------------------------------
@@ -26,38 +62,25 @@ export default function TravelAboutOurVision() {
   return (
     <Container
       sx={{
-        overflow: 'hidden',
+        overflow: "hidden",
         py: { xs: 5, md: 10 },
       }}
     >
-      <Stack
-        spacing={3}
-        sx={{
-          maxWidth: 466,
-          mb: { xs: 8, md: 5 },
-          mx: { xs: 'auto', md: 'unset' },
-          textAlign: { xs: 'center', md: 'left' },
-        }}
-      >
-        <Typography variant="h2">Our Mission</Typography>
-
-        <Typography sx={{ color: 'text.secondary' }}>
-          Curabitur ullamcorper ultricies nisi. Aenean viverra rhoncus pede.
-        </Typography>
-      </Stack>
-
       <Grid
         container
         spacing={{ xs: 8, md: 3 }}
         justifyContent="space-between"
-        alignItems={{ md: 'center' }}
+        alignItems={{ md: "center" }}
       >
-        <Grid xs={12} md={6} lg={5}>
-          <Image alt="vision" src="/assets/illustrations/illustration_vision.svg" />
+        <Grid xs={12} md={3} lg={3}>
+          <Image
+            alt="vision"
+            src="/assets/illustrations/illustration_vision.svg"
+          />
         </Grid>
 
         <Grid xs={12} md={6} lg={6}>
-          <Stack alignItems={{ md: 'flex-end' }} sx={{ position: 'relative' }}>
+          <Stack alignItems={{ md: "flex-end" }} sx={{ position: "relative" }}>
             {VISIONS.map((vision, index) => {
               const { name, description } = vision;
 
@@ -73,18 +96,18 @@ export default function TravelAboutOurVision() {
                   sx={{
                     p: 4,
                     mt: 4,
-                    width: { md: 'calc(50% - 16px)' },
+                    width: { md: "calc(80% - 16px)" },
                     ...(firstVision && {
                       top: { md: 0 },
                       left: { md: 0 },
                       bottom: { md: 0 },
-                      my: { md: 'auto' },
+                      my: { md: "auto" },
                       boxShadow: { md: 0 },
                       maxHeight: { md: 304 },
-                      display: { md: 'flex' },
-                      position: { md: 'absolute' },
-                      flexDirection: { md: 'column' },
-                      justifyContent: { md: 'center' },
+                      display: { md: "flex" },
+                      position: { md: "absolute" },
+                      flexDirection: { md: "column" },
+                      justifyContent: { md: "center" },
                     }),
                     ...(secondVision && {
                       boxShadow: (theme) => ({ md: theme.customShadows.z24 }),
@@ -97,7 +120,7 @@ export default function TravelAboutOurVision() {
                   <Typography
                     variant="h1"
                     component="h2"
-                    sx={{ color: 'text.disabled', opacity: 0.24, mb: 3 }}
+                    sx={{ color: "text.disabled", opacity: 0.24, mb: 3 }}
                   >
                     {`0${index + 1}`}
                   </Typography>
@@ -106,7 +129,9 @@ export default function TravelAboutOurVision() {
                     {name}
                   </Typography>
 
-                  <Typography sx={{ color: 'text.secondary' }}>{description}</Typography>
+                  <Typography sx={{ color: "text.secondary" }}>
+                    {description}
+                  </Typography>
                 </Card>
               );
             })}

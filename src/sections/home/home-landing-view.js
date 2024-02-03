@@ -14,26 +14,45 @@ import HomeLandingHero from "./components/home-landing-hero";
 import HomeLandingHotDealToday from "./components/home-landing-hot-deal-today";
 import HomeLandingPopularProducts from "./components/home-landing-popular-products";
 import HomeLandingAbout from "src/sections/home/components/home-landing-about";
-import HomeAboutOurClients from "src/sections/home/components/home-about-our-clients";
-import HomeLatestPosts from "src/sections/home/components/home-latest-posts";
-import HomeContact from "src/sections/home/components/home-contact";
 import TravelContactInfo from "./contact/travel-contact-info";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { BASE_URL } from "src/config-global";
-import HomeEvent from "./components/home-events";
-import EcommerceCheckoutPaymentMethod from "../_ecommerce/checkout/ecommerce-checkout-payment-method";
+import CareerLandingTopCompanies from "../About/_career/landing/career-landing-top-companies";
 
 // ----------------------------------------------------------------------
 
 export default function HomeLandingView() {
   const [blog, setBlog] = useState([]);
   const [clients, setClients] = useState([]);
+  const [banner, setBanner] = useState([]);
+  const [specialProduct, setSpecialProduct] = useState([]);
 
   useEffect(() => {
     getBlogList();
     getClientList();
+    getHero();
+    getHotDeal();
   }, []);
+
+  const getHero = () => {
+    try {
+      axios.get(`${BASE_URL}v1/banner`).then((res) => {
+        setBanner(res?.data);
+      });
+    } catch (error) {
+      return;
+    }
+  };
+  const getHotDeal = () => {
+    try {
+      axios.get(`${BASE_URL}v1/content/special-product`).then((res) => {
+        setSpecialProduct(res?.data);
+      });
+    } catch (error) {
+      return;
+    }
+  };
 
   const getBlogList = () => {
     try {
@@ -57,9 +76,9 @@ export default function HomeLandingView() {
 
   return (
     <>
-      <HomeLandingHero />
-      <HomeLandingHotDealToday />
-      <HomeAboutOurClients clients={clients} />
+      <HomeLandingHero banner={banner} />
+      <HomeLandingHotDealToday specialProduct={specialProduct} />
+      <CareerLandingTopCompanies clients={clients} />
       <SupportView tours={_tours.slice(0, 5)} />
       <HomeLandingPopularProducts posts={blog.slice(0, 8)} />
       <HomeLandingAbout />

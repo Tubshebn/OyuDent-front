@@ -15,9 +15,7 @@ import TeamItem from "../About/team/team-item";
 
 // ----------------------------------------------------------------------
 
-export default function SupportContent({ posts }) {
-  const mdUp = useResponsive("up", "md");
-
+export default function SupportContent({ data }) {
   return (
     <Stack
       sx={{
@@ -26,11 +24,7 @@ export default function SupportContent({ posts }) {
         width: "70vw",
       }}
     >
-      <TeamItem />
+      <TeamItem data={data} />
     </Stack>
   );
 }
-
-SupportContent.propTypes = {
-  posts: PropTypes.array,
-};

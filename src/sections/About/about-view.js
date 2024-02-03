@@ -17,11 +17,11 @@ export default function AboutUs() {
     <>
       <About />
 
-      <TravelAboutOurVision />
+      {/* <TravelAboutOurVision /> */}
 
       <AboutCoreValues />
 
-      <AboutStory />
+      {/* <AboutStory /> */}
 
       <TeamAbout members={_members} />
       <Footer />
