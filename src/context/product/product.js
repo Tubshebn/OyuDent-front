@@ -16,5 +16,5 @@ export const Product = () => {
     }),
     [state]
   );
-  return { dirFunc: handlers, dirState: state };
+  return { func: handlers, state: state };
 };

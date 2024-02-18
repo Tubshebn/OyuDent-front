@@ -60,7 +60,7 @@ export default function EcommerceProductsView() {
   const [manu, setManu] = useState([]);
   const [filter, setFilter] = useState({
     main: null,
-    sub: null,
+    sub: [null],
     manufacturer: null,
   });
 
@@ -153,7 +153,7 @@ export default function EcommerceProductsView() {
   return (
     <Container>
       <Stack
-        direction="row"
+        direction="column"
         alignItems="center"
         justifyContent="center"
         sx={{
@@ -164,6 +164,52 @@ export default function EcommerceProductsView() {
         <Typography variant="h3" sx={{ textAlign: "center", py: 7 }}>
           Бүтээгдэхүүний Каталог
         </Typography>
+        <Box
+          sx={{
+            flexGrow: 1,
+            bgcolor: "background.paper",
+            flexShrink: 1,
+            maxWidth: "100%",
+          }}
+        >
+          <Tabs
+            value={tab}
+            onChange={handleChangeTab}
+            variant="scrollable"
+            scrollButtons
+            sx={{
+              [`& .${tabsClasses.scrollButtons}`]: {
+                "&.Mui-disabled": { opacity: 0.3 },
+              },
+            }}
+          >
+            {category.map((category, i) => {
+              const icon = ICONS.find((ic, index) => i === index);
+              return (
+                <Tab
+                  icon={
+                    <Grid
+                      container
+                      direction="column"
+                      alignItems="center"
+                      spacing={1}
+                      sx={{ marginBottom: 1.5 }}
+                    >
+                      <Grid item>{icon}</Grid>
+                      <Grid item>
+                        <Typography variant="caption">
+                          {category.name}
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  }
+                  key={category.id}
+                  value={category.id}
+                />
+              );
+            })}
+          </Tabs>
+        </Box>
       </Stack>
 
       <Stack
@@ -197,52 +243,6 @@ export default function EcommerceProductsView() {
             justifyContent="space-between"
             sx={{ mb: 5, width: "100%" }}
           >
-            <Box
-              sx={{
-                flexGrow: 1,
-                bgcolor: "background.paper",
-                flexShrink: 1,
-                maxWidth: 770,
-              }}
-            >
-              <Tabs
-                value={tab}
-                onChange={handleChangeTab}
-                variant="scrollable"
-                scrollButtons
-                sx={{
-                  [`& .${tabsClasses.scrollButtons}`]: {
-                    "&.Mui-disabled": { opacity: 0.3 },
-                  },
-                }}
-              >
-                {category.map((category, i) => {
-                  const icon = ICONS.find((ic, index) => i === index);
-                  return (
-                    <Tab
-                      icon={
-                        <Grid
-                          container
-                          direction="column"
-                          alignItems="center"
-                          spacing={1}
-                          sx={{ marginBottom: 1.5 }}
-                        >
-                          <Grid item>{icon}</Grid>
-                          <Grid item>
-                            <Typography variant="caption">
-                              {category.name}
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      }
-                      key={category.id}
-                      value={category.id}
-                    />
-                  );
-                })}
-              </Tabs>
-            </Box>
             <ToggleButtonGroup
               exclusive
               size="small"

@@ -16,17 +16,6 @@ import { useResponsive } from "src/hooks/use-responsive";
 
 // ----------------------------------------------------------------------
 
-const StyledButton = styled((props) => (
-  <CardActionArea sx={{ borderRadius: 1 }}>
-    <Stack direction="row" alignItems="center" spacing={2} {...props} />
-  </CardActionArea>
-))(({ theme }) => ({
-  ...theme.typography.subtitle2,
-  padding: theme.spacing(2),
-  borderRadius: theme.shape.borderRadius,
-  border: `solid 1px ${theme.palette.divider}`,
-}));
-
 // ----------------------------------------------------------------------
 
 export default function SupportNav({

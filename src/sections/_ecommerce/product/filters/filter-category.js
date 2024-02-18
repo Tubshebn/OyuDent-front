@@ -7,7 +7,8 @@ import { useEffect, useState } from "react";
 import Collapse from "@mui/material/Collapse";
 import { BASE_URL } from "src/config-global";
 import axios from "axios";
-
+import { MenuItem } from "@mui/material";
+import Checkbox, { checkboxClasses } from "@mui/material/Checkbox";
 // ----------------------------------------------------------------------
 
 export default function FilterCategory({
@@ -16,27 +17,41 @@ export default function FilterCategory({
   onChangeCategories,
   ...other
 }) {
+  const [checkedItems, setCheckedItems] = useState([]);
+  const handleCheckboxToggle = (optionId) => {
+    setCheckedItems((prevCheckedItems) =>
+      prevCheckedItems.includes(optionId)
+        ? prevCheckedItems.filter((id) => id !== optionId)
+        : [...prevCheckedItems, optionId]
+    );
+  };
+  useEffect(() => {
+    onChangeCategories(checkedItems);
+  }, [checkedItems]);
   return (
-    <Stack spacing={1} alignItems="flex-start" {...other}>
+    <Stack alignItems="flex-start" {...other}>
       {options.map((option) => (
         <>
-          <Stack
+          <MenuItem
             key={option.id}
-            direction="row"
-            alignItems="center"
-            onClick={() => onChangeCategories(option.id)}
+            value={option.id}
             sx={{
-              typography: "body2",
-              cursor: "pointer",
-              ...(filterCategories === option.id && {
-                fontWeight: "fontWeightBold",
-              }),
+              fontSize: 13,
+              whiteSpace: "normal",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
             }}
           >
-            <Iconify icon="carbon:chevron-right" width={12} sx={{ mr: 1 }} />
-
+            <Checkbox
+              size="medium"
+              checked={checkedItems.includes(option.id)}
+              onChange={() => handleCheckboxToggle(option.id)}
+              sx={{
+                [`&.${checkboxClasses.root}`]: {},
+              }}
+            />
             {option.name}
-          </Stack>
+          </MenuItem>
         </>
       ))}
     </Stack>

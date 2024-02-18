@@ -12,7 +12,6 @@ import { RouterLink } from "src/routes/components";
 import TextMaxLine from "src/components/text-max-line";
 
 import ProductPrice from "../../common/product-price";
-import ProductRating from "../../common/product-rating";
 import { IMAGE_URL } from "src/config-global";
 
 // ----------------------------------------------------------------------
@@ -23,8 +22,9 @@ export default function EcommerceProductViewListItem({ product, ...other }) {
       direction="row"
       sx={{
         position: "relative",
-        "&:hover .add-to-cart": {
-          opacity: 1,
+        "&:hover": {
+          opacity: 0.7,
+          cursor: "pointer",
         },
       }}
       {...other}

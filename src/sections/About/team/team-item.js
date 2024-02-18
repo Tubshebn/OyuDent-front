@@ -1,7 +1,7 @@
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 import { _socials } from "src/_mock";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import {
   Box,
   StepButton,
@@ -26,6 +26,21 @@ const Breader = ({ data }) => {
   const [activeStep, setActiveStep] = useState(-1);
   const [completed, setCompleted] = useState({});
   const [open, setopen] = useState(false);
+  const [initialProduction, setInitialProduction] = useState(
+    JSON.parse(localStorage.getItem("production"))
+  );
+
+  const handleClick = (brand) => {
+    if (initialProduction) {
+      localStorage.removeItem("production");
+      localStorage.setItem("production", JSON.stringify(brand));
+      setInitialProduction(null); // Update the state accordingly
+    } else {
+      localStorage.setItem("production", JSON.stringify(brand));
+      setInitialProduction(brand); // Update the state accordingly
+    }
+  };
+
   useEffect(() => {
     if (!open) {
       setActiveStep(-1);
@@ -61,7 +76,7 @@ const Breader = ({ data }) => {
                   }}
                 >
                   {label.brands.map((brand, brandIndex) => (
-                    <li key={brandIndex}>
+                    <li key={brandIndex} onClick={() => handleClick(brand)}>
                       <Link
                         href={`${paths.oyudent.products}`}
                         sx={{
@@ -72,7 +87,7 @@ const Breader = ({ data }) => {
                           },
                         }}
                       >
-                        {brand}
+                        {brand.name}
                       </Link>
                     </li>
                   ))}

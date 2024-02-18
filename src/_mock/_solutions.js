@@ -2,33 +2,67 @@ export const solutions = [
   {
     mainCategory: "Сувгийн эмчилгээ",
     subCategories: [
-      { title: "Мэдээгүйжүүлэх", brands: ["Septodont", "DFL"] },
-      { title: "Шүдний хөндий нээх", brands: ["Mani", "Vericom"] },
+      {
+        title: "Мэдээгүйжүүлэх",
+        brands: [
+          { name: "Septodont", id: 53 },
+          { name: "DFL", id: 62 },
+        ],
+      },
+      {
+        title: "Шүдний хөндий нээх",
+        brands: [
+          { name: "Mani", id: 46 },
+          { name: "Vericom", id: 39 },
+        ],
+      },
       {
         title: "Зөөлц үхжүүлэх",
-        brands: ["vladmiva", "Omegadent", "PD", "Neodental"],
+        brands: [
+          { name: "vladmiva", id: 7 },
+          { name: "Omegadent", id: 65 },
+          { name: "PD", id: 11 },
+          { name: "Neodental", id: 47 },
+        ],
       },
       {
         title: "Суваг өргөсгөх",
-        brands: ["Woodpecker", "Metabiomed", "NSK", "Mani", "S-One"],
+        brands: [
+          { name: "Woodpecker", id: 16 },
+          { name: "Metabiomed", id: 38 },
+          { name: "NSK", id: 50 },
+          { name: "Mani", id: 46 },
+
+          { name: "S-One", id: "" },
+        ],
       },
       {
         title: "Суваг халдваргүйжүүлэх",
-        brands: ["Septodont", "Metabiomed", "Woodpecker", "Omegadent", "PD"],
+        brands: [
+          { name: "Septodont", id: 53 },
+          { name: "Omegadent", id: 65 },
+          { name: "PD", id: 11 },
+          { name: "Metabiomed", id: 38 },
+          { name: "Woodpecker", id: 16 },
+        ],
       },
       {
         title: "Сувагт эмийн бодис үлдээх",
-        brands: ["Septodont", "Omegadent", "PD"],
+        brands: [
+          { name: "Septodont", id: 53 },
+          { name: "Omegadent", id: 65 },
+          { name: "PD", id: 11 },
+        ],
       },
       {
         title: "Суваг ломбодох",
         brands: [
-          "Septodont",
-          "PD",
-          "Omegadent",
-          "Metabiomed",
-          "Vericom",
-          "Vladmiva",
+          { name: "Septodont", id: 53 },
+          { name: "Omegadent", id: 65 },
+          { name: "PD", id: 11 },
+          { name: "vladmiva", id: 7 },
+          { name: "Metabiomed", id: 38 },
+          { name: "Vericom", id: 39 },
         ],
       },
     ],
@@ -36,89 +70,150 @@ export const solutions = [
   {
     mainCategory: "Шүд ломбодох",
     subCategories: [
-      { title: "Мэдээгүйжүүлэх", brands: ["Septodont", "DFL"] },
-      { title: "Шүдний хөндий нээх", brands: ["Mani"] },
+      {
+        title: "Мэдээгүйжүүлэх",
+        brands: [{ name: "Septodont", id: 53 }, , { name: "DFL", id: 62 }],
+      },
+      { title: "Шүдний хөндий нээх", brands: [{ name: "Mani", id: 46 }] },
       {
         title: "Хөндий халдваргүйжүүлэх",
-        brands: ["vladmiva", "Omegadent", "PD", "Neodental"],
+        brands: [
+          { name: "Omegadent", id: 65 },
+          { name: "PD", id: 11 },
+          { name: "vladmiva", id: 7 },
+
+          { name: "Neodental", id: 47 },
+        ],
       },
       {
         title: "Эмчилгээний жийргэвч",
-        brands: ["Septodont", "PD", "Dentonics"],
+        brands: [
+          { name: "Septodont", id: 53 },
+          { name: "PD", id: 11 },
+
+          { name: "Dentonics", id: 32 },
+        ],
       },
       {
         title: "Тусгаарлах жийргэвч",
-        brands: ["PD", "Спофадентал"],
+        brands: [
+          { name: "PD", id: 11 },
+          { name: "Спофадентал", id: 112 },
+        ],
       },
       {
         title: "Хүчил",
-        brands: ["Metabiomed", "Vericom"],
+        brands: [
+          { name: "Metabiomed", id: 38 },
+          { name: "Vericom", id: 39 },
+        ],
       },
       {
         title: "Бонд",
-        brands: ["Septodont", "Coltene", "Tokuyama", "Kuraray", "WP dental"],
+        brands: [
+          { name: "Septodont", id: 53 },
+          { name: "Coltene", id: "" },
+          "Tokuyama",
+          { name: "Kuraray", id: 75 },
+          { name: "WP dental", id: 27 },
+        ],
       },
       {
         title: "Ломбоны материал",
-        brands: ["Septodont", "Coltene", "Tokuyama", "Queendental", "Vericom"],
+        brands: [
+          { name: "Septodont", id: 53 },
+          { name: "Coltene", id: "" },
+          ,
+          "Tokuyama",
+          "Queendental",
+          { name: "Vericom", id: 39 },
+        ],
       },
       {
         title: "Өнгөлгөө",
-        brands: ["NTI"],
+        brands: [{ name: "NTI", id: 78 }],
       },
     ],
   },
   {
     mainCategory: "Гажиг засал",
     subCategories: [
-      { title: "Хэв авах", brands: ["Lascod"] },
-      { title: "Зай гаргагч резин", brands: ["3B ortho"] },
+      { title: "Хэв авах", brands: [{ name: "Lascod", id: 56 }] },
+      { title: "Зай гаргагч резин", brands: [{ name: "3B ortho", id: 129 }] },
       {
         title: "Банд",
-        brands: ["Dentaurum", "3B ortho"],
+        brands: [
+          { name: "Dentaurum", id: 22 },
+          { name: "3B ortho", id: 129 },
+        ],
       },
       {
         title: "Хүчил",
-        brands: ["Metabiomed", "Vericom"],
+        brands: [
+          { name: "Metabiomed", id: 38 },
+          { name: "Vericom", id: 39 },
+        ],
       },
       {
         title: "Бонд наах материал",
-        brands: ["3B ortho"],
+        brands: [{ name: "3B ortho", id: 129 }],
       },
       {
         title: "Бракет",
-        brands: ["3B ortho", "Dentaurum"],
+        brands: [
+          { name: "Dentaurum", id: 22 },
+          { name: "3B ortho", id: 129 },
+        ],
       },
       {
         title: "Нум",
-        brands: ["3B ortho", "Dentaurum", "Foresdent"],
+        brands: [
+          { name: "Dentaurum", id: 22 },
+          { name: "3B ortho", id: 129 },
+
+          { name: "Foresdent", id: 83 },
+        ],
       },
       {
         title: "Резин",
-        brands: ["3B ortho", "Dentaurum"],
+        brands: [
+          { name: "Dentaurum", id: 22 },
+          { name: "3B ortho", id: 129 },
+        ],
       },
       {
         title: "Лигатур",
-        brands: ["Dentaurum"],
+        brands: [{ name: "Dentaurum", id: 22 }],
       },
       {
         title: "Татлагын резин",
-        brands: ["Dentaurum"],
+        brands: [{ name: "Dentaurum", id: 22 }],
       },
       {
         title: "Бахь",
-        brands: ["Dentaurum", "Lascod", "3B ortho", "Пакистан"],
+        brands: [
+          { name: "Dentaurum", id: 22 },
+
+          { name: "Lascod", id: 56 },
+          { name: "3B ortho", id: 129 },
+          "Пакистан",
+        ],
       },
     ],
   },
   {
     mainCategory: "Хэт мэдрэгшил бууруулах",
     subCategories: [
-      { title: "Ам зайлах уусмал", brands: ["Septodont"] },
-      { title: "Өнгөлгөөний паст", brands: ["3B ortho"] },
+      { title: "Ам зайлах уусмал", brands: [{ name: "Septodont", id: 53 }] },
+      { title: "Өнгөлгөөний паст", brands: [{ name: "3B ortho", id: 129 }] },
       {
         title: "Мэдрэгшил бууруулах гел",
-        brands: ["Tokuyama", "Septodont", "Vladmiva", "Vericom"],
+        brands: [
+          "Tokuyama",
+          { name: "Septodont", id: 53 },
+          { name: "vladmiva", id: 7 },
+          { name: "Vericom", id: 39 },
+        ],
       },
     ],
   },
@@ -126,10 +221,14 @@ export const solutions = [
     mainCategory: "Шүд цайруулах",
     subCategories: [
       { title: "Өнгөлгөөний паст", brands: [] },
-      { title: "Буйл хамгаалагч", brands: ["HDI"] },
+      { title: "Буйл хамгаалагч", brands: [{ name: "HDI", id: 44 }] },
       {
         title: "Цайруулах гел",
-        brands: ["HDI", "Omega dent", "Denpro"],
+        brands: [
+          { name: "HDI", id: 44 },
+          { name: "Omegadent", id: 65 },
+          { name: "Denpro", id: 119 },
+        ],
       },
     ],
   },

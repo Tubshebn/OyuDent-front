@@ -132,7 +132,7 @@ export default function Footer() {
                   fullWidth
                   hiddenLabel
                   sx={{ py: { md: 3 } }}
-                  placeholder="Email address"
+                  placeholder="И-мэйл хаяг"
                   InputProps={{
                     endAdornment: (
                       <InputAdornment position="end">
@@ -142,7 +142,7 @@ export default function Footer() {
                           size="large"
                           sx={{ mr: -1.25 }}
                         >
-                          Subscribe
+                          Илгээх
                         </Button>
                       </InputAdornment>
                     ),
@@ -178,8 +178,8 @@ export default function Footer() {
           justifyContent="center"
           sx={{ py: 3, textAlign: "center" }}
         >
-          <Typography variant="caption" sx={{ color: "text.secondary" }}>
-            © 2023 Оюу дент ХХК
+          <Typography variant="subtitle2" sx={{ color: "text.secondary" }}>
+            © 2024 Оюу дент ХХК
           </Typography>
         </Stack>
       </Container>

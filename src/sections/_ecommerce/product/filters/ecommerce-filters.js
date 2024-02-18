@@ -107,28 +107,6 @@ export default function EcommerceFilters({
         </Block>
       </Stack>
 
-      {/* <Block title="Price">
-        <FilterPrice
-          filterPrice={filters.filterPrice}
-          onChangeStartPrice={handleChangeStartPrice}
-          onChangeEndPrice={handleChangeEndPrice}
-          sx={{ mt: 2 }}
-        />
-      </Block>
-
-      <Block title="Ratings">
-        <FilterRating
-          filterRating={filters.filterRating}
-          onChangeRating={handleChangeRating}
-          sx={{ mt: 2 }}
-        />
-      </Block> */}
-
-      {/* <FilterStock
-        filterStock={filters.filterStock}
-        onChangeStock={handleChangeStock}
-      /> */}
-
       <Button
         fullWidth
         color="inherit"

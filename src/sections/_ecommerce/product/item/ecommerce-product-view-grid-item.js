@@ -27,8 +27,9 @@ export default function EcommerceProductViewGridItem({
     <Stack
       sx={{
         position: "relative",
-        "&:hover .add-to-cart": {
-          opacity: 1,
+        "&:hover": {
+          opacity: 0.7,
+          cursor: "pointer",
         },
         ...sx,
       }}

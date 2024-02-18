@@ -6,17 +6,25 @@ import InputAdornment from "@mui/material/InputAdornment";
 
 import { _tags } from "src/_mock";
 import Iconify from "src/components/iconify";
-import { Stack } from "@mui/material";
 import { useEffect, useState } from "react";
 
 // ----------------------------------------------------------------------
 
-export default function FilterCategories({
-  filterManu,
-  handleChangeManu,
-  options,
-}) {
+export default function FilterCategories({ handleChangeManu, options }) {
   const [option, setOption] = useState();
+
+  useEffect(() => {
+    const initialProduction = JSON.parse(localStorage.getItem("production"));
+    if (initialProduction) {
+      const selectedOption = options?.find(
+        (opt) => opt.id === initialProduction.id
+      );
+      if (selectedOption) {
+        setOption(selectedOption);
+        localStorage.removeItem("production");
+      }
+    }
+  }, [options]);
 
   useEffect(() => {
     handleChangeManu(option?.id);
