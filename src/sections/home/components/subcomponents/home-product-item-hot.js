@@ -64,15 +64,6 @@ export default function HomeProductItemHot({
           >
             {product.name}
           </TextMaxLine>
-
-          <ProductPrice
-            price={product.price}
-            sx={{
-              ...(hotProduct && {
-                color: "error.main",
-              }),
-            }}
-          />
         </Stack>
       </Paper>
     </Link>

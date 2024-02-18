@@ -27,12 +27,14 @@ export const Api = () => {
     user: null,
     productBrand: "",
   };
+
   useEffect(() => {
     isCheckUser();
   }, []);
   const isCheckUser = () => {
     dispatch({ type: "IS_LOGGED_IN", payload: tokenCheck() });
   };
+
   const [state, dispatch] = useReducer(AuthReducer, initialState);
 
   const handlers = React.useMemo(
