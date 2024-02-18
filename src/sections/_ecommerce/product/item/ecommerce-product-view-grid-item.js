@@ -110,13 +110,6 @@ export default function EcommerceProductViewGridItem({
         <TextMaxLine variant="body2" line={1} sx={{ color: "text.secondary" }}>
           {product.size}
         </TextMaxLine>
-
-        <ProductPrice price={product.price} priceSale={product.priceSale} />
-
-        {/* <ProductRating
-          ratingNumber={product.ratingNumber}
-          label={`${product.sold} sold`}
-        /> */}
       </Stack>
     </Stack>
   );

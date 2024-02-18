@@ -101,20 +101,9 @@ export default function EcommerceProductViewListItem({ product, ...other }) {
           </Link>
         </Stack>
 
-        {/* <ProductRating
-          ratingNumber={product.orderMinimum}
-          label={`${product.orderMinimum} sold`}
-        /> */}
-
         <TextMaxLine variant="body2" line={1} sx={{ color: "text.secondary" }}>
           {product.size}
         </TextMaxLine>
-
-        <ProductPrice
-          price={product.price}
-          priceSale={product.priceSale}
-          sx={{ typography: "h6" }}
-        />
       </Stack>
     </Stack>
   );
