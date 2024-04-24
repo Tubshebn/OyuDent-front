@@ -12,22 +12,27 @@ import { fDate } from "src/utils/format-time";
 import { RouterLink } from "src/routes/components";
 import TextMaxLine from "src/components/text-max-line";
 import { Link } from "@mui/material";
+import { BASE_URL } from "src/config-global";
 
 // ----------------------------------------------------------------------
 
 export default function ElearningPostItem({ post }) {
   return (
     <Paper variant="outlined" sx={{ borderRadius: 2, overflow: "hidden" }}>
-      <Image src={post.picture} alt={post.title} ratio="6/4" />
+      <Image
+        src={`${BASE_URL}/${post?.picture}`}
+        alt={post?.title}
+        ratio="6/4"
+      />
       <Stack direction="row" spacing={3} sx={{ p: 3 }}>
         <Stack sx={{ textAlign: "center" }}>
           <Typography variant="subtitle2">
-            {fDate(post.createdAt, "MMM")}
+            {fDate(post?.createdAt, "MMM")}
           </Typography>
 
           <Divider sx={{ mt: 1, mb: 0.5 }} />
 
-          <Typography variant="h3">{fDate(post.createdAt, "dd")}</Typography>
+          <Typography variant="h3">{fDate(post?.createdAt, "dd")}</Typography>
         </Stack>
 
         <Stack spacing={1}>

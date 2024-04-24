@@ -10,10 +10,8 @@ import { alpha, useTheme } from "@mui/material/styles";
 
 import { _mock } from "src/_mock";
 import { bgGradient } from "src/theme/css";
-import Iconify from "src/components/iconify";
 import { useBoolean } from "src/hooks/use-boolean";
 import { PlayerDialog } from "src/components/player";
-import { fShortenNumber } from "src/utils/format-number";
 import { useResponsive } from "src/hooks/use-responsive";
 import ElearningHeroIllustration from "src/assets/illustrations/elearning-hero-illustration";
 
@@ -61,23 +59,12 @@ export default function ElearningLandingHero() {
                   textAlign: { xs: "center", md: "unset" },
                 }}
               >
-                <Typography variant="h1">
-                  Free
-                  <Box component="span" sx={{ color: "text.disabled" }}>
-                    {` Online `}
-                  </Box>
-                  <Box
-                    component="span"
-                    sx={{ color: "primary.main", textDecoration: "underline" }}
-                  >
-                    {` Courses `}
-                  </Box>
-                  From The Experts
+                <Typography variant="h1" sx={{ mt: 5 }}>
+                  Мэдээ, мэдээллүүд
                 </Typography>
 
                 <Typography sx={{ color: "text.secondary", mt: 3, mb: 5 }}>
-                  Etiam sollicitudin, ipsum eu pulvinar rutrum, tellus ipsum
-                  laoreet sapien, quis venenatis ante odio sit amet eros.
+                  Сургалт,Эвент болон мэдээ мэдээллүүдийг эндээс
                 </Typography>
               </Stack>
             </Grid>

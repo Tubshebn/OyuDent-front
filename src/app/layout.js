@@ -1,11 +1,7 @@
 "use client";
-
 import PropTypes from "prop-types";
-
 import "src/global.css";
-
-// ----------------------------------------------------------------------
-
+// ------------------------------------------------------------------
 import ThemeProvider from "src/theme";
 import { primaryFont } from "src/theme/typography";
 import { LocalizationProvider } from "src/locales";
@@ -14,23 +10,8 @@ import MotionLazy from "src/components/animate/motion-lazy";
 import { SettingsDrawer, SettingsProvider } from "src/components/settings";
 import { ProductContext } from "src/context/product/productContext";
 import { Product } from "src/context/product/product";
+import { metadata } from "./metadata";
 // ----------------------------------------------------------------------
-
-// export const metadata = {
-//   title:
-//     "OYUDENT.COM | Шүдний эмнэлэгийн материал, тоног төхөөрөмж, багаж хэрэгсэл",
-//   description:
-//     "OYUDENT.COM | Шүдний эмнэлэгийн материал, тоног төхөөрөмж, багаж хэрэгсэл",
-//   keywords: "react,material,kit,application,dashboard,admin,template",
-//   themeColor: "#000000",
-//   manifest: "/manifest.json",
-//   icons: [
-//     {
-//       rel: "icon",
-//       url: "/favicon/favicon.ico",
-//     },
-//   ],
-// };
 
 export default function RootLayout({ children }) {
   const { func, state } = Product();

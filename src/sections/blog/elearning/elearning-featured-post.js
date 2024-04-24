@@ -13,6 +13,7 @@ import { fDate } from "src/utils/format-time";
 import { RouterLink } from "src/routes/components";
 
 import PostTimeBlock from "../common/post-time-block";
+import { BASE_URL } from "src/config-global";
 
 // ----------------------------------------------------------------------
 
@@ -28,8 +29,8 @@ export default function ElearningFeaturedPost({ post }) {
       <Container>
         <Stack direction={{ xs: "column", md: "row" }}>
           <Image
-            src={post.coverUrl}
-            alt={post.title}
+            src={`${BASE_URL}/${post?.picture}`}
+            alt={post?.title}
             sx={{ flexGrow: 1, height: 560, borderRadius: 2 }}
           />
 
@@ -42,32 +43,20 @@ export default function ElearningFeaturedPost({ post }) {
               maxWidth: { md: 408 },
             }}
           >
-            <PostTimeBlock
-              createdAt={fDate(post.createdAt)}
-              duration={post.duration}
-            />
+            <PostTimeBlock createdAt={fDate(post?.createdAt)} />
 
             <Link
               component={RouterLink}
-              href={paths.eLearning.post}
+              href={`${paths.oyudent.post}/${post?.id}`}
               color="inherit"
               variant="h3"
             >
-              {post.title}
+              {post?.title}
             </Link>
 
             <Typography sx={{ color: "text.secondary", flexGrow: 1 }}>
-              {post.description}
+              {post?.content}
             </Typography>
-
-            <Stack
-              direction="row"
-              alignItems="center"
-              sx={{ pt: 1.5, typography: "body2" }}
-            >
-              <Avatar src={post.author.avatarUrl} sx={{ mr: 1 }} />
-              {post.author.name}
-            </Stack>
           </Stack>
         </Stack>
       </Container>
